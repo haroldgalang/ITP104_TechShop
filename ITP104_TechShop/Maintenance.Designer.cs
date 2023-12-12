@@ -28,55 +28,62 @@
         /// </summary>
         private void InitializeComponent()
         {
-            btnSetUser = new Button();
+            btnUpdateUser = new Button();
             txtPassword = new TextBox();
             txtUsername = new TextBox();
             groupBox1 = new GroupBox();
-            button6 = new Button();
-            button5 = new Button();
+            btnDeleteUser = new Button();
+            btnAddUser = new Button();
             btnShowTblUser = new Button();
             btnShowTblCategory = new Button();
-            dgvMaintenance = new DataGridView();
+            dgvUsers = new DataGridView();
             groupBox2 = new GroupBox();
-            label4 = new Label();
+            btnDeleteCatergory = new Button();
+            lblCategoryID = new Label();
             txtCategoryName = new TextBox();
+            btnAddCategory = new Button();
+            btnEditCategory = new Button();
             button2 = new Button();
-            button3 = new Button();
-            button7 = new Button();
             groupBox3 = new GroupBox();
+            button3 = new Button();
             label2 = new Label();
             txtItemName = new TextBox();
             textBox5 = new TextBox();
             txtBasePrice = new TextBox();
-            button8 = new Button();
-            button9 = new Button();
             btnShowTblItems = new Button();
+            button8 = new Button();
             button11 = new Button();
             groupBox4 = new GroupBox();
+            button4 = new Button();
             label3 = new Label();
             txtSupplierName = new TextBox();
             txtSupplierAddress = new TextBox();
             txtSupplierContact = new TextBox();
-            button12 = new Button();
-            button13 = new Button();
             btnShowTblSuppliers = new Button();
             button15 = new Button();
+            btnBack = new Button();
+            dgvItemCategory = new DataGridView();
+            dgvItems = new DataGridView();
+            dgvSuppliers = new DataGridView();
             groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)dgvMaintenance).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dgvUsers).BeginInit();
             groupBox2.SuspendLayout();
             groupBox3.SuspendLayout();
             groupBox4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)dgvItemCategory).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dgvItems).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dgvSuppliers).BeginInit();
             SuspendLayout();
             // 
-            // btnSetUser
+            // btnUpdateUser
             // 
-            btnSetUser.Location = new Point(6, 155);
-            btnSetUser.Name = "btnSetUser";
-            btnSetUser.Size = new Size(59, 26);
-            btnSetUser.TabIndex = 1;
-            btnSetUser.Text = "Set User";
-            btnSetUser.UseVisualStyleBackColor = true;
-            btnSetUser.Click += btnSetUser_Click;
+            btnUpdateUser.Location = new Point(6, 155);
+            btnUpdateUser.Name = "btnUpdateUser";
+            btnUpdateUser.Size = new Size(59, 26);
+            btnUpdateUser.TabIndex = 1;
+            btnUpdateUser.Text = "Edit";
+            btnUpdateUser.UseVisualStyleBackColor = true;
+            btnUpdateUser.Click += btnUpdateUser_Click;
             // 
             // txtPassword
             // 
@@ -96,36 +103,38 @@
             // 
             // groupBox1
             // 
-            groupBox1.Controls.Add(button6);
-            groupBox1.Controls.Add(button5);
+            groupBox1.Controls.Add(btnDeleteUser);
+            groupBox1.Controls.Add(btnAddUser);
             groupBox1.Controls.Add(txtUsername);
             groupBox1.Controls.Add(txtPassword);
-            groupBox1.Controls.Add(btnSetUser);
+            groupBox1.Controls.Add(btnUpdateUser);
             groupBox1.Controls.Add(btnShowTblUser);
-            groupBox1.Location = new Point(12, 220);
+            groupBox1.Location = new Point(9, 277);
             groupBox1.Name = "groupBox1";
             groupBox1.Size = new Size(219, 187);
             groupBox1.TabIndex = 12;
             groupBox1.TabStop = false;
             groupBox1.Text = "Set Users";
             // 
-            // button6
+            // btnDeleteUser
             // 
-            button6.Location = new Point(71, 155);
-            button6.Name = "button6";
-            button6.Size = new Size(74, 26);
-            button6.TabIndex = 9;
-            button6.Text = "Set User";
-            button6.UseVisualStyleBackColor = true;
+            btnDeleteUser.Location = new Point(151, 155);
+            btnDeleteUser.Name = "btnDeleteUser";
+            btnDeleteUser.Size = new Size(59, 26);
+            btnDeleteUser.TabIndex = 20;
+            btnDeleteUser.Text = "Delete";
+            btnDeleteUser.UseVisualStyleBackColor = true;
+            btnDeleteUser.Click += btnDeleteUser_Click_1;
             // 
-            // button5
+            // btnAddUser
             // 
-            button5.Location = new Point(151, 155);
-            button5.Name = "button5";
-            button5.Size = new Size(59, 26);
-            button5.TabIndex = 8;
-            button5.Text = "Set User";
-            button5.UseVisualStyleBackColor = true;
+            btnAddUser.Location = new Point(71, 155);
+            btnAddUser.Name = "btnAddUser";
+            btnAddUser.Size = new Size(74, 26);
+            btnAddUser.TabIndex = 9;
+            btnAddUser.Text = "+";
+            btnAddUser.UseVisualStyleBackColor = true;
+            btnAddUser.Click += btnAddUser_Click;
             // 
             // btnShowTblUser
             // 
@@ -147,40 +156,50 @@
             btnShowTblCategory.UseVisualStyleBackColor = true;
             btnShowTblCategory.Click += btnShowTblCategory_Click;
             // 
-            // dgvMaintenance
+            // dgvUsers
             // 
-            dgvMaintenance.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            dgvMaintenance.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvMaintenance.EditMode = DataGridViewEditMode.EditProgrammatically;
-            dgvMaintenance.Location = new Point(242, 220);
-            dgvMaintenance.Name = "dgvMaintenance";
-            dgvMaintenance.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dgvMaintenance.Size = new Size(451, 187);
-            dgvMaintenance.TabIndex = 16;
+            dgvUsers.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dgvUsers.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvUsers.EditMode = DataGridViewEditMode.EditProgrammatically;
+            dgvUsers.Location = new Point(239, 277);
+            dgvUsers.Name = "dgvUsers";
+            dgvUsers.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dgvUsers.Size = new Size(451, 187);
+            dgvUsers.TabIndex = 16;
+            dgvUsers.CellContentClick += dgvUsers_CellContentClick;
             // 
             // groupBox2
             // 
-            groupBox2.Controls.Add(label4);
+            groupBox2.Controls.Add(btnDeleteCatergory);
+            groupBox2.Controls.Add(lblCategoryID);
             groupBox2.Controls.Add(txtCategoryName);
             groupBox2.Controls.Add(btnShowTblCategory);
-            groupBox2.Controls.Add(button2);
-            groupBox2.Controls.Add(button3);
-            groupBox2.Controls.Add(button7);
-            groupBox2.Location = new Point(12, 12);
+            groupBox2.Controls.Add(btnAddCategory);
+            groupBox2.Controls.Add(btnEditCategory);
+            groupBox2.Location = new Point(9, 69);
             groupBox2.Name = "groupBox2";
             groupBox2.Size = new Size(219, 187);
             groupBox2.TabIndex = 13;
             groupBox2.TabStop = false;
             groupBox2.Text = "Set Item Category";
             // 
-            // label4
+            // btnDeleteCatergory
             // 
-            label4.AutoSize = true;
-            label4.Location = new Point(6, 69);
-            label4.Name = "label4";
-            label4.Size = new Size(75, 15);
-            label4.TabIndex = 17;
-            label4.Text = "Category ID: ";
+            btnDeleteCatergory.Location = new Point(151, 155);
+            btnDeleteCatergory.Name = "btnDeleteCatergory";
+            btnDeleteCatergory.Size = new Size(59, 26);
+            btnDeleteCatergory.TabIndex = 18;
+            btnDeleteCatergory.Text = "Delete";
+            btnDeleteCatergory.UseVisualStyleBackColor = true;
+            // 
+            // lblCategoryID
+            // 
+            lblCategoryID.AutoSize = true;
+            lblCategoryID.Location = new Point(6, 69);
+            lblCategoryID.Name = "lblCategoryID";
+            lblCategoryID.Size = new Size(75, 15);
+            lblCategoryID.TabIndex = 17;
+            lblCategoryID.Text = "Category ID: ";
             // 
             // txtCategoryName
             // 
@@ -190,49 +209,59 @@
             txtCategoryName.Size = new Size(204, 23);
             txtCategoryName.TabIndex = 10;
             // 
+            // btnAddCategory
+            // 
+            btnAddCategory.Location = new Point(71, 155);
+            btnAddCategory.Name = "btnAddCategory";
+            btnAddCategory.Size = new Size(74, 26);
+            btnAddCategory.TabIndex = 9;
+            btnAddCategory.Text = "+";
+            btnAddCategory.UseVisualStyleBackColor = true;
+            btnAddCategory.Click += btnAddCategory_Click;
+            // 
+            // btnEditCategory
+            // 
+            btnEditCategory.Location = new Point(6, 155);
+            btnEditCategory.Name = "btnEditCategory";
+            btnEditCategory.Size = new Size(59, 26);
+            btnEditCategory.TabIndex = 1;
+            btnEditCategory.Text = "Edit";
+            btnEditCategory.UseVisualStyleBackColor = true;
+            // 
             // button2
             // 
-            button2.Location = new Point(71, 155);
+            button2.Location = new Point(71, 156);
             button2.Name = "button2";
             button2.Size = new Size(74, 26);
             button2.TabIndex = 9;
-            button2.Text = "Set User";
+            button2.Text = "+";
             button2.UseVisualStyleBackColor = true;
-            // 
-            // button3
-            // 
-            button3.Location = new Point(151, 155);
-            button3.Name = "button3";
-            button3.Size = new Size(59, 26);
-            button3.TabIndex = 8;
-            button3.Text = "Set User";
-            button3.UseVisualStyleBackColor = true;
-            // 
-            // button7
-            // 
-            button7.Location = new Point(6, 155);
-            button7.Name = "button7";
-            button7.Size = new Size(59, 26);
-            button7.TabIndex = 1;
-            button7.Text = "Set User";
-            button7.UseVisualStyleBackColor = true;
             // 
             // groupBox3
             // 
+            groupBox3.Controls.Add(button3);
             groupBox3.Controls.Add(label2);
             groupBox3.Controls.Add(txtItemName);
             groupBox3.Controls.Add(textBox5);
             groupBox3.Controls.Add(txtBasePrice);
-            groupBox3.Controls.Add(button8);
-            groupBox3.Controls.Add(button9);
             groupBox3.Controls.Add(btnShowTblItems);
+            groupBox3.Controls.Add(button8);
             groupBox3.Controls.Add(button11);
-            groupBox3.Location = new Point(242, 12);
+            groupBox3.Location = new Point(239, 69);
             groupBox3.Name = "groupBox3";
             groupBox3.Size = new Size(219, 187);
             groupBox3.TabIndex = 13;
             groupBox3.TabStop = false;
             groupBox3.Text = "Set Items";
+            // 
+            // button3
+            // 
+            button3.Location = new Point(154, 155);
+            button3.Name = "button3";
+            button3.Size = new Size(59, 26);
+            button3.TabIndex = 19;
+            button3.Text = "Delete";
+            button3.UseVisualStyleBackColor = true;
             // 
             // label2
             // 
@@ -267,24 +296,6 @@
             txtBasePrice.Size = new Size(204, 23);
             txtBasePrice.TabIndex = 11;
             // 
-            // button8
-            // 
-            button8.Location = new Point(71, 156);
-            button8.Name = "button8";
-            button8.Size = new Size(74, 26);
-            button8.TabIndex = 9;
-            button8.Text = "Set User";
-            button8.UseVisualStyleBackColor = true;
-            // 
-            // button9
-            // 
-            button9.Location = new Point(151, 156);
-            button9.Name = "button9";
-            button9.Size = new Size(59, 26);
-            button9.TabIndex = 8;
-            button9.Text = "Set User";
-            button9.UseVisualStyleBackColor = true;
-            // 
             // btnShowTblItems
             // 
             btnShowTblItems.Location = new Point(0, 22);
@@ -295,31 +306,49 @@
             btnShowTblItems.UseVisualStyleBackColor = true;
             btnShowTblItems.Click += btnShowTblItems_Click;
             // 
+            // button8
+            // 
+            button8.Location = new Point(71, 156);
+            button8.Name = "button8";
+            button8.Size = new Size(77, 26);
+            button8.TabIndex = 9;
+            button8.Text = "+";
+            button8.UseVisualStyleBackColor = true;
+            // 
             // button11
             // 
             button11.Location = new Point(6, 156);
             button11.Name = "button11";
             button11.Size = new Size(59, 26);
             button11.TabIndex = 1;
-            button11.Text = "Set User";
+            button11.Text = "Edit";
             button11.UseVisualStyleBackColor = true;
             // 
             // groupBox4
             // 
+            groupBox4.Controls.Add(button4);
             groupBox4.Controls.Add(label3);
             groupBox4.Controls.Add(txtSupplierName);
             groupBox4.Controls.Add(txtSupplierAddress);
+            groupBox4.Controls.Add(button2);
             groupBox4.Controls.Add(txtSupplierContact);
-            groupBox4.Controls.Add(button12);
-            groupBox4.Controls.Add(button13);
             groupBox4.Controls.Add(btnShowTblSuppliers);
             groupBox4.Controls.Add(button15);
-            groupBox4.Location = new Point(474, 12);
+            groupBox4.Location = new Point(471, 69);
             groupBox4.Name = "groupBox4";
             groupBox4.Size = new Size(219, 187);
             groupBox4.TabIndex = 15;
             groupBox4.TabStop = false;
             groupBox4.Text = "Set Suppliers";
+            // 
+            // button4
+            // 
+            button4.Location = new Point(151, 155);
+            button4.Name = "button4";
+            button4.Size = new Size(59, 26);
+            button4.TabIndex = 19;
+            button4.Text = "Delete";
+            button4.UseVisualStyleBackColor = true;
             // 
             // label3
             // 
@@ -354,24 +383,6 @@
             txtSupplierContact.Size = new Size(204, 23);
             txtSupplierContact.TabIndex = 11;
             // 
-            // button12
-            // 
-            button12.Location = new Point(71, 156);
-            button12.Name = "button12";
-            button12.Size = new Size(74, 26);
-            button12.TabIndex = 9;
-            button12.Text = "Set User";
-            button12.UseVisualStyleBackColor = true;
-            // 
-            // button13
-            // 
-            button13.Location = new Point(151, 156);
-            button13.Name = "button13";
-            button13.Size = new Size(59, 26);
-            button13.TabIndex = 8;
-            button13.Text = "Set User";
-            button13.UseVisualStyleBackColor = true;
-            // 
             // btnShowTblSuppliers
             // 
             btnShowTblSuppliers.Location = new Point(0, 22);
@@ -388,51 +399,104 @@
             button15.Name = "button15";
             button15.Size = new Size(59, 26);
             button15.TabIndex = 1;
-            button15.Text = "Set User";
+            button15.Text = "Edit";
             button15.UseVisualStyleBackColor = true;
+            // 
+            // btnBack
+            // 
+            btnBack.Location = new Point(542, 12);
+            btnBack.Name = "btnBack";
+            btnBack.Size = new Size(148, 30);
+            btnBack.TabIndex = 17;
+            btnBack.Text = "Back";
+            btnBack.UseVisualStyleBackColor = true;
+            btnBack.Click += btnBack_Click;
+            // 
+            // dgvItemCategory
+            // 
+            dgvItemCategory.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dgvItemCategory.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvItemCategory.EditMode = DataGridViewEditMode.EditProgrammatically;
+            dgvItemCategory.Location = new Point(239, 277);
+            dgvItemCategory.Name = "dgvItemCategory";
+            dgvItemCategory.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dgvItemCategory.Size = new Size(451, 187);
+            dgvItemCategory.TabIndex = 18;
+            dgvItemCategory.Visible = false;
+            dgvItemCategory.CellContentClick += dgvItemCategory_CellContentClick;
+            // 
+            // dgvItems
+            // 
+            dgvItems.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dgvItems.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvItems.EditMode = DataGridViewEditMode.EditProgrammatically;
+            dgvItems.Location = new Point(239, 277);
+            dgvItems.Name = "dgvItems";
+            dgvItems.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dgvItems.Size = new Size(451, 187);
+            dgvItems.TabIndex = 19;
+            dgvItems.Visible = false;
+            dgvItems.CellContentClick += dgvItems_CellContentClick;
+            // 
+            // dgvSuppliers
+            // 
+            dgvSuppliers.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dgvSuppliers.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvSuppliers.EditMode = DataGridViewEditMode.EditProgrammatically;
+            dgvSuppliers.Location = new Point(239, 277);
+            dgvSuppliers.Name = "dgvSuppliers";
+            dgvSuppliers.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dgvSuppliers.Size = new Size(451, 187);
+            dgvSuppliers.TabIndex = 20;
+            dgvSuppliers.Visible = false;
+            dgvSuppliers.CellContentClick += dgvSuppliers_CellContentClick;
             // 
             // frmMaintenance
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(702, 416);
+            ClientSize = new Size(702, 476);
+            Controls.Add(dgvSuppliers);
+            Controls.Add(dgvItems);
+            Controls.Add(dgvItemCategory);
+            Controls.Add(btnBack);
             Controls.Add(groupBox4);
             Controls.Add(groupBox3);
             Controls.Add(groupBox2);
-            Controls.Add(dgvMaintenance);
+            Controls.Add(dgvUsers);
             Controls.Add(groupBox1);
             Name = "frmMaintenance";
             Text = "Maintenance";
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)dgvMaintenance).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dgvUsers).EndInit();
             groupBox2.ResumeLayout(false);
             groupBox2.PerformLayout();
             groupBox3.ResumeLayout(false);
             groupBox3.PerformLayout();
             groupBox4.ResumeLayout(false);
             groupBox4.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)dgvItemCategory).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dgvItems).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dgvSuppliers).EndInit();
             ResumeLayout(false);
         }
 
         #endregion
 
-        private Button btnSetUser;
+        private Button btnUpdateUser;
         private TextBox txtPassword;
         private TextBox txtUsername;
         private GroupBox groupBox1;
         private Button btnShowTblCategory;
-        private DataGridView dgvMaintenance;
-        private Button button6;
-        private Button button5;
+        private DataGridView dgvUsers;
+        private Button btnAddUser;
         private GroupBox groupBox2;
         private Button button2;
-        private Button button3;
         private Button btnShowTblUser;
-        private Button button7;
+        private Button btnEditCategory;
         private GroupBox groupBox3;
         private Button button8;
-        private Button button9;
         private Button btnShowTblItems;
         private Button button11;
         private TextBox txtCategoryName;
@@ -440,15 +504,22 @@
         private TextBox textBox5;
         private TextBox txtBasePrice;
         private Label label2;
-        private Label label4;
+        private Label lblCategoryID;
         private GroupBox groupBox4;
         private Label label3;
         private TextBox txtSupplierName;
         private TextBox txtSupplierAddress;
         private TextBox txtSupplierContact;
-        private Button button12;
-        private Button button13;
+        private Button btnAddCategory;
         private Button btnShowTblSuppliers;
         private Button button15;
+        private Button btnBack;
+        private Button btnDeleteUser;
+        private Button btnDeleteCatergory;
+        private Button button3;
+        private Button button4;
+        private DataGridView dgvItemCategory;
+        private DataGridView dgvItems;
+        private DataGridView dgvSuppliers;
     }
 }

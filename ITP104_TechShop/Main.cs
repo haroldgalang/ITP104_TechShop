@@ -33,5 +33,17 @@ namespace ITP104_TechShop
             frm.ShowDialog();
             this.Close();
         }
+
+        private void btnLogout_Click(object sender, EventArgs e)
+        {
+            login_form();        
+        }
+        private void login_form()
+        {
+            this.Hide();
+            frmLogin frm = new frmLogin();
+            frm.ShowDialog();
+            this.Close();
+        }
     }
 }

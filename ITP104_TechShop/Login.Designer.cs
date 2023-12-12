@@ -1,6 +1,6 @@
 ﻿namespace ITP104_TechShop
 {
-    partial class login
+    partial class frmLogin
     {
         /// <summary>
         ///  Required designer variable.

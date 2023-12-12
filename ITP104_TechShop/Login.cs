@@ -5,10 +5,10 @@ using System.Text.RegularExpressions;
 
 namespace ITP104_TechShop
 {
-    public partial class login : Form
+    public partial class frmLogin : Form
     {
         String con;
-        public login()
+        public frmLogin()
         {
             InitializeComponent();
             con = "Server=localhost;Database=db_TechShop; User = root; Password =1234; ";

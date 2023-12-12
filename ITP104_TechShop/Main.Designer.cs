@@ -33,11 +33,13 @@
             btnInventoryMonitoring = new Button();
             btnPointOfSales = new Button();
             btnSalesMonitoring = new Button();
+            btnLogout = new Button();
+            btnDbBackup = new Button();
             SuspendLayout();
             // 
             // btnMaintenance
             // 
-            btnMaintenance.Location = new Point(12, 95);
+            btnMaintenance.Location = new Point(12, 12);
             btnMaintenance.Name = "btnMaintenance";
             btnMaintenance.Size = new Size(203, 52);
             btnMaintenance.TabIndex = 0;
@@ -47,7 +49,7 @@
             // 
             // btnDelivery
             // 
-            btnDelivery.Location = new Point(12, 153);
+            btnDelivery.Location = new Point(12, 70);
             btnDelivery.Name = "btnDelivery";
             btnDelivery.Size = new Size(203, 52);
             btnDelivery.TabIndex = 1;
@@ -56,7 +58,7 @@
             // 
             // btnInventoryMonitoring
             // 
-            btnInventoryMonitoring.Location = new Point(12, 211);
+            btnInventoryMonitoring.Location = new Point(12, 128);
             btnInventoryMonitoring.Name = "btnInventoryMonitoring";
             btnInventoryMonitoring.Size = new Size(203, 52);
             btnInventoryMonitoring.TabIndex = 2;
@@ -65,7 +67,7 @@
             // 
             // btnPointOfSales
             // 
-            btnPointOfSales.Location = new Point(12, 269);
+            btnPointOfSales.Location = new Point(232, 12);
             btnPointOfSales.Name = "btnPointOfSales";
             btnPointOfSales.Size = new Size(203, 52);
             btnPointOfSales.TabIndex = 3;
@@ -74,18 +76,39 @@
             // 
             // btnSalesMonitoring
             // 
-            btnSalesMonitoring.Location = new Point(12, 327);
+            btnSalesMonitoring.Location = new Point(232, 70);
             btnSalesMonitoring.Name = "btnSalesMonitoring";
             btnSalesMonitoring.Size = new Size(203, 52);
             btnSalesMonitoring.TabIndex = 4;
             btnSalesMonitoring.Text = "Sales Monitoring";
             btnSalesMonitoring.UseVisualStyleBackColor = true;
             // 
+            // btnLogout
+            // 
+            btnLogout.Location = new Point(322, 186);
+            btnLogout.Name = "btnLogout";
+            btnLogout.Size = new Size(113, 23);
+            btnLogout.TabIndex = 18;
+            btnLogout.Text = "Logout";
+            btnLogout.UseVisualStyleBackColor = true;
+            btnLogout.Click += btnLogout_Click;
+            // 
+            // btnDbBackup
+            // 
+            btnDbBackup.Location = new Point(232, 128);
+            btnDbBackup.Name = "btnDbBackup";
+            btnDbBackup.Size = new Size(203, 52);
+            btnDbBackup.TabIndex = 19;
+            btnDbBackup.Text = "Database Backup";
+            btnDbBackup.UseVisualStyleBackColor = true;
+            // 
             // frmMain
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(707, 391);
+            ClientSize = new Size(445, 221);
+            Controls.Add(btnDbBackup);
+            Controls.Add(btnLogout);
             Controls.Add(btnSalesMonitoring);
             Controls.Add(btnPointOfSales);
             Controls.Add(btnInventoryMonitoring);
@@ -104,5 +127,7 @@
         private Button btnInventoryMonitoring;
         private Button btnPointOfSales;
         private Button btnSalesMonitoring;
+        private Button btnLogout;
+        private Button btnDbBackup;
     }
 }
