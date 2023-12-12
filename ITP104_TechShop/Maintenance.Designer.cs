@@ -29,37 +29,37 @@
         private void InitializeComponent()
         {
             btnSetUser = new Button();
-            textBox1 = new TextBox();
-            textBox2 = new TextBox();
+            txtPassword = new TextBox();
+            txtUsername = new TextBox();
             groupBox1 = new GroupBox();
             button6 = new Button();
             button5 = new Button();
-            button1 = new Button();
+            btnShowTblUser = new Button();
+            btnShowTblCategory = new Button();
             dgvMaintenance = new DataGridView();
             groupBox2 = new GroupBox();
             label4 = new Label();
-            textBox3 = new TextBox();
+            txtCategoryName = new TextBox();
             button2 = new Button();
             button3 = new Button();
-            btnShowTblUser = new Button();
             button7 = new Button();
             groupBox3 = new GroupBox();
             label2 = new Label();
-            textBox6 = new TextBox();
+            txtItemName = new TextBox();
             textBox5 = new TextBox();
-            textBox4 = new TextBox();
+            txtBasePrice = new TextBox();
             button8 = new Button();
             button9 = new Button();
-            button10 = new Button();
+            btnShowTblItems = new Button();
             button11 = new Button();
             groupBox4 = new GroupBox();
             label3 = new Label();
-            textBox7 = new TextBox();
-            textBox8 = new TextBox();
-            textBox9 = new TextBox();
+            txtSupplierName = new TextBox();
+            txtSupplierAddress = new TextBox();
+            txtSupplierContact = new TextBox();
             button12 = new Button();
             button13 = new Button();
-            button14 = new Button();
+            btnShowTblSuppliers = new Button();
             button15 = new Button();
             groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgvMaintenance).BeginInit();
@@ -78,26 +78,28 @@
             btnSetUser.UseVisualStyleBackColor = true;
             btnSetUser.Click += btnSetUser_Click;
             // 
-            // textBox1
+            // txtPassword
             // 
-            textBox1.Location = new Point(6, 110);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(204, 23);
-            textBox1.TabIndex = 5;
+            txtPassword.Location = new Point(6, 110);
+            txtPassword.Name = "txtPassword";
+            txtPassword.PlaceholderText = "Password";
+            txtPassword.Size = new Size(204, 23);
+            txtPassword.TabIndex = 5;
             // 
-            // textBox2
+            // txtUsername
             // 
-            textBox2.Location = new Point(6, 69);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(204, 23);
-            textBox2.TabIndex = 6;
+            txtUsername.Location = new Point(6, 69);
+            txtUsername.Name = "txtUsername";
+            txtUsername.PlaceholderText = "Username";
+            txtUsername.Size = new Size(204, 23);
+            txtUsername.TabIndex = 6;
             // 
             // groupBox1
             // 
             groupBox1.Controls.Add(button6);
             groupBox1.Controls.Add(button5);
-            groupBox1.Controls.Add(textBox2);
-            groupBox1.Controls.Add(textBox1);
+            groupBox1.Controls.Add(txtUsername);
+            groupBox1.Controls.Add(txtPassword);
             groupBox1.Controls.Add(btnSetUser);
             groupBox1.Controls.Add(btnShowTblUser);
             groupBox1.Location = new Point(12, 220);
@@ -125,15 +127,25 @@
             button5.Text = "Set User";
             button5.UseVisualStyleBackColor = true;
             // 
-            // button1
+            // btnShowTblUser
             // 
-            button1.Location = new Point(0, 22);
-            button1.Name = "button1";
-            button1.Size = new Size(118, 26);
-            button1.TabIndex = 7;
-            button1.Text = "Show Table";
-            button1.UseVisualStyleBackColor = true;
-            button1.Click += button1_Click;
+            btnShowTblUser.Location = new Point(0, 22);
+            btnShowTblUser.Name = "btnShowTblUser";
+            btnShowTblUser.Size = new Size(118, 26);
+            btnShowTblUser.TabIndex = 7;
+            btnShowTblUser.Text = "Show Table";
+            btnShowTblUser.UseVisualStyleBackColor = true;
+            btnShowTblUser.Click += btnShowTblUser_Click;
+            // 
+            // btnShowTblCategory
+            // 
+            btnShowTblCategory.Location = new Point(0, 22);
+            btnShowTblCategory.Name = "btnShowTblCategory";
+            btnShowTblCategory.Size = new Size(118, 26);
+            btnShowTblCategory.TabIndex = 7;
+            btnShowTblCategory.Text = "Show Table";
+            btnShowTblCategory.UseVisualStyleBackColor = true;
+            btnShowTblCategory.Click += btnShowTblCategory_Click;
             // 
             // dgvMaintenance
             // 
@@ -149,8 +161,8 @@
             // groupBox2
             // 
             groupBox2.Controls.Add(label4);
-            groupBox2.Controls.Add(textBox3);
-            groupBox2.Controls.Add(button1);
+            groupBox2.Controls.Add(txtCategoryName);
+            groupBox2.Controls.Add(btnShowTblCategory);
             groupBox2.Controls.Add(button2);
             groupBox2.Controls.Add(button3);
             groupBox2.Controls.Add(button7);
@@ -164,22 +176,23 @@
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(8, 57);
+            label4.Location = new Point(6, 69);
             label4.Name = "label4";
-            label4.Size = new Size(24, 15);
+            label4.Size = new Size(75, 15);
             label4.TabIndex = 17;
-            label4.Text = "ID: ";
+            label4.Text = "Category ID: ";
             // 
-            // textBox3
+            // txtCategoryName
             // 
-            textBox3.Location = new Point(6, 98);
-            textBox3.Name = "textBox3";
-            textBox3.Size = new Size(204, 23);
-            textBox3.TabIndex = 10;
+            txtCategoryName.Location = new Point(6, 98);
+            txtCategoryName.Name = "txtCategoryName";
+            txtCategoryName.PlaceholderText = "Category Name";
+            txtCategoryName.Size = new Size(204, 23);
+            txtCategoryName.TabIndex = 10;
             // 
             // button2
             // 
-            button2.Location = new Point(6, 155);
+            button2.Location = new Point(71, 155);
             button2.Name = "button2";
             button2.Size = new Size(74, 26);
             button2.TabIndex = 9;
@@ -195,19 +208,9 @@
             button3.Text = "Set User";
             button3.UseVisualStyleBackColor = true;
             // 
-            // btnShowTblUser
-            // 
-            btnShowTblUser.Location = new Point(0, 22);
-            btnShowTblUser.Name = "btnShowTblUser";
-            btnShowTblUser.Size = new Size(118, 26);
-            btnShowTblUser.TabIndex = 7;
-            btnShowTblUser.Text = "Show Table";
-            btnShowTblUser.UseVisualStyleBackColor = true;
-            btnShowTblUser.Click += btnShowTblUser_Click;
-            // 
             // button7
             // 
-            button7.Location = new Point(86, 155);
+            button7.Location = new Point(6, 155);
             button7.Name = "button7";
             button7.Size = new Size(59, 26);
             button7.TabIndex = 1;
@@ -217,49 +220,52 @@
             // groupBox3
             // 
             groupBox3.Controls.Add(label2);
-            groupBox3.Controls.Add(textBox6);
+            groupBox3.Controls.Add(txtItemName);
             groupBox3.Controls.Add(textBox5);
-            groupBox3.Controls.Add(textBox4);
+            groupBox3.Controls.Add(txtBasePrice);
             groupBox3.Controls.Add(button8);
             groupBox3.Controls.Add(button9);
-            groupBox3.Controls.Add(button10);
+            groupBox3.Controls.Add(btnShowTblItems);
             groupBox3.Controls.Add(button11);
-            groupBox3.Location = new Point(474, 12);
+            groupBox3.Location = new Point(242, 12);
             groupBox3.Name = "groupBox3";
             groupBox3.Size = new Size(219, 187);
             groupBox3.TabIndex = 13;
             groupBox3.TabStop = false;
-            groupBox3.Text = "Set Suppliers";
+            groupBox3.Text = "Set Items";
             // 
             // label2
             // 
             label2.AutoSize = true;
             label2.Location = new Point(6, 51);
             label2.Name = "label2";
-            label2.Size = new Size(24, 15);
+            label2.Size = new Size(51, 15);
             label2.TabIndex = 14;
-            label2.Text = "ID: ";
+            label2.Text = "Item ID: ";
             // 
-            // textBox6
+            // txtItemName
             // 
-            textBox6.Location = new Point(6, 69);
-            textBox6.Name = "textBox6";
-            textBox6.Size = new Size(204, 23);
-            textBox6.TabIndex = 13;
+            txtItemName.Location = new Point(6, 69);
+            txtItemName.Name = "txtItemName";
+            txtItemName.PlaceholderText = "Item Name";
+            txtItemName.Size = new Size(204, 23);
+            txtItemName.TabIndex = 13;
             // 
             // textBox5
             // 
             textBox5.Location = new Point(6, 98);
             textBox5.Name = "textBox5";
+            textBox5.PlaceholderText = "Category ID";
             textBox5.Size = new Size(204, 23);
             textBox5.TabIndex = 12;
             // 
-            // textBox4
+            // txtBasePrice
             // 
-            textBox4.Location = new Point(6, 127);
-            textBox4.Name = "textBox4";
-            textBox4.Size = new Size(204, 23);
-            textBox4.TabIndex = 11;
+            txtBasePrice.Location = new Point(6, 127);
+            txtBasePrice.Name = "txtBasePrice";
+            txtBasePrice.PlaceholderText = "Base Price";
+            txtBasePrice.Size = new Size(204, 23);
+            txtBasePrice.TabIndex = 11;
             // 
             // button8
             // 
@@ -279,14 +285,15 @@
             button9.Text = "Set User";
             button9.UseVisualStyleBackColor = true;
             // 
-            // button10
+            // btnShowTblItems
             // 
-            button10.Location = new Point(0, 22);
-            button10.Name = "button10";
-            button10.Size = new Size(118, 26);
-            button10.TabIndex = 7;
-            button10.Text = "Show Table";
-            button10.UseVisualStyleBackColor = true;
+            btnShowTblItems.Location = new Point(0, 22);
+            btnShowTblItems.Name = "btnShowTblItems";
+            btnShowTblItems.Size = new Size(118, 26);
+            btnShowTblItems.TabIndex = 7;
+            btnShowTblItems.Text = "Show Table";
+            btnShowTblItems.UseVisualStyleBackColor = true;
+            btnShowTblItems.Click += btnShowTblItems_Click;
             // 
             // button11
             // 
@@ -300,14 +307,14 @@
             // groupBox4
             // 
             groupBox4.Controls.Add(label3);
-            groupBox4.Controls.Add(textBox7);
-            groupBox4.Controls.Add(textBox8);
-            groupBox4.Controls.Add(textBox9);
+            groupBox4.Controls.Add(txtSupplierName);
+            groupBox4.Controls.Add(txtSupplierAddress);
+            groupBox4.Controls.Add(txtSupplierContact);
             groupBox4.Controls.Add(button12);
             groupBox4.Controls.Add(button13);
-            groupBox4.Controls.Add(button14);
+            groupBox4.Controls.Add(btnShowTblSuppliers);
             groupBox4.Controls.Add(button15);
-            groupBox4.Location = new Point(249, 12);
+            groupBox4.Location = new Point(474, 12);
             groupBox4.Name = "groupBox4";
             groupBox4.Size = new Size(219, 187);
             groupBox4.TabIndex = 15;
@@ -319,30 +326,33 @@
             label3.AutoSize = true;
             label3.Location = new Point(6, 51);
             label3.Name = "label3";
-            label3.Size = new Size(24, 15);
+            label3.Size = new Size(70, 15);
             label3.TabIndex = 14;
-            label3.Text = "ID: ";
+            label3.Text = "Supplier ID: ";
             // 
-            // textBox7
+            // txtSupplierName
             // 
-            textBox7.Location = new Point(6, 69);
-            textBox7.Name = "textBox7";
-            textBox7.Size = new Size(204, 23);
-            textBox7.TabIndex = 13;
+            txtSupplierName.Location = new Point(6, 69);
+            txtSupplierName.Name = "txtSupplierName";
+            txtSupplierName.PlaceholderText = "Supplier Name";
+            txtSupplierName.Size = new Size(204, 23);
+            txtSupplierName.TabIndex = 13;
             // 
-            // textBox8
+            // txtSupplierAddress
             // 
-            textBox8.Location = new Point(6, 98);
-            textBox8.Name = "textBox8";
-            textBox8.Size = new Size(204, 23);
-            textBox8.TabIndex = 12;
+            txtSupplierAddress.Location = new Point(6, 98);
+            txtSupplierAddress.Name = "txtSupplierAddress";
+            txtSupplierAddress.PlaceholderText = "Supplier Address";
+            txtSupplierAddress.Size = new Size(204, 23);
+            txtSupplierAddress.TabIndex = 12;
             // 
-            // textBox9
+            // txtSupplierContact
             // 
-            textBox9.Location = new Point(6, 127);
-            textBox9.Name = "textBox9";
-            textBox9.Size = new Size(204, 23);
-            textBox9.TabIndex = 11;
+            txtSupplierContact.Location = new Point(6, 127);
+            txtSupplierContact.Name = "txtSupplierContact";
+            txtSupplierContact.PlaceholderText = "Supplier Contact Number";
+            txtSupplierContact.Size = new Size(204, 23);
+            txtSupplierContact.TabIndex = 11;
             // 
             // button12
             // 
@@ -362,14 +372,15 @@
             button13.Text = "Set User";
             button13.UseVisualStyleBackColor = true;
             // 
-            // button14
+            // btnShowTblSuppliers
             // 
-            button14.Location = new Point(0, 22);
-            button14.Name = "button14";
-            button14.Size = new Size(118, 26);
-            button14.TabIndex = 7;
-            button14.Text = "Show Table";
-            button14.UseVisualStyleBackColor = true;
+            btnShowTblSuppliers.Location = new Point(0, 22);
+            btnShowTblSuppliers.Name = "btnShowTblSuppliers";
+            btnShowTblSuppliers.Size = new Size(118, 26);
+            btnShowTblSuppliers.TabIndex = 7;
+            btnShowTblSuppliers.Text = "Show Table";
+            btnShowTblSuppliers.UseVisualStyleBackColor = true;
+            btnShowTblSuppliers.Click += btnShowTblSuppliers_Click;
             // 
             // button15
             // 
@@ -407,10 +418,10 @@
         #endregion
 
         private Button btnSetUser;
-        private TextBox textBox1;
-        private TextBox textBox2;
+        private TextBox txtPassword;
+        private TextBox txtUsername;
         private GroupBox groupBox1;
-        private Button button1;
+        private Button btnShowTblCategory;
         private DataGridView dgvMaintenance;
         private Button button6;
         private Button button5;
@@ -422,22 +433,22 @@
         private GroupBox groupBox3;
         private Button button8;
         private Button button9;
-        private Button button10;
+        private Button btnShowTblItems;
         private Button button11;
-        private TextBox textBox3;
-        private TextBox textBox6;
+        private TextBox txtCategoryName;
+        private TextBox txtItemName;
         private TextBox textBox5;
-        private TextBox textBox4;
+        private TextBox txtBasePrice;
         private Label label2;
         private Label label4;
         private GroupBox groupBox4;
         private Label label3;
-        private TextBox textBox7;
-        private TextBox textBox8;
-        private TextBox textBox9;
+        private TextBox txtSupplierName;
+        private TextBox txtSupplierAddress;
+        private TextBox txtSupplierContact;
         private Button button12;
         private Button button13;
-        private Button button14;
+        private Button btnShowTblSuppliers;
         private Button button15;
     }
 }

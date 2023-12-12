@@ -26,9 +26,31 @@ namespace ITP104_TechShop
 
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void btnShowTblCategory_Click(object sender, EventArgs e)
         {
-
+            MySqlConnection connection = null;
+            try
+            {
+                connection = new MySqlConnection(con);
+                connection.Open();
+                MySqlCommand cmd = connection.CreateCommand();
+                cmd.CommandText = "Select * From tblItemCategory";
+                MySqlDataAdapter adap = new MySqlDataAdapter(cmd);
+                DataSet ds = new DataSet();
+                adap.Fill(ds);
+                dgvMaintenance.DataSource = ds.Tables[0].DefaultView;
+            }
+            catch (Exception z)
+            {
+                MessageBox.Show("Connection Problem");
+            }
+            finally
+            {
+                if (connection.State == ConnectionState.Open)
+                {
+                    connection.Close();
+                }
+            }
         }
 
         private void btnShowTblUser_Click(object sender, EventArgs e)
@@ -40,6 +62,60 @@ namespace ITP104_TechShop
                 connection.Open();
                 MySqlCommand cmd = connection.CreateCommand();
                 cmd.CommandText = "Select * From tblUsers";
+                MySqlDataAdapter adap = new MySqlDataAdapter(cmd);
+                DataSet ds = new DataSet();
+                adap.Fill(ds);
+                dgvMaintenance.DataSource = ds.Tables[0].DefaultView;
+            }
+            catch (Exception z)
+            {
+                MessageBox.Show("Connection Problem");
+            }
+            finally
+            {
+                if (connection.State == ConnectionState.Open)
+                {
+                    connection.Close();
+                }
+            }
+        }
+
+        private void btnShowTblItems_Click(object sender, EventArgs e)
+        {
+            MySqlConnection connection = null;
+            try
+            {
+                connection = new MySqlConnection(con);
+                connection.Open();
+                MySqlCommand cmd = connection.CreateCommand();
+                cmd.CommandText = "Select * From tblItems";
+                MySqlDataAdapter adap = new MySqlDataAdapter(cmd);
+                DataSet ds = new DataSet();
+                adap.Fill(ds);
+                dgvMaintenance.DataSource = ds.Tables[0].DefaultView;
+            }
+            catch (Exception z)
+            {
+                MessageBox.Show("Connection Problem");
+            }
+            finally
+            {
+                if (connection.State == ConnectionState.Open)
+                {
+                    connection.Close();
+                }
+            }
+        }
+
+        private void btnShowTblSuppliers_Click(object sender, EventArgs e)
+        {
+            MySqlConnection connection = null;
+            try
+            {
+                connection = new MySqlConnection(con);
+                connection.Open();
+                MySqlCommand cmd = connection.CreateCommand();
+                cmd.CommandText = "Select * From tblSuppliers";
                 MySqlDataAdapter adap = new MySqlDataAdapter(cmd);
                 DataSet ds = new DataSet();
                 adap.Fill(ds);
