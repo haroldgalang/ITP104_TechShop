@@ -71,6 +71,32 @@ namespace ITP104_TechShop
             dgvItemCategory.Visible = false;
             dgvSuppliers.Visible = false;
             dgvItems.Visible = true;
+            MySqlConnection connection = new MySqlConnection(con);
+            connection.Open();
+            try
+            {
+                MySqlCommand cmd = connection.CreateCommand();
+                cmd.CommandText = "SELECT category_ID FROM tblItemCategory";
+                MySqlDataAdapter adap = new MySqlDataAdapter(cmd);
+                DataTable table = new DataTable();
+                adap.Fill(table);
+                cbCategoryID.DataSource = new BindingSource(table, null);
+                DataRow dr = table.NewRow();
+                table.Rows.InsertAt(dr, 0);
+                cbCategoryID.DataSource = table;
+                cbCategoryID.DisplayMember = "category_ID";
+            }
+            catch (Exception z)
+            {
+                MessageBox.Show(z.Message);
+            }
+            finally
+            {
+                if (connection.State == ConnectionState.Open)
+                {
+                    connection.Close();
+                }
+            }
         }
 
         private void btnShowTblSuppliers_Click(object sender, EventArgs e)
@@ -233,10 +259,10 @@ namespace ITP104_TechShop
             var row = dgvSuppliers.CurrentRow;
             if (dgvSuppliers.CurrentCell != null)
             {
-                txtUsername.Text = row.Cells[0].Value.ToString();
-                txtPassword.Text = row.Cells[1].Value.ToString();
-                txtUsername.Text = row.Cells[0].Value.ToString();
-                txtPassword.Text = row.Cells[1].Value.ToString();
+                lblSupplierIdGetter.Text = row.Cells[0].Value.ToString();
+                txtSupplierName.Text = row.Cells[1].Value.ToString();
+                txtSupplierAddress.Text = row.Cells[2].Value.ToString();
+                txtSupplierContact.Text = row.Cells[3].Value.ToString();
             }
         }
 
@@ -245,10 +271,10 @@ namespace ITP104_TechShop
             var row = dgvItems.CurrentRow;
             if (dgvItems.CurrentCell != null)
             {
-                txtUsername.Text = row.Cells[0].Value.ToString();
-                txtPassword.Text = row.Cells[1].Value.ToString();
-                txtUsername.Text = row.Cells[0].Value.ToString();
-                txtPassword.Text = row.Cells[1].Value.ToString();
+                lblItemIdGetter.Text = row.Cells[0].Value.ToString();
+                txtItemName.Text = row.Cells[1].Value.ToString();
+                cbCategoryID.Text = row.Cells[2].Value.ToString();
+                txtBasePrice.Text = row.Cells[3].Value.ToString();
             }
         }
 
@@ -385,6 +411,228 @@ namespace ITP104_TechShop
                 cmd.CommandText = "UPDATE tblItemCategory SET category_Name = '" + txtCategoryName.Text + "' WHERE Category_ID = '" + lblCategoryIdGetter.Text + "'";
                 cmd.ExecuteNonQuery();
                 MessageBox.Show("Item Category ID: " + lblCategoryIdGetter.Text + " is successfully updated");
+            }
+            catch (Exception z)
+            {
+                MessageBox.Show("Connection Problem");
+            }
+            finally
+            {
+                if (connection.State == ConnectionState.Open)
+                {
+                    connection.Close();
+                }
+            }
+        }
+
+        private void cbCategoryID_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnAddItem_Click(object sender, EventArgs e)
+        {
+            String sentInfo = "";
+            MySqlConnection connection = new MySqlConnection(con);
+            connection.Open();
+            MySqlCommand command = connection.CreateCommand();
+            command.Connection = connection;
+            try
+            {
+                command.CommandText = "SELECT MAX(last_insert_id(item_ID)) AS 'getId' FROM tblItems;";
+                MySqlDataReader dr = command.ExecuteReader();
+                while (dr.Read())
+                {
+                    sentInfo = dr["getId"].ToString();
+                }
+                dr.Close();
+            }
+            catch (Exception z)
+            {
+                MessageBox.Show(z.Message);
+            }
+            finally
+            {
+                if (connection.State == ConnectionState.Open)
+                {
+                    connection.Close();
+                }
+            }
+            connection.Open();
+            try
+            {
+                int IdIncrement = int.Parse(sentInfo);
+                IdIncrement++;
+                command.CommandText = "INSERT INTO tblItems VALUES('" + IdIncrement + "', '" + txtItemName.Text + "', '" + cbCategoryID.Text + "','" + txtBasePrice.Text + "' )";
+                command.ExecuteNonQuery();
+                showTblUsers();
+                MessageBox.Show("Item Category is successfully added");
+                txtCategoryName.Text = String.Empty;
+            }
+            catch (Exception z)
+            {
+                MessageBox.Show(z.Message);
+            }
+            finally
+            {
+                if (connection.State == ConnectionState.Open)
+                {
+                    connection.Close();
+                }
+            }
+        }
+
+        private void btnEditItems_Click(object sender, EventArgs e)
+        {
+            MySqlConnection connection = null;
+            try
+            {
+                connection = new MySqlConnection(con);
+                connection.Open();
+                MySqlCommand cmd = connection.CreateCommand();
+                cmd.CommandText = "UPDATE tblItems SET item_Name = '" + txtItemName.Text + "',category_ID = '" + cbCategoryID.Text + "',item_BasePrice = '" + txtBasePrice.Text + "' WHERE item_ID = '" + lblItemIdGetter.Text + "'";
+                cmd.ExecuteNonQuery();
+                MessageBox.Show("Item Category ID: " + lblItemIdGetter.Text + " is successfully updated");
+            }
+            catch (Exception z)
+            {
+                MessageBox.Show("Connection Problem");
+            }
+            finally
+            {
+                if (connection.State == ConnectionState.Open)
+                {
+                    connection.Close();
+                }
+            }
+        }
+
+        private void btnDeleteItem_Click(object sender, EventArgs e)
+        {
+            MySqlConnection connection = null;
+            try
+            {
+                connection = new MySqlConnection(con);
+                connection.Open();
+                MySqlCommand cmd = connection.CreateCommand();
+                cmd.CommandText = "DELETE FROM tblItems WHERE item_ID = '" + lblItemIdGetter.Text + "'";
+                cmd.ExecuteNonQuery();
+                MessageBox.Show("Item ID: " + lblCategoryIdGetter.Text + " is successfully deleted");
+            }
+            catch (Exception z)
+            {
+                MessageBox.Show("Connection Problem");
+            }
+            finally
+            {
+                if (connection.State == ConnectionState.Open)
+                {
+                    connection.Close();
+                }
+            }
+        }
+
+        private void btnAddSupplier_Click(object sender, EventArgs e)
+        {
+            String sentInfo = "";
+            MySqlConnection connection = new MySqlConnection(con);
+            connection.Open();
+            MySqlCommand command = connection.CreateCommand();
+            command.Connection = connection;
+            try
+            {
+                command.CommandText = "SELECT MAX(last_insert_id(supplier_ID)) AS 'getId' FROM tblSuppliers;";
+                MySqlDataReader dr = command.ExecuteReader();
+                while (dr.Read())
+                {
+                    sentInfo = dr["getId"].ToString();
+                }
+                dr.Close();
+            }
+            catch (Exception z)
+            {
+                MessageBox.Show(z.Message);
+            }
+            finally
+            {
+                if (connection.State == ConnectionState.Open)
+                {
+                    connection.Close();
+                }
+            }
+            connection.Open();
+            try
+            {
+                int IdIncrement = int.Parse(sentInfo);
+                IdIncrement++;
+                command.CommandText = "INSERT INTO tblSuppliers VALUES('" + IdIncrement + "', '" + txtSupplierName.Text + "', '" + txtSupplierAddress.Text + "','" + txtSupplierContact.Text + "' )";
+                command.ExecuteNonQuery();
+                showTblSuppliers();
+                MessageBox.Show("Supplier is successfully added");
+                lblSupplierIdGetter.Text = "/";
+                txtSupplierName.Text = String.Empty;
+                txtSupplierAddress.Text = String.Empty;
+                txtSupplierContact.Text = String.Empty;
+            }
+            catch (Exception z)
+            {
+                MessageBox.Show(z.Message);
+            }
+            finally
+            {
+                if (connection.State == ConnectionState.Open)
+                {
+                    connection.Close();
+                }
+            }
+        }
+
+        private void btnDeleteSupplier_Click(object sender, EventArgs e)
+        {
+            MySqlConnection connection = null;
+            try
+            {
+                connection = new MySqlConnection(con);
+                connection.Open();
+                MySqlCommand cmd = connection.CreateCommand();
+                cmd.CommandText = "DELETE FROM tblSuppliers WHERE supplier_ID = '" + lblSupplierIdGetter.Text + "'";
+                cmd.ExecuteNonQuery();
+                showTblSuppliers();
+                MessageBox.Show("Supplier ID: " + lblSupplierIdGetter.Text + " is successfully deleted");
+                lblSupplierIdGetter.Text = "/";
+                txtSupplierName.Text = String.Empty;
+                txtSupplierAddress.Text = String.Empty;
+                txtSupplierContact.Text = String.Empty;
+            }
+            catch (Exception z)
+            {
+                MessageBox.Show("Connection Problem");
+            }
+            finally
+            {
+                if (connection.State == ConnectionState.Open)
+                {
+                    connection.Close();
+                }
+            }
+        }
+
+        private void btnEditSupplier_Click(object sender, EventArgs e)
+        {
+            MySqlConnection connection = null;
+            try
+            {
+                connection = new MySqlConnection(con);
+                connection.Open();
+                MySqlCommand cmd = connection.CreateCommand();
+                cmd.CommandText = "UPDATE tblSuppliers SET supplier_Name = '" + txtSupplierName.Text + "',supplier_Address = '" + txtSupplierAddress.Text + "',supplier_ContactNum = '" + txtSupplierContact.Text + "' WHERE supplier_ID = '" + lblSupplierIdGetter.Text + "'";
+                cmd.ExecuteNonQuery();
+                showTblSuppliers();
+                MessageBox.Show("Item Category ID: " + lblSupplierIdGetter.Text + " is successfully updated");
+                lblSupplierIdGetter.Text = "/";
+                txtSupplierName.Text = String.Empty;
+                txtSupplierAddress.Text = String.Empty;
+                txtSupplierContact.Text = String.Empty;
             }
             catch (Exception z)
             {
