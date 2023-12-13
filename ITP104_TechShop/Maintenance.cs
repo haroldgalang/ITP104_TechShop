@@ -228,22 +228,41 @@ namespace ITP104_TechShop
 
         }
 
-        private void dgvSuppliers_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void dgvSuppliers_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-
+            var row = dgvSuppliers.CurrentRow;
+            if (dgvSuppliers.CurrentCell != null)
+            {
+                txtUsername.Text = row.Cells[0].Value.ToString();
+                txtPassword.Text = row.Cells[1].Value.ToString();
+                txtUsername.Text = row.Cells[0].Value.ToString();
+                txtPassword.Text = row.Cells[1].Value.ToString();
+            }
         }
 
-        private void dgvItems_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void dgvItems_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-
+            var row = dgvItems.CurrentRow;
+            if (dgvItems.CurrentCell != null)
+            {
+                txtUsername.Text = row.Cells[0].Value.ToString();
+                txtPassword.Text = row.Cells[1].Value.ToString();
+                txtUsername.Text = row.Cells[0].Value.ToString();
+                txtPassword.Text = row.Cells[1].Value.ToString();
+            }
         }
 
-        private void dgvItemCategory_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void dgvItemCategory_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-
+            var row = dgvItemCategory.CurrentRow;
+            if (dgvItemCategory.CurrentCell != null)
+            {
+                lblCategoryIdGetter.Text = row.Cells[0].Value.ToString();
+                txtCategoryName.Text = row.Cells[1].Value.ToString();
+            }
         }
 
-        private void dgvUsers_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void dgvUsers_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             var row = dgvUsers.CurrentRow;
             if (dgvUsers.CurrentCell != null)
@@ -280,21 +299,42 @@ namespace ITP104_TechShop
 
         private void btnAddCategory_Click(object sender, EventArgs e)
         {
+            String sentInfo = "";
             MySqlConnection connection = new MySqlConnection(con);
             connection.Open();
             MySqlCommand command = connection.CreateCommand();
             command.Connection = connection;
-            
             try
             {
-                long idIncrement = command.LastInsertedId;
-                idIncrement++;
-                command.CommandText = "INSERT INTO tblItemCategory VALUES('" + idIncrement + "','" + txtCategoryName.Text + "')";
+                command.CommandText = "SELECT MAX(last_insert_id(category_ID)) AS 'getId' FROM tblItemCategory;";
+                MySqlDataReader dr = command.ExecuteReader();
+                while (dr.Read())
+                {
+                    sentInfo = dr["getId"].ToString();
+                }
+                dr.Close();
+            }
+            catch (Exception z)
+            {
+                MessageBox.Show(z.Message);
+            }
+            finally
+            {
+                if (connection.State == ConnectionState.Open)
+                {
+                    connection.Close();
+                }
+            }
+            connection.Open();
+            try
+            {
+                int IdIncrement = int.Parse(sentInfo);
+                IdIncrement++;
+                command.CommandText = "INSERT INTO tblItemCategory VALUES('" + IdIncrement + "', '" + txtCategoryName.Text + "')";
                 command.ExecuteNonQuery();
                 showTblUsers();
-                MessageBox.Show("User is successfully added");
-                txtUsername.Text = String.Empty;
-                txtPassword.Text = String.Empty;
+                MessageBox.Show("Item Category is successfully added");
+                txtCategoryName.Text = String.Empty;
             }
             catch (Exception z)
             {
@@ -308,11 +348,62 @@ namespace ITP104_TechShop
                 }
             }
         }
+
+        private void btnDeleteCatergory_Click(object sender, EventArgs e)
+        {
+            MySqlConnection connection = null;
+            try
+            {
+                connection = new MySqlConnection(con);
+                connection.Open();
+                MySqlCommand cmd = connection.CreateCommand();
+                cmd.CommandText = "DELETE FROM tblItemCategory WHERE category_ID = '" + lblCategoryIdGetter.Text + "'";
+                cmd.ExecuteNonQuery();
+                MessageBox.Show("Item Category ID: " + lblCategoryIdGetter.Text + " is successfully deleted");
+            }
+            catch (Exception z)
+            {
+                MessageBox.Show("Connection Problem");
+            }
+            finally
+            {
+                if (connection.State == ConnectionState.Open)
+                {
+                    connection.Close();
+                }
+            }
+        }
+
+        private void btnEditCategory_Click(object sender, EventArgs e)
+        {
+            MySqlConnection connection = null;
+            try
+            {
+                connection = new MySqlConnection(con);
+                connection.Open();
+                MySqlCommand cmd = connection.CreateCommand();
+                cmd.CommandText = "UPDATE tblItemCategory SET category_Name = '" + txtCategoryName.Text + "' WHERE Category_ID = '" + lblCategoryIdGetter.Text + "'";
+                cmd.ExecuteNonQuery();
+                MessageBox.Show("Item Category ID: " + lblCategoryIdGetter.Text + " is successfully updated");
+            }
+            catch (Exception z)
+            {
+                MessageBox.Show("Connection Problem");
+            }
+            finally
+            {
+                if (connection.State == ConnectionState.Open)
+                {
+                    connection.Close();
+                }
+            }
+        }
     }
 }
 
+/*
 
-
+*/
 
 
 

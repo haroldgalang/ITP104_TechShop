@@ -30,6 +30,9 @@
         {
             checkBox1 = new CheckBox();
             groupBox1 = new GroupBox();
+            numericUpDown14 = new NumericUpDown();
+            comboBox14 = new ComboBox();
+            checkBox14 = new CheckBox();
             label2 = new Label();
             label1 = new Label();
             numericUpDown5 = new NumericUpDown();
@@ -88,7 +91,9 @@
             button11 = new Button();
             button12 = new Button();
             btnBack = new Button();
+            button13 = new Button();
             groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)numericUpDown14).BeginInit();
             ((System.ComponentModel.ISupportInitialize)numericUpDown5).BeginInit();
             ((System.ComponentModel.ISupportInitialize)numericUpDown4).BeginInit();
             ((System.ComponentModel.ISupportInitialize)numericUpDown3).BeginInit();
@@ -118,6 +123,9 @@
             // 
             // groupBox1
             // 
+            groupBox1.Controls.Add(numericUpDown14);
+            groupBox1.Controls.Add(comboBox14);
+            groupBox1.Controls.Add(checkBox14);
             groupBox1.Controls.Add(label2);
             groupBox1.Controls.Add(label1);
             groupBox1.Controls.Add(numericUpDown5);
@@ -137,10 +145,36 @@
             groupBox1.Controls.Add(comboBox4);
             groupBox1.Location = new Point(12, 12);
             groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(364, 174);
+            groupBox1.Size = new Size(364, 199);
             groupBox1.TabIndex = 1;
             groupBox1.TabStop = false;
-            groupBox1.Text = "groupBox1";
+            groupBox1.Text = "Computer Components";
+            // 
+            // numericUpDown14
+            // 
+            numericUpDown14.Location = new Point(265, 162);
+            numericUpDown14.Name = "numericUpDown14";
+            numericUpDown14.Size = new Size(93, 23);
+            numericUpDown14.TabIndex = 24;
+            numericUpDown14.Value = new decimal(new int[] { 1, 0, 0, 0 });
+            // 
+            // comboBox14
+            // 
+            comboBox14.FormattingEnabled = true;
+            comboBox14.Location = new Point(138, 162);
+            comboBox14.Name = "comboBox14";
+            comboBox14.Size = new Size(121, 23);
+            comboBox14.TabIndex = 23;
+            // 
+            // checkBox14
+            // 
+            checkBox14.AutoSize = true;
+            checkBox14.Location = new Point(6, 166);
+            checkBox14.Name = "checkBox14";
+            checkBox14.Size = new Size(108, 19);
+            checkBox14.TabIndex = 22;
+            checkBox14.Text = "Computer Case";
+            checkBox14.UseVisualStyleBackColor = true;
             // 
             // label2
             // 
@@ -156,9 +190,9 @@
             label1.AutoSize = true;
             label1.Location = new Point(138, 19);
             label1.Name = "label1";
-            label1.Size = new Size(76, 15);
+            label1.Size = new Size(66, 15);
             label1.TabIndex = 20;
-            label1.Text = "Model Name";
+            label1.Text = "Item Name";
             // 
             // numericUpDown5
             // 
@@ -166,6 +200,7 @@
             numericUpDown5.Name = "numericUpDown5";
             numericUpDown5.Size = new Size(93, 23);
             numericUpDown5.TabIndex = 19;
+            numericUpDown5.Value = new decimal(new int[] { 1, 0, 0, 0 });
             // 
             // numericUpDown4
             // 
@@ -173,6 +208,7 @@
             numericUpDown4.Name = "numericUpDown4";
             numericUpDown4.Size = new Size(93, 23);
             numericUpDown4.TabIndex = 18;
+            numericUpDown4.Value = new decimal(new int[] { 1, 0, 0, 0 });
             // 
             // numericUpDown3
             // 
@@ -180,6 +216,7 @@
             numericUpDown3.Name = "numericUpDown3";
             numericUpDown3.Size = new Size(93, 23);
             numericUpDown3.TabIndex = 17;
+            numericUpDown3.Value = new decimal(new int[] { 1, 0, 0, 0 });
             // 
             // numericUpDown2
             // 
@@ -187,6 +224,7 @@
             numericUpDown2.Name = "numericUpDown2";
             numericUpDown2.Size = new Size(93, 23);
             numericUpDown2.TabIndex = 16;
+            numericUpDown2.Value = new decimal(new int[] { 1, 0, 0, 0 });
             // 
             // numericUpDown1
             // 
@@ -194,15 +232,16 @@
             numericUpDown1.Name = "numericUpDown1";
             numericUpDown1.Size = new Size(93, 23);
             numericUpDown1.TabIndex = 15;
+            numericUpDown1.Value = new decimal(new int[] { 1, 0, 0, 0 });
             // 
             // checkBox8
             // 
             checkBox8.AutoSize = true;
             checkBox8.Location = new Point(6, 141);
             checkBox8.Name = "checkBox8";
-            checkBox8.Size = new Size(108, 19);
+            checkBox8.Size = new Size(98, 19);
             checkBox8.TabIndex = 5;
-            checkBox8.Text = "Computer Case";
+            checkBox8.Text = "Power Supply";
             checkBox8.UseVisualStyleBackColor = true;
             // 
             // checkBox4
@@ -292,52 +331,57 @@
             groupBox2.Controls.Add(checkBox10);
             groupBox2.Controls.Add(comboBox9);
             groupBox2.Controls.Add(checkBox11);
-            groupBox2.Location = new Point(18, 299);
+            groupBox2.Location = new Point(12, 324);
             groupBox2.Name = "groupBox2";
-            groupBox2.Size = new Size(358, 155);
+            groupBox2.Size = new Size(364, 155);
             groupBox2.TabIndex = 8;
             groupBox2.TabStop = false;
-            groupBox2.Text = "groupBox2";
+            groupBox2.Text = "Peripherals";
             // 
             // numericUpDown13
             // 
-            numericUpDown13.Location = new Point(259, 118);
+            numericUpDown13.Location = new Point(265, 118);
             numericUpDown13.Name = "numericUpDown13";
             numericUpDown13.Size = new Size(93, 23);
             numericUpDown13.TabIndex = 26;
+            numericUpDown13.Value = new decimal(new int[] { 1, 0, 0, 0 });
             // 
             // numericUpDown12
             // 
-            numericUpDown12.Location = new Point(259, 93);
+            numericUpDown12.Location = new Point(265, 93);
             numericUpDown12.Name = "numericUpDown12";
             numericUpDown12.Size = new Size(93, 23);
             numericUpDown12.TabIndex = 25;
+            numericUpDown12.Value = new decimal(new int[] { 1, 0, 0, 0 });
             // 
             // numericUpDown11
             // 
-            numericUpDown11.Location = new Point(259, 68);
+            numericUpDown11.Location = new Point(265, 68);
             numericUpDown11.Name = "numericUpDown11";
             numericUpDown11.Size = new Size(93, 23);
             numericUpDown11.TabIndex = 24;
+            numericUpDown11.Value = new decimal(new int[] { 1, 0, 0, 0 });
             // 
             // numericUpDown10
             // 
-            numericUpDown10.Location = new Point(259, 43);
+            numericUpDown10.Location = new Point(265, 43);
             numericUpDown10.Name = "numericUpDown10";
             numericUpDown10.Size = new Size(93, 23);
             numericUpDown10.TabIndex = 23;
+            numericUpDown10.Value = new decimal(new int[] { 1, 0, 0, 0 });
             // 
             // numericUpDown9
             // 
-            numericUpDown9.Location = new Point(259, 18);
+            numericUpDown9.Location = new Point(265, 18);
             numericUpDown9.Name = "numericUpDown9";
             numericUpDown9.Size = new Size(93, 23);
             numericUpDown9.TabIndex = 20;
+            numericUpDown9.Value = new decimal(new int[] { 1, 0, 0, 0 });
             // 
             // comboBox13
             // 
             comboBox13.FormattingEnabled = true;
-            comboBox13.Location = new Point(132, 118);
+            comboBox13.Location = new Point(138, 118);
             comboBox13.Name = "comboBox13";
             comboBox13.Size = new Size(121, 23);
             comboBox13.TabIndex = 22;
@@ -355,7 +399,7 @@
             // comboBox12
             // 
             comboBox12.FormattingEnabled = true;
-            comboBox12.Location = new Point(132, 93);
+            comboBox12.Location = new Point(138, 93);
             comboBox12.Name = "comboBox12";
             comboBox12.Size = new Size(121, 23);
             comboBox12.TabIndex = 21;
@@ -373,7 +417,7 @@
             // comboBox11
             // 
             comboBox11.FormattingEnabled = true;
-            comboBox11.Location = new Point(132, 68);
+            comboBox11.Location = new Point(138, 68);
             comboBox11.Name = "comboBox11";
             comboBox11.Size = new Size(121, 23);
             comboBox11.TabIndex = 20;
@@ -391,7 +435,7 @@
             // comboBox10
             // 
             comboBox10.FormattingEnabled = true;
-            comboBox10.Location = new Point(132, 43);
+            comboBox10.Location = new Point(138, 43);
             comboBox10.Name = "comboBox10";
             comboBox10.Size = new Size(121, 23);
             comboBox10.TabIndex = 19;
@@ -409,7 +453,7 @@
             // comboBox9
             // 
             comboBox9.FormattingEnabled = true;
-            comboBox9.Location = new Point(132, 18);
+            comboBox9.Location = new Point(138, 18);
             comboBox9.Name = "comboBox9";
             comboBox9.Size = new Size(121, 23);
             comboBox9.TabIndex = 18;
@@ -435,33 +479,36 @@
             groupBox3.Controls.Add(comboBox6);
             groupBox3.Controls.Add(comboBox7);
             groupBox3.Controls.Add(comboBox8);
-            groupBox3.Location = new Point(18, 192);
+            groupBox3.Location = new Point(12, 217);
             groupBox3.Name = "groupBox3";
-            groupBox3.Size = new Size(358, 101);
+            groupBox3.Size = new Size(364, 101);
             groupBox3.TabIndex = 9;
             groupBox3.TabStop = false;
-            groupBox3.Text = "groupBox3";
+            groupBox3.Text = "Computer Storage";
             // 
             // numericUpDown8
             // 
-            numericUpDown8.Location = new Point(259, 68);
+            numericUpDown8.Location = new Point(265, 68);
             numericUpDown8.Name = "numericUpDown8";
             numericUpDown8.Size = new Size(93, 23);
             numericUpDown8.TabIndex = 19;
+            numericUpDown8.Value = new decimal(new int[] { 1, 0, 0, 0 });
             // 
             // numericUpDown7
             // 
-            numericUpDown7.Location = new Point(259, 43);
+            numericUpDown7.Location = new Point(265, 43);
             numericUpDown7.Name = "numericUpDown7";
             numericUpDown7.Size = new Size(93, 23);
             numericUpDown7.TabIndex = 18;
+            numericUpDown7.Value = new decimal(new int[] { 1, 0, 0, 0 });
             // 
             // numericUpDown6
             // 
-            numericUpDown6.Location = new Point(259, 18);
+            numericUpDown6.Location = new Point(265, 18);
             numericUpDown6.Name = "numericUpDown6";
             numericUpDown6.Size = new Size(93, 23);
             numericUpDown6.TabIndex = 16;
+            numericUpDown6.Value = new decimal(new int[] { 1, 0, 0, 0 });
             // 
             // checkBox13
             // 
@@ -496,7 +543,7 @@
             // comboBox6
             // 
             comboBox6.FormattingEnabled = true;
-            comboBox6.Location = new Point(132, 18);
+            comboBox6.Location = new Point(138, 18);
             comboBox6.Name = "comboBox6";
             comboBox6.Size = new Size(121, 23);
             comboBox6.TabIndex = 15;
@@ -504,7 +551,7 @@
             // comboBox7
             // 
             comboBox7.FormattingEnabled = true;
-            comboBox7.Location = new Point(132, 43);
+            comboBox7.Location = new Point(138, 43);
             comboBox7.Name = "comboBox7";
             comboBox7.Size = new Size(121, 23);
             comboBox7.TabIndex = 16;
@@ -512,16 +559,16 @@
             // comboBox8
             // 
             comboBox8.FormattingEnabled = true;
-            comboBox8.Location = new Point(132, 68);
+            comboBox8.Location = new Point(138, 68);
             comboBox8.Name = "comboBox8";
             comboBox8.Size = new Size(121, 23);
             comboBox8.TabIndex = 17;
             // 
             // btnCheckOut
             // 
-            btnCheckOut.Location = new Point(382, 410);
+            btnCheckOut.Location = new Point(384, 485);
             btnCheckOut.Name = "btnCheckOut";
-            btnCheckOut.Size = new Size(195, 43);
+            btnCheckOut.Size = new Size(195, 32);
             btnCheckOut.TabIndex = 10;
             btnCheckOut.Text = "Checkout";
             btnCheckOut.UseVisualStyleBackColor = true;
@@ -530,20 +577,20 @@
             // 
             richTextBox1.Location = new Point(382, 12);
             richTextBox1.Name = "richTextBox1";
-            richTextBox1.Size = new Size(352, 216);
+            richTextBox1.Size = new Size(352, 292);
             richTextBox1.TabIndex = 11;
             richTextBox1.Text = "";
             // 
             // textBox1
             // 
-            textBox1.Location = new Point(382, 234);
+            textBox1.Location = new Point(384, 310);
             textBox1.Name = "textBox1";
             textBox1.Size = new Size(350, 23);
             textBox1.TabIndex = 12;
             // 
             // button8
             // 
-            button8.Location = new Point(449, 263);
+            button8.Location = new Point(451, 339);
             button8.Name = "button8";
             button8.Size = new Size(61, 43);
             button8.TabIndex = 19;
@@ -552,7 +599,7 @@
             // 
             // button2
             // 
-            button2.Location = new Point(449, 361);
+            button2.Location = new Point(451, 437);
             button2.Name = "button2";
             button2.Size = new Size(61, 43);
             button2.TabIndex = 20;
@@ -561,7 +608,7 @@
             // 
             // button1
             // 
-            button1.Location = new Point(382, 361);
+            button1.Location = new Point(384, 437);
             button1.Name = "button1";
             button1.Size = new Size(61, 43);
             button1.TabIndex = 21;
@@ -570,7 +617,7 @@
             // 
             // button3
             // 
-            button3.Location = new Point(516, 361);
+            button3.Location = new Point(518, 437);
             button3.Name = "button3";
             button3.Size = new Size(61, 43);
             button3.TabIndex = 22;
@@ -579,7 +626,7 @@
             // 
             // button4
             // 
-            button4.Location = new Point(382, 312);
+            button4.Location = new Point(384, 388);
             button4.Name = "button4";
             button4.Size = new Size(61, 43);
             button4.TabIndex = 23;
@@ -588,7 +635,7 @@
             // 
             // button5
             // 
-            button5.Location = new Point(449, 312);
+            button5.Location = new Point(451, 388);
             button5.Name = "button5";
             button5.Size = new Size(61, 43);
             button5.TabIndex = 24;
@@ -597,7 +644,7 @@
             // 
             // button6
             // 
-            button6.Location = new Point(516, 311);
+            button6.Location = new Point(518, 387);
             button6.Name = "button6";
             button6.Size = new Size(61, 43);
             button6.TabIndex = 25;
@@ -606,7 +653,7 @@
             // 
             // button7
             // 
-            button7.Location = new Point(382, 263);
+            button7.Location = new Point(384, 339);
             button7.Name = "button7";
             button7.Size = new Size(61, 43);
             button7.TabIndex = 26;
@@ -615,7 +662,7 @@
             // 
             // button9
             // 
-            button9.Location = new Point(516, 263);
+            button9.Location = new Point(518, 339);
             button9.Name = "button9";
             button9.Size = new Size(61, 43);
             button9.TabIndex = 27;
@@ -624,7 +671,7 @@
             // 
             // button10
             // 
-            button10.Location = new Point(583, 360);
+            button10.Location = new Point(585, 436);
             button10.Name = "button10";
             button10.Size = new Size(149, 43);
             button10.TabIndex = 28;
@@ -633,7 +680,7 @@
             // 
             // button11
             // 
-            button11.Location = new Point(583, 312);
+            button11.Location = new Point(585, 388);
             button11.Name = "button11";
             button11.Size = new Size(149, 43);
             button11.TabIndex = 29;
@@ -642,7 +689,7 @@
             // 
             // button12
             // 
-            button12.Location = new Point(583, 263);
+            button12.Location = new Point(585, 339);
             button12.Name = "button12";
             button12.Size = new Size(149, 43);
             button12.TabIndex = 30;
@@ -651,18 +698,29 @@
             // 
             // btnBack
             // 
-            btnBack.Location = new Point(583, 410);
+            btnBack.Location = new Point(585, 485);
             btnBack.Name = "btnBack";
-            btnBack.Size = new Size(149, 43);
+            btnBack.Size = new Size(149, 32);
             btnBack.TabIndex = 31;
             btnBack.Text = "Back";
             btnBack.UseVisualStyleBackColor = true;
+            btnBack.Click += btnBack_Click;
+            // 
+            // button13
+            // 
+            button13.Location = new Point(12, 485);
+            button13.Name = "button13";
+            button13.Size = new Size(364, 32);
+            button13.TabIndex = 32;
+            button13.Text = "Enter Selected Items";
+            button13.UseVisualStyleBackColor = true;
             // 
             // frmPointOfSales
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(744, 465);
+            ClientSize = new Size(744, 522);
+            Controls.Add(button13);
             Controls.Add(btnBack);
             Controls.Add(button12);
             Controls.Add(button11);
@@ -686,6 +744,7 @@
             Text = "Point Of Sales";
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)numericUpDown14).EndInit();
             ((System.ComponentModel.ISupportInitialize)numericUpDown5).EndInit();
             ((System.ComponentModel.ISupportInitialize)numericUpDown4).EndInit();
             ((System.ComponentModel.ISupportInitialize)numericUpDown3).EndInit();
@@ -769,5 +828,9 @@
         private Button button11;
         private Button button12;
         private Button btnBack;
+        private NumericUpDown numericUpDown14;
+        private ComboBox comboBox14;
+        private CheckBox checkBox14;
+        private Button button13;
     }
 }

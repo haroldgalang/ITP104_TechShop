@@ -46,7 +46,7 @@
             button2 = new Button();
             groupBox3 = new GroupBox();
             button3 = new Button();
-            label2 = new Label();
+            lblItemID = new Label();
             txtItemName = new TextBox();
             textBox5 = new TextBox();
             txtBasePrice = new TextBox();
@@ -55,7 +55,7 @@
             button11 = new Button();
             groupBox4 = new GroupBox();
             button4 = new Button();
-            label3 = new Label();
+            lblSupplierID = new Label();
             txtSupplierName = new TextBox();
             txtSupplierAddress = new TextBox();
             txtSupplierContact = new TextBox();
@@ -65,6 +65,9 @@
             dgvItemCategory = new DataGridView();
             dgvItems = new DataGridView();
             dgvSuppliers = new DataGridView();
+            lblCategoryIdGetter = new Label();
+            lblItemIdGetter = new Label();
+            label3 = new Label();
             groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgvUsers).BeginInit();
             groupBox2.SuspendLayout();
@@ -166,10 +169,11 @@
             dgvUsers.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dgvUsers.Size = new Size(451, 187);
             dgvUsers.TabIndex = 16;
-            dgvUsers.CellContentClick += dgvUsers_CellContentClick;
+            dgvUsers.CellClick += dgvUsers_CellClick;
             // 
             // groupBox2
             // 
+            groupBox2.Controls.Add(lblCategoryIdGetter);
             groupBox2.Controls.Add(btnDeleteCatergory);
             groupBox2.Controls.Add(lblCategoryID);
             groupBox2.Controls.Add(txtCategoryName);
@@ -191,6 +195,7 @@
             btnDeleteCatergory.TabIndex = 18;
             btnDeleteCatergory.Text = "Delete";
             btnDeleteCatergory.UseVisualStyleBackColor = true;
+            btnDeleteCatergory.Click += btnDeleteCatergory_Click;
             // 
             // lblCategoryID
             // 
@@ -200,6 +205,7 @@
             lblCategoryID.Size = new Size(75, 15);
             lblCategoryID.TabIndex = 17;
             lblCategoryID.Text = "Category ID: ";
+            lblCategoryID.TextAlign = ContentAlignment.MiddleRight;
             // 
             // txtCategoryName
             // 
@@ -227,6 +233,7 @@
             btnEditCategory.TabIndex = 1;
             btnEditCategory.Text = "Edit";
             btnEditCategory.UseVisualStyleBackColor = true;
+            btnEditCategory.Click += btnEditCategory_Click;
             // 
             // button2
             // 
@@ -239,8 +246,9 @@
             // 
             // groupBox3
             // 
+            groupBox3.Controls.Add(lblItemIdGetter);
             groupBox3.Controls.Add(button3);
-            groupBox3.Controls.Add(label2);
+            groupBox3.Controls.Add(lblItemID);
             groupBox3.Controls.Add(txtItemName);
             groupBox3.Controls.Add(textBox5);
             groupBox3.Controls.Add(txtBasePrice);
@@ -263,14 +271,15 @@
             button3.Text = "Delete";
             button3.UseVisualStyleBackColor = true;
             // 
-            // label2
+            // lblItemID
             // 
-            label2.AutoSize = true;
-            label2.Location = new Point(6, 51);
-            label2.Name = "label2";
-            label2.Size = new Size(51, 15);
-            label2.TabIndex = 14;
-            label2.Text = "Item ID: ";
+            lblItemID.AutoSize = true;
+            lblItemID.Location = new Point(6, 51);
+            lblItemID.Name = "lblItemID";
+            lblItemID.Size = new Size(51, 15);
+            lblItemID.TabIndex = 14;
+            lblItemID.Text = "Item ID: ";
+            lblItemID.TextAlign = ContentAlignment.MiddleRight;
             // 
             // txtItemName
             // 
@@ -326,8 +335,9 @@
             // 
             // groupBox4
             // 
-            groupBox4.Controls.Add(button4);
             groupBox4.Controls.Add(label3);
+            groupBox4.Controls.Add(button4);
+            groupBox4.Controls.Add(lblSupplierID);
             groupBox4.Controls.Add(txtSupplierName);
             groupBox4.Controls.Add(txtSupplierAddress);
             groupBox4.Controls.Add(button2);
@@ -350,14 +360,14 @@
             button4.Text = "Delete";
             button4.UseVisualStyleBackColor = true;
             // 
-            // label3
+            // lblSupplierID
             // 
-            label3.AutoSize = true;
-            label3.Location = new Point(6, 51);
-            label3.Name = "label3";
-            label3.Size = new Size(70, 15);
-            label3.TabIndex = 14;
-            label3.Text = "Supplier ID: ";
+            lblSupplierID.AutoSize = true;
+            lblSupplierID.Location = new Point(6, 51);
+            lblSupplierID.Name = "lblSupplierID";
+            lblSupplierID.Size = new Size(70, 15);
+            lblSupplierID.TabIndex = 14;
+            lblSupplierID.Text = "Supplier ID: ";
             // 
             // txtSupplierName
             // 
@@ -423,7 +433,7 @@
             dgvItemCategory.Size = new Size(451, 187);
             dgvItemCategory.TabIndex = 18;
             dgvItemCategory.Visible = false;
-            dgvItemCategory.CellContentClick += dgvItemCategory_CellContentClick;
+            dgvItemCategory.CellClick += dgvItemCategory_CellClick;
             // 
             // dgvItems
             // 
@@ -436,7 +446,7 @@
             dgvItems.Size = new Size(451, 187);
             dgvItems.TabIndex = 19;
             dgvItems.Visible = false;
-            dgvItems.CellContentClick += dgvItems_CellContentClick;
+            dgvItems.CellClick += dgvItems_CellClick;
             // 
             // dgvSuppliers
             // 
@@ -449,7 +459,35 @@
             dgvSuppliers.Size = new Size(451, 187);
             dgvSuppliers.TabIndex = 20;
             dgvSuppliers.Visible = false;
-            dgvSuppliers.CellContentClick += dgvSuppliers_CellContentClick;
+            dgvSuppliers.CellClick += dgvSuppliers_CellClick;
+            // 
+            // lblCategoryIdGetter
+            // 
+            lblCategoryIdGetter.AutoSize = true;
+            lblCategoryIdGetter.Location = new Point(87, 69);
+            lblCategoryIdGetter.Name = "lblCategoryIdGetter";
+            lblCategoryIdGetter.Size = new Size(12, 15);
+            lblCategoryIdGetter.TabIndex = 19;
+            lblCategoryIdGetter.Text = "/";
+            // 
+            // lblItemIdGetter
+            // 
+            lblItemIdGetter.AutoSize = true;
+            lblItemIdGetter.Location = new Point(63, 51);
+            lblItemIdGetter.Name = "lblItemIdGetter";
+            lblItemIdGetter.Size = new Size(12, 15);
+            lblItemIdGetter.TabIndex = 20;
+            lblItemIdGetter.Text = "/";
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Location = new Point(82, 51);
+            label3.Name = "label3";
+            label3.Size = new Size(12, 15);
+            label3.TabIndex = 21;
+            label3.Text = "/";
+            label3.TextAlign = ContentAlignment.MiddleLeft;
             // 
             // frmMaintenance
             // 
@@ -503,10 +541,10 @@
         private TextBox txtItemName;
         private TextBox textBox5;
         private TextBox txtBasePrice;
-        private Label label2;
+        private Label lblItemID;
         private Label lblCategoryID;
         private GroupBox groupBox4;
-        private Label label3;
+        private Label lblSupplierID;
         private TextBox txtSupplierName;
         private TextBox txtSupplierAddress;
         private TextBox txtSupplierContact;
@@ -521,5 +559,8 @@
         private DataGridView dgvItemCategory;
         private DataGridView dgvItems;
         private DataGridView dgvSuppliers;
+        private Label lblCategoryIdGetter;
+        private Label lblItemIdGetter;
+        private Label label3;
     }
 }

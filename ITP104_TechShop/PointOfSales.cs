@@ -16,5 +16,13 @@ namespace ITP104_TechShop
         {
             InitializeComponent();
         }
+
+        private void btnBack_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            frmMain frm = new frmMain();
+            frm.ShowDialog();
+            this.Close();
+        }
     }
 }
