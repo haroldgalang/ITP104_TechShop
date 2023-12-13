@@ -310,5 +310,13 @@ namespace ITP104_TechShop
         }
     }
 }
+
+
+
+
+
+
+
+
 //cmd.ExecuteNonQuery();
 //int long = cmd.LastInsertedId;

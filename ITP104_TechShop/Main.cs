@@ -36,12 +36,24 @@ namespace ITP104_TechShop
 
         private void btnLogout_Click(object sender, EventArgs e)
         {
-            login_form();        
+            login_form();
         }
         private void login_form()
         {
             this.Hide();
             frmLogin frm = new frmLogin();
+            frm.ShowDialog();
+            this.Close();
+        }
+
+        private void btnPointOfSales_Click(object sender, EventArgs e)
+        {
+            pointofsales_form();
+        }
+        private void pointofsales_form()
+        {
+            this.Hide();
+            frmPointOfSales frm = new frmPointOfSales();
             frm.ShowDialog();
             this.Close();
         }

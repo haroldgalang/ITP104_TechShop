@@ -73,6 +73,7 @@
             btnPointOfSales.TabIndex = 3;
             btnPointOfSales.Text = "Point Of Sales";
             btnPointOfSales.UseVisualStyleBackColor = true;
+            btnPointOfSales.Click += btnPointOfSales_Click;
             // 
             // btnSalesMonitoring
             // 
