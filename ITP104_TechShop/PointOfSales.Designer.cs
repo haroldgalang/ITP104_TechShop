@@ -28,11 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
-            checkBox1 = new CheckBox();
+            chkCpu = new CheckBox();
             groupBox1 = new GroupBox();
             numericUpDown14 = new NumericUpDown();
             comboBox14 = new ComboBox();
-            checkBox14 = new CheckBox();
+            chkComputerCase = new CheckBox();
             label2 = new Label();
             label1 = new Label();
             numericUpDown5 = new NumericUpDown();
@@ -40,11 +40,11 @@
             numericUpDown3 = new NumericUpDown();
             numericUpDown2 = new NumericUpDown();
             numericUpDown1 = new NumericUpDown();
-            checkBox8 = new CheckBox();
-            checkBox4 = new CheckBox();
-            checkBox3 = new CheckBox();
-            checkBox2 = new CheckBox();
-            comboBox1 = new ComboBox();
+            chkPowerSupply = new CheckBox();
+            chkGpxCard = new CheckBox();
+            chkRam = new CheckBox();
+            chkMotherboard = new CheckBox();
+            cbCpu = new ComboBox();
             comboBox2 = new ComboBox();
             comboBox3 = new ComboBox();
             comboBox5 = new ComboBox();
@@ -56,22 +56,22 @@
             numericUpDown10 = new NumericUpDown();
             numericUpDown9 = new NumericUpDown();
             comboBox13 = new ComboBox();
-            checkBox7 = new CheckBox();
+            chkSpeaker = new CheckBox();
             comboBox12 = new ComboBox();
-            checkBox6 = new CheckBox();
+            chkHeadphone = new CheckBox();
             comboBox11 = new ComboBox();
-            checkBox9 = new CheckBox();
+            chkMouse = new CheckBox();
             comboBox10 = new ComboBox();
-            checkBox10 = new CheckBox();
+            chkKeyboard = new CheckBox();
             comboBox9 = new ComboBox();
-            checkBox11 = new CheckBox();
+            chkMonitor = new CheckBox();
             groupBox3 = new GroupBox();
             numericUpDown8 = new NumericUpDown();
             numericUpDown7 = new NumericUpDown();
             numericUpDown6 = new NumericUpDown();
-            checkBox13 = new CheckBox();
-            checkBox12 = new CheckBox();
-            checkBox5 = new CheckBox();
+            chkHdd = new CheckBox();
+            chkSsdSata = new CheckBox();
+            chkNvme = new CheckBox();
             comboBox6 = new ComboBox();
             comboBox7 = new ComboBox();
             comboBox8 = new ComboBox();
@@ -111,21 +111,22 @@
             ((System.ComponentModel.ISupportInitialize)numericUpDown6).BeginInit();
             SuspendLayout();
             // 
-            // checkBox1
+            // chkCpu
             // 
-            checkBox1.AutoSize = true;
-            checkBox1.Location = new Point(6, 41);
-            checkBox1.Name = "checkBox1";
-            checkBox1.Size = new Size(49, 19);
-            checkBox1.TabIndex = 0;
-            checkBox1.Text = "CPU";
-            checkBox1.UseVisualStyleBackColor = true;
+            chkCpu.AutoSize = true;
+            chkCpu.Location = new Point(6, 41);
+            chkCpu.Name = "chkCpu";
+            chkCpu.Size = new Size(49, 19);
+            chkCpu.TabIndex = 0;
+            chkCpu.Text = "CPU";
+            chkCpu.UseVisualStyleBackColor = true;
+            chkCpu.CheckedChanged += chkCpu_CheckedChanged;
             // 
             // groupBox1
             // 
             groupBox1.Controls.Add(numericUpDown14);
             groupBox1.Controls.Add(comboBox14);
-            groupBox1.Controls.Add(checkBox14);
+            groupBox1.Controls.Add(chkComputerCase);
             groupBox1.Controls.Add(label2);
             groupBox1.Controls.Add(label1);
             groupBox1.Controls.Add(numericUpDown5);
@@ -133,12 +134,12 @@
             groupBox1.Controls.Add(numericUpDown3);
             groupBox1.Controls.Add(numericUpDown2);
             groupBox1.Controls.Add(numericUpDown1);
-            groupBox1.Controls.Add(checkBox8);
-            groupBox1.Controls.Add(checkBox4);
-            groupBox1.Controls.Add(checkBox3);
-            groupBox1.Controls.Add(checkBox2);
-            groupBox1.Controls.Add(checkBox1);
-            groupBox1.Controls.Add(comboBox1);
+            groupBox1.Controls.Add(chkPowerSupply);
+            groupBox1.Controls.Add(chkGpxCard);
+            groupBox1.Controls.Add(chkRam);
+            groupBox1.Controls.Add(chkMotherboard);
+            groupBox1.Controls.Add(chkCpu);
+            groupBox1.Controls.Add(cbCpu);
             groupBox1.Controls.Add(comboBox2);
             groupBox1.Controls.Add(comboBox3);
             groupBox1.Controls.Add(comboBox5);
@@ -166,15 +167,15 @@
             comboBox14.Size = new Size(121, 23);
             comboBox14.TabIndex = 23;
             // 
-            // checkBox14
+            // chkComputerCase
             // 
-            checkBox14.AutoSize = true;
-            checkBox14.Location = new Point(6, 166);
-            checkBox14.Name = "checkBox14";
-            checkBox14.Size = new Size(108, 19);
-            checkBox14.TabIndex = 22;
-            checkBox14.Text = "Computer Case";
-            checkBox14.UseVisualStyleBackColor = true;
+            chkComputerCase.AutoSize = true;
+            chkComputerCase.Location = new Point(6, 166);
+            chkComputerCase.Name = "chkComputerCase";
+            chkComputerCase.Size = new Size(108, 19);
+            chkComputerCase.TabIndex = 22;
+            chkComputerCase.Text = "Computer Case";
+            chkComputerCase.UseVisualStyleBackColor = true;
             // 
             // label2
             // 
@@ -234,53 +235,53 @@
             numericUpDown1.TabIndex = 15;
             numericUpDown1.Value = new decimal(new int[] { 1, 0, 0, 0 });
             // 
-            // checkBox8
+            // chkPowerSupply
             // 
-            checkBox8.AutoSize = true;
-            checkBox8.Location = new Point(6, 141);
-            checkBox8.Name = "checkBox8";
-            checkBox8.Size = new Size(98, 19);
-            checkBox8.TabIndex = 5;
-            checkBox8.Text = "Power Supply";
-            checkBox8.UseVisualStyleBackColor = true;
+            chkPowerSupply.AutoSize = true;
+            chkPowerSupply.Location = new Point(6, 141);
+            chkPowerSupply.Name = "chkPowerSupply";
+            chkPowerSupply.Size = new Size(98, 19);
+            chkPowerSupply.TabIndex = 5;
+            chkPowerSupply.Text = "Power Supply";
+            chkPowerSupply.UseVisualStyleBackColor = true;
             // 
-            // checkBox4
+            // chkGpxCard
             // 
-            checkBox4.AutoSize = true;
-            checkBox4.Location = new Point(6, 116);
-            checkBox4.Name = "checkBox4";
-            checkBox4.Size = new Size(100, 19);
-            checkBox4.TabIndex = 3;
-            checkBox4.Text = "Graphics Card";
-            checkBox4.UseVisualStyleBackColor = true;
+            chkGpxCard.AutoSize = true;
+            chkGpxCard.Location = new Point(6, 116);
+            chkGpxCard.Name = "chkGpxCard";
+            chkGpxCard.Size = new Size(100, 19);
+            chkGpxCard.TabIndex = 3;
+            chkGpxCard.Text = "Graphics Card";
+            chkGpxCard.UseVisualStyleBackColor = true;
             // 
-            // checkBox3
+            // chkRam
             // 
-            checkBox3.AutoSize = true;
-            checkBox3.Location = new Point(6, 91);
-            checkBox3.Name = "checkBox3";
-            checkBox3.Size = new Size(52, 19);
-            checkBox3.TabIndex = 2;
-            checkBox3.Text = "RAM";
-            checkBox3.UseVisualStyleBackColor = true;
+            chkRam.AutoSize = true;
+            chkRam.Location = new Point(6, 91);
+            chkRam.Name = "chkRam";
+            chkRam.Size = new Size(52, 19);
+            chkRam.TabIndex = 2;
+            chkRam.Text = "RAM";
+            chkRam.UseVisualStyleBackColor = true;
             // 
-            // checkBox2
+            // chkMotherboard
             // 
-            checkBox2.AutoSize = true;
-            checkBox2.Location = new Point(6, 66);
-            checkBox2.Name = "checkBox2";
-            checkBox2.Size = new Size(96, 19);
-            checkBox2.TabIndex = 1;
-            checkBox2.Text = "Motherboard";
-            checkBox2.UseVisualStyleBackColor = true;
+            chkMotherboard.AutoSize = true;
+            chkMotherboard.Location = new Point(6, 66);
+            chkMotherboard.Name = "chkMotherboard";
+            chkMotherboard.Size = new Size(96, 19);
+            chkMotherboard.TabIndex = 1;
+            chkMotherboard.Text = "Motherboard";
+            chkMotherboard.UseVisualStyleBackColor = true;
             // 
-            // comboBox1
+            // cbCpu
             // 
-            comboBox1.FormattingEnabled = true;
-            comboBox1.Location = new Point(138, 37);
-            comboBox1.Name = "comboBox1";
-            comboBox1.Size = new Size(121, 23);
-            comboBox1.TabIndex = 10;
+            cbCpu.FormattingEnabled = true;
+            cbCpu.Location = new Point(138, 37);
+            cbCpu.Name = "cbCpu";
+            cbCpu.Size = new Size(121, 23);
+            cbCpu.TabIndex = 10;
             // 
             // comboBox2
             // 
@@ -322,15 +323,15 @@
             groupBox2.Controls.Add(numericUpDown10);
             groupBox2.Controls.Add(numericUpDown9);
             groupBox2.Controls.Add(comboBox13);
-            groupBox2.Controls.Add(checkBox7);
+            groupBox2.Controls.Add(chkSpeaker);
             groupBox2.Controls.Add(comboBox12);
-            groupBox2.Controls.Add(checkBox6);
+            groupBox2.Controls.Add(chkHeadphone);
             groupBox2.Controls.Add(comboBox11);
-            groupBox2.Controls.Add(checkBox9);
+            groupBox2.Controls.Add(chkMouse);
             groupBox2.Controls.Add(comboBox10);
-            groupBox2.Controls.Add(checkBox10);
+            groupBox2.Controls.Add(chkKeyboard);
             groupBox2.Controls.Add(comboBox9);
-            groupBox2.Controls.Add(checkBox11);
+            groupBox2.Controls.Add(chkMonitor);
             groupBox2.Location = new Point(12, 324);
             groupBox2.Name = "groupBox2";
             groupBox2.Size = new Size(364, 155);
@@ -386,15 +387,15 @@
             comboBox13.Size = new Size(121, 23);
             comboBox13.TabIndex = 22;
             // 
-            // checkBox7
+            // chkSpeaker
             // 
-            checkBox7.AutoSize = true;
-            checkBox7.Location = new Point(6, 122);
-            checkBox7.Name = "checkBox7";
-            checkBox7.Size = new Size(72, 19);
-            checkBox7.TabIndex = 9;
-            checkBox7.Text = "Speakers";
-            checkBox7.UseVisualStyleBackColor = true;
+            chkSpeaker.AutoSize = true;
+            chkSpeaker.Location = new Point(6, 122);
+            chkSpeaker.Name = "chkSpeaker";
+            chkSpeaker.Size = new Size(72, 19);
+            chkSpeaker.TabIndex = 9;
+            chkSpeaker.Text = "Speakers";
+            chkSpeaker.UseVisualStyleBackColor = true;
             // 
             // comboBox12
             // 
@@ -404,15 +405,15 @@
             comboBox12.Size = new Size(121, 23);
             comboBox12.TabIndex = 21;
             // 
-            // checkBox6
+            // chkHeadphone
             // 
-            checkBox6.AutoSize = true;
-            checkBox6.Location = new Point(6, 97);
-            checkBox6.Name = "checkBox6";
-            checkBox6.Size = new Size(93, 19);
-            checkBox6.TabIndex = 8;
-            checkBox6.Text = "Headphones";
-            checkBox6.UseVisualStyleBackColor = true;
+            chkHeadphone.AutoSize = true;
+            chkHeadphone.Location = new Point(6, 97);
+            chkHeadphone.Name = "chkHeadphone";
+            chkHeadphone.Size = new Size(93, 19);
+            chkHeadphone.TabIndex = 8;
+            chkHeadphone.Text = "Headphones";
+            chkHeadphone.UseVisualStyleBackColor = true;
             // 
             // comboBox11
             // 
@@ -422,15 +423,15 @@
             comboBox11.Size = new Size(121, 23);
             comboBox11.TabIndex = 20;
             // 
-            // checkBox9
+            // chkMouse
             // 
-            checkBox9.AutoSize = true;
-            checkBox9.Location = new Point(6, 72);
-            checkBox9.Name = "checkBox9";
-            checkBox9.Size = new Size(62, 19);
-            checkBox9.TabIndex = 7;
-            checkBox9.Text = "Mouse";
-            checkBox9.UseVisualStyleBackColor = true;
+            chkMouse.AutoSize = true;
+            chkMouse.Location = new Point(6, 72);
+            chkMouse.Name = "chkMouse";
+            chkMouse.Size = new Size(62, 19);
+            chkMouse.TabIndex = 7;
+            chkMouse.Text = "Mouse";
+            chkMouse.UseVisualStyleBackColor = true;
             // 
             // comboBox10
             // 
@@ -440,15 +441,15 @@
             comboBox10.Size = new Size(121, 23);
             comboBox10.TabIndex = 19;
             // 
-            // checkBox10
+            // chkKeyboard
             // 
-            checkBox10.AutoSize = true;
-            checkBox10.Location = new Point(6, 47);
-            checkBox10.Name = "checkBox10";
-            checkBox10.Size = new Size(76, 19);
-            checkBox10.TabIndex = 6;
-            checkBox10.Text = "Keyboard";
-            checkBox10.UseVisualStyleBackColor = true;
+            chkKeyboard.AutoSize = true;
+            chkKeyboard.Location = new Point(6, 47);
+            chkKeyboard.Name = "chkKeyboard";
+            chkKeyboard.Size = new Size(76, 19);
+            chkKeyboard.TabIndex = 6;
+            chkKeyboard.Text = "Keyboard";
+            chkKeyboard.UseVisualStyleBackColor = true;
             // 
             // comboBox9
             // 
@@ -458,24 +459,24 @@
             comboBox9.Size = new Size(121, 23);
             comboBox9.TabIndex = 18;
             // 
-            // checkBox11
+            // chkMonitor
             // 
-            checkBox11.AutoSize = true;
-            checkBox11.Location = new Point(6, 22);
-            checkBox11.Name = "checkBox11";
-            checkBox11.Size = new Size(69, 19);
-            checkBox11.TabIndex = 5;
-            checkBox11.Text = "Monitor";
-            checkBox11.UseVisualStyleBackColor = true;
+            chkMonitor.AutoSize = true;
+            chkMonitor.Location = new Point(6, 22);
+            chkMonitor.Name = "chkMonitor";
+            chkMonitor.Size = new Size(69, 19);
+            chkMonitor.TabIndex = 5;
+            chkMonitor.Text = "Monitor";
+            chkMonitor.UseVisualStyleBackColor = true;
             // 
             // groupBox3
             // 
             groupBox3.Controls.Add(numericUpDown8);
             groupBox3.Controls.Add(numericUpDown7);
             groupBox3.Controls.Add(numericUpDown6);
-            groupBox3.Controls.Add(checkBox13);
-            groupBox3.Controls.Add(checkBox12);
-            groupBox3.Controls.Add(checkBox5);
+            groupBox3.Controls.Add(chkHdd);
+            groupBox3.Controls.Add(chkSsdSata);
+            groupBox3.Controls.Add(chkNvme);
             groupBox3.Controls.Add(comboBox6);
             groupBox3.Controls.Add(comboBox7);
             groupBox3.Controls.Add(comboBox8);
@@ -510,35 +511,35 @@
             numericUpDown6.TabIndex = 16;
             numericUpDown6.Value = new decimal(new int[] { 1, 0, 0, 0 });
             // 
-            // checkBox13
+            // chkHdd
             // 
-            checkBox13.AutoSize = true;
-            checkBox13.Location = new Point(6, 72);
-            checkBox13.Name = "checkBox13";
-            checkBox13.Size = new Size(51, 19);
-            checkBox13.TabIndex = 8;
-            checkBox13.Text = "HDD";
-            checkBox13.UseVisualStyleBackColor = true;
+            chkHdd.AutoSize = true;
+            chkHdd.Location = new Point(6, 72);
+            chkHdd.Name = "chkHdd";
+            chkHdd.Size = new Size(51, 19);
+            chkHdd.TabIndex = 8;
+            chkHdd.Text = "HDD";
+            chkHdd.UseVisualStyleBackColor = true;
             // 
-            // checkBox12
+            // chkSsdSata
             // 
-            checkBox12.AutoSize = true;
-            checkBox12.Location = new Point(6, 47);
-            checkBox12.Name = "checkBox12";
-            checkBox12.Size = new Size(75, 19);
-            checkBox12.TabIndex = 7;
-            checkBox12.Text = "SSD SATA";
-            checkBox12.UseVisualStyleBackColor = true;
+            chkSsdSata.AutoSize = true;
+            chkSsdSata.Location = new Point(6, 47);
+            chkSsdSata.Name = "chkSsdSata";
+            chkSsdSata.Size = new Size(75, 19);
+            chkSsdSata.TabIndex = 7;
+            chkSsdSata.Text = "SSD SATA";
+            chkSsdSata.UseVisualStyleBackColor = true;
             // 
-            // checkBox5
+            // chkNvme
             // 
-            checkBox5.AutoSize = true;
-            checkBox5.Location = new Point(6, 22);
-            checkBox5.Name = "checkBox5";
-            checkBox5.Size = new Size(82, 19);
-            checkBox5.TabIndex = 6;
-            checkBox5.Text = "SSD NVMe";
-            checkBox5.UseVisualStyleBackColor = true;
+            chkNvme.AutoSize = true;
+            chkNvme.Location = new Point(6, 22);
+            chkNvme.Name = "chkNvme";
+            chkNvme.Size = new Size(82, 19);
+            chkNvme.TabIndex = 6;
+            chkNvme.Text = "SSD NVMe";
+            chkNvme.UseVisualStyleBackColor = true;
             // 
             // comboBox6
             // 
@@ -768,23 +769,23 @@
 
         #endregion
 
-        private CheckBox checkBox1;
+        private CheckBox chkCpu;
         private GroupBox groupBox1;
-        private CheckBox checkBox4;
-        private CheckBox checkBox3;
-        private CheckBox checkBox2;
+        private CheckBox chkGpxCard;
+        private CheckBox chkRam;
+        private CheckBox chkMotherboard;
         private GroupBox groupBox2;
-        private CheckBox checkBox6;
-        private CheckBox checkBox9;
-        private CheckBox checkBox10;
-        private CheckBox checkBox11;
-        private CheckBox checkBox7;
-        private CheckBox checkBox8;
+        private CheckBox chkHeadphone;
+        private CheckBox chkMouse;
+        private CheckBox chkKeyboard;
+        private CheckBox chkMonitor;
+        private CheckBox chkSpeaker;
+        private CheckBox chkPowerSupply;
         private GroupBox groupBox3;
-        private CheckBox checkBox13;
-        private CheckBox checkBox12;
-        private CheckBox checkBox5;
-        private ComboBox comboBox1;
+        private CheckBox chkHdd;
+        private CheckBox chkSsdSata;
+        private CheckBox chkNvme;
+        private ComboBox cbCpu;
         private ComboBox comboBox2;
         private ComboBox comboBox3;
         private ComboBox comboBox5;
@@ -830,7 +831,7 @@
         private Button btnBack;
         private NumericUpDown numericUpDown14;
         private ComboBox comboBox14;
-        private CheckBox checkBox14;
+        private CheckBox chkComputerCase;
         private Button button13;
     }
 }
