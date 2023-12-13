@@ -358,8 +358,9 @@ namespace ITP104_TechShop
                 IdIncrement++;
                 command.CommandText = "INSERT INTO tblItemCategory VALUES('" + IdIncrement + "', '" + txtCategoryName.Text + "')";
                 command.ExecuteNonQuery();
-                showTblUsers();
+                showTblItemCategory();
                 MessageBox.Show("Item Category is successfully added");
+                lblCategoryIdGetter.Text = "/";
                 txtCategoryName.Text = String.Empty;
             }
             catch (Exception z)
@@ -410,7 +411,10 @@ namespace ITP104_TechShop
                 MySqlCommand cmd = connection.CreateCommand();
                 cmd.CommandText = "UPDATE tblItemCategory SET category_Name = '" + txtCategoryName.Text + "' WHERE Category_ID = '" + lblCategoryIdGetter.Text + "'";
                 cmd.ExecuteNonQuery();
+                showTblItemCategory();
                 MessageBox.Show("Item Category ID: " + lblCategoryIdGetter.Text + " is successfully updated");
+                lblCategoryIdGetter.Text = "/";
+                txtCategoryName.Text = String.Empty;
             }
             catch (Exception z)
             {
@@ -465,9 +469,12 @@ namespace ITP104_TechShop
                 IdIncrement++;
                 command.CommandText = "INSERT INTO tblItems VALUES('" + IdIncrement + "', '" + txtItemName.Text + "', '" + cbCategoryID.Text + "','" + txtBasePrice.Text + "' )";
                 command.ExecuteNonQuery();
-                showTblUsers();
+                showTblItems();
                 MessageBox.Show("Item Category is successfully added");
-                txtCategoryName.Text = String.Empty;
+                lblItemIdGetter.Text = "/";
+                txtItemName.Text = String.Empty;
+                cbCategoryID.Text = "Category ID";
+                txtBasePrice.Text = String.Empty;
             }
             catch (Exception z)
             {
@@ -493,6 +500,10 @@ namespace ITP104_TechShop
                 cmd.CommandText = "UPDATE tblItems SET item_Name = '" + txtItemName.Text + "',category_ID = '" + cbCategoryID.Text + "',item_BasePrice = '" + txtBasePrice.Text + "' WHERE item_ID = '" + lblItemIdGetter.Text + "'";
                 cmd.ExecuteNonQuery();
                 MessageBox.Show("Item Category ID: " + lblItemIdGetter.Text + " is successfully updated");
+                lblItemIdGetter.Text = "/";
+                txtItemName.Text = String.Empty;
+                cbCategoryID.Text = "Category ID";
+                txtBasePrice.Text = String.Empty;
             }
             catch (Exception z)
             {
@@ -517,7 +528,12 @@ namespace ITP104_TechShop
                 MySqlCommand cmd = connection.CreateCommand();
                 cmd.CommandText = "DELETE FROM tblItems WHERE item_ID = '" + lblItemIdGetter.Text + "'";
                 cmd.ExecuteNonQuery();
-                MessageBox.Show("Item ID: " + lblCategoryIdGetter.Text + " is successfully deleted");
+                showTblItems();
+                MessageBox.Show("Item ID: " + lblItemIdGetter.Text + " is successfully deleted");
+                lblItemIdGetter.Text = "/";
+                txtItemName.Text = String.Empty;
+                cbCategoryID.Text = "Category ID";
+                txtBasePrice.Text = String.Empty;
             }
             catch (Exception z)
             {
