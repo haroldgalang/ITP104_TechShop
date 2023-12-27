@@ -249,11 +249,6 @@ namespace ITP104_TechShop
             this.Close();
         }
 
-        private void btnDeleteUser_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void dgvSuppliers_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             var row = dgvSuppliers.CurrentRow;
@@ -298,7 +293,7 @@ namespace ITP104_TechShop
             }
         }
 
-        private void btnDeleteUser_Click_1(object sender, EventArgs e)
+        private void btnDeleteUser_Click(object sender, EventArgs e)
         {
             MySqlConnection connection = null;
             try
@@ -427,11 +422,6 @@ namespace ITP104_TechShop
                     connection.Close();
                 }
             }
-        }
-
-        private void cbCategoryID_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
         }
 
         private void btnAddItem_Click(object sender, EventArgs e)

@@ -55,6 +55,7 @@
             btnDelivery.TabIndex = 1;
             btnDelivery.Text = "Delivery";
             btnDelivery.UseVisualStyleBackColor = true;
+            btnDelivery.Click += btnDelivery_Click;
             // 
             // btnInventoryMonitoring
             // 
@@ -64,6 +65,7 @@
             btnInventoryMonitoring.TabIndex = 2;
             btnInventoryMonitoring.Text = "Inventory Monitoring";
             btnInventoryMonitoring.UseVisualStyleBackColor = true;
+            btnInventoryMonitoring.Click += btnInventoryMonitoring_Click;
             // 
             // btnPointOfSales
             // 

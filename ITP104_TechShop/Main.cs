@@ -57,5 +57,29 @@ namespace ITP104_TechShop
             frm.ShowDialog();
             this.Close();
         }
+
+        private void btnDelivery_Click(object sender, EventArgs e)
+        {
+            delivery_form();
+        }
+        private void delivery_form()
+        {
+            this.Hide();
+            frmDelivery frm = new frmDelivery();
+            frm.ShowDialog();
+            this.Close();
+        }
+
+        private void btnInventoryMonitoring_Click(object sender, EventArgs e)
+        {
+            inventory_form();
+        }
+        private void inventory_form()
+        {
+            this.Hide();
+            frmInventory frm = new frmInventory();
+            frm.ShowDialog();
+            this.Close();
+        }
     }
 }

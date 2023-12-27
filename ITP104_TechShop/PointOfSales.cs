@@ -32,32 +32,6 @@ namespace ITP104_TechShop
 
         private void chkCpu_CheckedChanged(object sender, EventArgs e)
         {
-            MySqlConnection connection = new MySqlConnection(con);
-            connection.Open();
-            try
-            {
-                MySqlCommand cmd = connection.CreateCommand();
-                cmd.CommandText = "SELECT category_ID FROM tblItemCategory";
-                MySqlDataAdapter adap = new MySqlDataAdapter(cmd);
-                DataTable table = new DataTable();
-                adap.Fill(table);
-                cbCategoryID.DataSource = new BindingSource(table, null);
-                DataRow dr = table.NewRow();
-                table.Rows.InsertAt(dr, 0);
-                cbCategoryID.DataSource = table;
-                cbCategoryID.DisplayMember = "category_ID";
-            }
-            catch (Exception z)
-            {
-                MessageBox.Show(z.Message);
-            }
-            finally
-            {
-                if (connection.State == ConnectionState.Open)
-                {
-                    connection.Close();
-                }
-            }
         }
     }
 }

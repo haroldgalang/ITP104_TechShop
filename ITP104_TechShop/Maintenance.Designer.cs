@@ -127,7 +127,7 @@
             btnDeleteUser.TabIndex = 20;
             btnDeleteUser.Text = "Delete";
             btnDeleteUser.UseVisualStyleBackColor = true;
-            btnDeleteUser.Click += btnDeleteUser_Click_1;
+            btnDeleteUser.Click += btnDeleteUser_Click;
             // 
             // btnAddUser
             // 
@@ -280,7 +280,6 @@
             cbCategoryID.Size = new Size(204, 23);
             cbCategoryID.TabIndex = 21;
             cbCategoryID.Text = "Item Category ID";
-            cbCategoryID.SelectedIndexChanged += cbCategoryID_SelectedIndexChanged;
             // 
             // lblItemIdGetter
             // 
