@@ -30,7 +30,7 @@
         {
             dgvDelivery = new DataGridView();
             dateTimePicker1 = new DateTimePicker();
-            numericUpDown1 = new NumericUpDown();
+            nudQuantity = new NumericUpDown();
             label1 = new Label();
             lblItemName = new Label();
             lblItemIdGetter = new Label();
@@ -39,7 +39,7 @@
             btnDeliver = new Button();
             label6 = new Label();
             ((System.ComponentModel.ISupportInitialize)dgvDelivery).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)numericUpDown1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)nudQuantity).BeginInit();
             SuspendLayout();
             // 
             // dgvDelivery
@@ -61,12 +61,12 @@
             dateTimePicker1.Size = new Size(200, 23);
             dateTimePicker1.TabIndex = 2;
             // 
-            // numericUpDown1
+            // nudQuantity
             // 
-            numericUpDown1.Location = new Point(11, 149);
-            numericUpDown1.Name = "numericUpDown1";
-            numericUpDown1.Size = new Size(120, 23);
-            numericUpDown1.TabIndex = 4;
+            nudQuantity.Location = new Point(11, 149);
+            nudQuantity.Name = "nudQuantity";
+            nudQuantity.Size = new Size(120, 23);
+            nudQuantity.TabIndex = 4;
             // 
             // label1
             // 
@@ -122,6 +122,7 @@
             btnDeliver.TabIndex = 10;
             btnDeliver.Text = "Deliver";
             btnDeliver.UseVisualStyleBackColor = true;
+            btnDeliver.Click += btnDeliver_Click;
             // 
             // label6
             // 
@@ -144,14 +145,14 @@
             Controls.Add(lblItemIdGetter);
             Controls.Add(lblItemName);
             Controls.Add(label1);
-            Controls.Add(numericUpDown1);
+            Controls.Add(nudQuantity);
             Controls.Add(dateTimePicker1);
             Controls.Add(dgvDelivery);
             Name = "frmDelivery";
             Text = "Delivery";
             Load += frmDelivery_Load;
             ((System.ComponentModel.ISupportInitialize)dgvDelivery).EndInit();
-            ((System.ComponentModel.ISupportInitialize)numericUpDown1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)nudQuantity).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -160,7 +161,7 @@
 
         private DataGridView dgvDelivery;
         private DateTimePicker dateTimePicker1;
-        private NumericUpDown numericUpDown1;
+        private NumericUpDown nudQuantity;
         private Label label1;
         private Label lblItemName;
         private Label lblItemIdGetter;
