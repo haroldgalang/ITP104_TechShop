@@ -21,7 +21,7 @@ namespace ITP104_TechShop
             MySqlConnection connection = new MySqlConnection(con);
         }
 
-        private void btnUpdateUser_Click(object sender, EventArgs e)
+        private void btnEditUser_Click(object sender, EventArgs e)
         {
             MySqlConnection connection = null;
             try
@@ -654,14 +654,3 @@ namespace ITP104_TechShop
         }
     }
 }
-
-/*
-
-*/
-
-
-
-
-
-//cmd.ExecuteNonQuery();
-//int long = cmd.LastInsertedId;

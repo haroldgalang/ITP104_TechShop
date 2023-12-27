@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            btnUpdateUser = new Button();
+            btnEditUser = new Button();
             txtPassword = new TextBox();
             txtUsername = new TextBox();
             groupBox1 = new GroupBox();
@@ -78,15 +78,15 @@
             ((System.ComponentModel.ISupportInitialize)dgvSuppliers).BeginInit();
             SuspendLayout();
             // 
-            // btnUpdateUser
+            // btnEditUser
             // 
-            btnUpdateUser.Location = new Point(6, 155);
-            btnUpdateUser.Name = "btnUpdateUser";
-            btnUpdateUser.Size = new Size(59, 26);
-            btnUpdateUser.TabIndex = 1;
-            btnUpdateUser.Text = "Edit";
-            btnUpdateUser.UseVisualStyleBackColor = true;
-            btnUpdateUser.Click += btnUpdateUser_Click;
+            btnEditUser.Location = new Point(6, 155);
+            btnEditUser.Name = "btnEditUser";
+            btnEditUser.Size = new Size(59, 26);
+            btnEditUser.TabIndex = 1;
+            btnEditUser.Text = "Edit";
+            btnEditUser.UseVisualStyleBackColor = true;
+            btnEditUser.Click += btnEditUser_Click;
             // 
             // txtPassword
             // 
@@ -110,7 +110,7 @@
             groupBox1.Controls.Add(btnAddUser);
             groupBox1.Controls.Add(txtUsername);
             groupBox1.Controls.Add(txtPassword);
-            groupBox1.Controls.Add(btnUpdateUser);
+            groupBox1.Controls.Add(btnEditUser);
             groupBox1.Controls.Add(btnShowTblUser);
             groupBox1.Location = new Point(9, 277);
             groupBox1.Name = "groupBox1";
@@ -529,7 +529,7 @@
 
         #endregion
 
-        private Button btnUpdateUser;
+        private Button btnEditUser;
         private TextBox txtPassword;
         private TextBox txtUsername;
         private GroupBox groupBox1;

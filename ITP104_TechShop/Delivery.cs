@@ -29,7 +29,7 @@ namespace ITP104_TechShop
                 connection = new MySqlConnection(con);
                 connection.Open();
                 MySqlCommand cmd = connection.CreateCommand();
-                cmd.CommandText = "SELECT * FROM tblItems;";
+                cmd.CommandText = "CALL showDeliveryItems();";
                 MySqlDataAdapter adap = new MySqlDataAdapter(cmd);
                 DataSet ds = new DataSet();
                 adap.Fill(ds);
@@ -45,6 +45,16 @@ namespace ITP104_TechShop
                 {
                     connection.Close();
                 }
+            }
+        }
+
+        private void dgvDelivery_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            var row = dgvDelivery.CurrentRow;
+            if (dgvDelivery.CurrentCell != null)
+            {
+                lblItemIdGetter.Text = row.Cells[0].Value.ToString();
+                lblItemName.Text = row.Cells[1].Value.ToString();
             }
         }
     }
