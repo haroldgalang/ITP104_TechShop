@@ -29,52 +29,73 @@
         private void InitializeComponent()
         {
             groupBox1 = new GroupBox();
+            lblItemPriceGetter = new Label();
+            label7 = new Label();
             lblItemIdGetter = new Label();
             label6 = new Label();
             lblStocksChecker = new Label();
             label5 = new Label();
-            dataGridView1 = new DataGridView();
+            dgvCart = new DataGridView();
             btnCheckOut = new Button();
             btnAddToCart = new Button();
             label3 = new Label();
             cbCategoryName = new ComboBox();
             label2 = new Label();
             label1 = new Label();
-            numericUpDown1 = new NumericUpDown();
+            nudQuantity = new NumericUpDown();
             cbItemName = new ComboBox();
             rtbReceipt = new RichTextBox();
             label4 = new Label();
             groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)numericUpDown1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dgvCart).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)nudQuantity).BeginInit();
             SuspendLayout();
             // 
             // groupBox1
             // 
+            groupBox1.Controls.Add(lblItemPriceGetter);
+            groupBox1.Controls.Add(label7);
             groupBox1.Controls.Add(lblItemIdGetter);
+            groupBox1.Controls.Add(btnCheckOut);
             groupBox1.Controls.Add(label6);
             groupBox1.Controls.Add(lblStocksChecker);
             groupBox1.Controls.Add(label5);
-            groupBox1.Controls.Add(dataGridView1);
-            groupBox1.Controls.Add(btnCheckOut);
             groupBox1.Controls.Add(btnAddToCart);
             groupBox1.Controls.Add(label3);
             groupBox1.Controls.Add(cbCategoryName);
             groupBox1.Controls.Add(label2);
             groupBox1.Controls.Add(label1);
-            groupBox1.Controls.Add(numericUpDown1);
+            groupBox1.Controls.Add(nudQuantity);
             groupBox1.Controls.Add(cbItemName);
             groupBox1.Location = new Point(12, 12);
             groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(311, 443);
+            groupBox1.Size = new Size(311, 345);
             groupBox1.TabIndex = 1;
             groupBox1.TabStop = false;
             groupBox1.Text = "Computer Components";
             // 
+            // lblItemPriceGetter
+            // 
+            lblItemPriceGetter.AutoSize = true;
+            lblItemPriceGetter.Location = new Point(48, 155);
+            lblItemPriceGetter.Name = "lblItemPriceGetter";
+            lblItemPriceGetter.Size = new Size(13, 15);
+            lblItemPriceGetter.TabIndex = 39;
+            lblItemPriceGetter.Text = "0";
+            // 
+            // label7
+            // 
+            label7.AutoSize = true;
+            label7.Location = new Point(6, 155);
+            label7.Name = "label7";
+            label7.Size = new Size(36, 15);
+            label7.TabIndex = 38;
+            label7.Text = "Price:";
+            // 
             // lblItemIdGetter
             // 
             lblItemIdGetter.AutoSize = true;
-            lblItemIdGetter.Location = new Point(60, 107);
+            lblItemIdGetter.Location = new Point(60, 117);
             lblItemIdGetter.Name = "lblItemIdGetter";
             lblItemIdGetter.Size = new Size(12, 15);
             lblItemIdGetter.TabIndex = 37;
@@ -83,7 +104,7 @@
             // label6
             // 
             label6.AutoSize = true;
-            label6.Location = new Point(6, 107);
+            label6.Location = new Point(6, 117);
             label6.Name = "label6";
             label6.Size = new Size(48, 15);
             label6.TabIndex = 36;
@@ -92,7 +113,7 @@
             // lblStocksChecker
             // 
             lblStocksChecker.AutoSize = true;
-            lblStocksChecker.Location = new Point(250, 146);
+            lblStocksChecker.Location = new Point(107, 190);
             lblStocksChecker.Name = "lblStocksChecker";
             lblStocksChecker.Size = new Size(12, 15);
             lblStocksChecker.TabIndex = 35;
@@ -101,23 +122,26 @@
             // label5
             // 
             label5.AutoSize = true;
-            label5.Location = new Point(149, 146);
+            label5.Location = new Point(6, 190);
             label5.Name = "label5";
             label5.Size = new Size(95, 15);
             label5.TabIndex = 34;
             label5.Text = "Stocks Available:";
             // 
-            // dataGridView1
+            // dgvCart
             // 
-            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new Point(6, 211);
-            dataGridView1.Name = "dataGridView1";
-            dataGridView1.Size = new Size(299, 183);
-            dataGridView1.TabIndex = 33;
+            dgvCart.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dgvCart.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvCart.EditMode = DataGridViewEditMode.EditProgrammatically;
+            dgvCart.Location = new Point(12, 363);
+            dgvCart.Name = "dgvCart";
+            dgvCart.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dgvCart.Size = new Size(579, 141);
+            dgvCart.TabIndex = 33;
             // 
             // btnCheckOut
             // 
-            btnCheckOut.Location = new Point(6, 400);
+            btnCheckOut.Location = new Point(6, 307);
             btnCheckOut.Name = "btnCheckOut";
             btnCheckOut.Size = new Size(299, 32);
             btnCheckOut.TabIndex = 10;
@@ -127,12 +151,13 @@
             // 
             // btnAddToCart
             // 
-            btnAddToCart.Location = new Point(6, 173);
+            btnAddToCart.Location = new Point(6, 269);
             btnAddToCart.Name = "btnAddToCart";
             btnAddToCart.Size = new Size(299, 32);
             btnAddToCart.TabIndex = 32;
             btnAddToCart.Text = "Add To Cart";
             btnAddToCart.UseVisualStyleBackColor = true;
+            btnAddToCart.Click += btnAddToCart_Click;
             // 
             // label3
             // 
@@ -156,7 +181,7 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(6, 126);
+            label2.Location = new Point(8, 229);
             label2.Name = "label2";
             label2.Size = new Size(53, 15);
             label2.TabIndex = 21;
@@ -171,13 +196,13 @@
             label1.TabIndex = 20;
             label1.Text = "Select item";
             // 
-            // numericUpDown1
+            // nudQuantity
             // 
-            numericUpDown1.Location = new Point(6, 144);
-            numericUpDown1.Name = "numericUpDown1";
-            numericUpDown1.Size = new Size(137, 23);
-            numericUpDown1.TabIndex = 15;
-            numericUpDown1.Value = new decimal(new int[] { 1, 0, 0, 0 });
+            nudQuantity.Location = new Point(67, 227);
+            nudQuantity.Name = "nudQuantity";
+            nudQuantity.Size = new Size(64, 23);
+            nudQuantity.TabIndex = 15;
+            nudQuantity.Value = new decimal(new int[] { 1, 0, 0, 0 });
             // 
             // cbItemName
             // 
@@ -194,7 +219,7 @@
             // 
             rtbReceipt.Location = new Point(329, 31);
             rtbReceipt.Name = "rtbReceipt";
-            rtbReceipt.Size = new Size(262, 413);
+            rtbReceipt.Size = new Size(262, 326);
             rtbReceipt.TabIndex = 11;
             rtbReceipt.Text = "";
             // 
@@ -211,17 +236,18 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(603, 467);
+            ClientSize = new Size(603, 516);
             Controls.Add(label4);
             Controls.Add(rtbReceipt);
             Controls.Add(groupBox1);
+            Controls.Add(dgvCart);
             Name = "frmPointOfSales";
             Text = "Point Of Sales";
             Load += frmPointOfSales_Load;
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
-            ((System.ComponentModel.ISupportInitialize)numericUpDown1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dgvCart).EndInit();
+            ((System.ComponentModel.ISupportInitialize)nudQuantity).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -230,18 +256,20 @@
         private GroupBox groupBox1;
         private ComboBox cbItemName;
         private Label label1;
-        private NumericUpDown numericUpDown1;
+        private NumericUpDown nudQuantity;
         private Label label2;
         private Button btnCheckOut;
         private RichTextBox rtbReceipt;
         private Button btnAddToCart;
         private Label label3;
         private ComboBox cbCategoryName;
-        private DataGridView dataGridView1;
+        private DataGridView dgvCart;
         private Label label4;
         private Label label5;
         private Label lblStocksChecker;
         private Label label6;
         private Label lblItemIdGetter;
+        private Label lblItemPriceGetter;
+        private Label label7;
     }
 }
