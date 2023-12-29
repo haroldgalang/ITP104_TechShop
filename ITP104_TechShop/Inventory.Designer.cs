@@ -29,24 +29,37 @@
         private void InitializeComponent()
         {
             dgvInventory = new DataGridView();
+            btnBack = new Button();
             ((System.ComponentModel.ISupportInitialize)dgvInventory).BeginInit();
             SuspendLayout();
             // 
             // dgvInventory
             // 
+            dgvInventory.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgvInventory.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvInventory.EditMode = DataGridViewEditMode.EditProgrammatically;
-            dgvInventory.Location = new Point(12, 12);
+            dgvInventory.Location = new Point(12, 48);
             dgvInventory.Name = "dgvInventory";
             dgvInventory.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dgvInventory.Size = new Size(656, 262);
             dgvInventory.TabIndex = 0;
             // 
+            // btnBack
+            // 
+            btnBack.Location = new Point(520, 12);
+            btnBack.Name = "btnBack";
+            btnBack.Size = new Size(148, 30);
+            btnBack.TabIndex = 18;
+            btnBack.Text = "Back";
+            btnBack.UseVisualStyleBackColor = true;
+            btnBack.Click += btnBack_Click;
+            // 
             // frmInventory
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(680, 286);
+            ClientSize = new Size(680, 322);
+            Controls.Add(btnBack);
             Controls.Add(dgvInventory);
             Name = "frmInventory";
             Text = "Inventory";
@@ -58,5 +71,6 @@
         #endregion
 
         private DataGridView dgvInventory;
+        private Button btnBack;
     }
 }

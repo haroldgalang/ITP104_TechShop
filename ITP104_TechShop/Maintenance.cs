@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.ComponentModel.Design.ObjectSelectorEditor;
 
 namespace ITP104_TechShop
 {
@@ -71,32 +72,6 @@ namespace ITP104_TechShop
             dgvItemCategory.Visible = false;
             dgvSuppliers.Visible = false;
             dgvItems.Visible = true;
-            MySqlConnection connection = new MySqlConnection(con);
-            connection.Open();
-            try
-            {
-                MySqlCommand cmd = connection.CreateCommand();
-                cmd.CommandText = "SELECT category_ID FROM tblItemCategory";
-                MySqlDataAdapter adap = new MySqlDataAdapter(cmd);
-                DataTable table = new DataTable();
-                adap.Fill(table);
-                cbCategoryID.DataSource = new BindingSource(table, null);
-                DataRow dr = table.NewRow();
-                table.Rows.InsertAt(dr, 0);
-                cbCategoryID.DataSource = table;
-                cbCategoryID.DisplayMember = "category_ID";
-            }
-            catch (Exception z)
-            {
-                MessageBox.Show(z.Message);
-            }
-            finally
-            {
-                if (connection.State == ConnectionState.Open)
-                {
-                    connection.Close();
-                }
-            }
         }
 
         private void btnShowTblSuppliers_Click(object sender, EventArgs e)
@@ -194,7 +169,7 @@ namespace ITP104_TechShop
                 connection = new MySqlConnection(con);
                 connection.Open();
                 MySqlCommand cmd = connection.CreateCommand();
-                cmd.CommandText = "Select * From tblItems";
+                cmd.CommandText = "CALL showItems()";
                 MySqlDataAdapter adap = new MySqlDataAdapter(cmd);
                 DataSet ds = new DataSet();
                 adap.Fill(ds);
@@ -268,8 +243,8 @@ namespace ITP104_TechShop
             {
                 lblItemIdGetter.Text = row.Cells[0].Value.ToString();
                 txtItemName.Text = row.Cells[1].Value.ToString();
-                cbCategoryID.Text = row.Cells[2].Value.ToString();
-                txtBasePrice.Text = row.Cells[3].Value.ToString();
+                cbCategoryName.Text = row.Cells[3].Value.ToString();
+                txtBasePrice.Text = row.Cells[4].Value.ToString();
             }
         }
 
@@ -457,13 +432,13 @@ namespace ITP104_TechShop
             {
                 int IdIncrement = int.Parse(sentInfo);
                 IdIncrement++;
-                command.CommandText = "INSERT INTO tblItems VALUES('" + IdIncrement + "', '" + txtItemName.Text + "', '" + cbCategoryID.Text + "','" + txtBasePrice.Text + "' )";
+                command.CommandText = "INSERT INTO tblItems VALUES('" + IdIncrement + "', '" + txtItemName.Text + "', (SELECT category_ID FROM tblItemCategory WHERE category_Name = '" + cbCategoryName.Text + "'),'" + txtBasePrice.Text + "')";
                 command.ExecuteNonQuery();
                 showTblItems();
-                MessageBox.Show("Item Category is successfully added");
+                MessageBox.Show("Item is successfully added");
                 lblItemIdGetter.Text = "/";
                 txtItemName.Text = String.Empty;
-                cbCategoryID.Text = "Category ID";
+                cbCategoryName.Text = "Category Name";
                 txtBasePrice.Text = String.Empty;
             }
             catch (Exception z)
@@ -487,12 +462,12 @@ namespace ITP104_TechShop
                 connection = new MySqlConnection(con);
                 connection.Open();
                 MySqlCommand cmd = connection.CreateCommand();
-                cmd.CommandText = "UPDATE tblItems SET item_Name = '" + txtItemName.Text + "',category_ID = '" + cbCategoryID.Text + "',item_BasePrice = '" + txtBasePrice.Text + "' WHERE item_ID = '" + lblItemIdGetter.Text + "'";
+                cmd.CommandText = "CALL updateItem('" + txtItemName.Text + "', '" + cbCategoryName.Text + "', '" + txtBasePrice.Text + "', '" + lblItemIdGetter.Text + "')";
                 cmd.ExecuteNonQuery();
                 MessageBox.Show("Item Category ID: " + lblItemIdGetter.Text + " is successfully updated");
                 lblItemIdGetter.Text = "/";
                 txtItemName.Text = String.Empty;
-                cbCategoryID.Text = "Category ID";
+                cbCategoryName.Text = "Category ID";
                 txtBasePrice.Text = String.Empty;
             }
             catch (Exception z)
@@ -522,7 +497,7 @@ namespace ITP104_TechShop
                 MessageBox.Show("Item ID: " + lblItemIdGetter.Text + " is successfully deleted");
                 lblItemIdGetter.Text = "/";
                 txtItemName.Text = String.Empty;
-                cbCategoryID.Text = "Category ID";
+                cbCategoryName.Text = "Category ID";
                 txtBasePrice.Text = String.Empty;
             }
             catch (Exception z)
@@ -643,6 +618,36 @@ namespace ITP104_TechShop
             catch (Exception z)
             {
                 MessageBox.Show("Connection Problem");
+            }
+            finally
+            {
+                if (connection.State == ConnectionState.Open)
+                {
+                    connection.Close();
+                }
+            }
+        }
+
+        private void frmMaintenance_Load(object sender, EventArgs e)
+        {
+            MySqlConnection connection = new MySqlConnection(con);
+            connection.Open();
+            try
+            {
+                MySqlCommand cmd = connection.CreateCommand();
+                cmd.CommandText = "SELECT * FROM tblItemCategory";
+                MySqlDataAdapter adap = new MySqlDataAdapter(cmd);
+                DataTable table = new DataTable();
+                adap.Fill(table);
+                cbCategoryName.DataSource = new BindingSource(table, null);
+                DataRow dr = table.NewRow();
+                table.Rows.InsertAt(dr, 0);
+                cbCategoryName.DataSource = table;
+                cbCategoryName.DisplayMember = "category_Name";
+            }
+            catch (Exception z)
+            {
+                MessageBox.Show(z.Message);
             }
             finally
             {

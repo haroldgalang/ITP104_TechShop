@@ -46,7 +46,7 @@
             btnEditCategory = new Button();
             btnAddSupplier = new Button();
             groupBox3 = new GroupBox();
-            cbCategoryID = new ComboBox();
+            cbCategoryName = new ComboBox();
             lblItemIdGetter = new Label();
             btnDeleteItem = new Button();
             lblItemID = new Label();
@@ -256,7 +256,7 @@
             // 
             // groupBox3
             // 
-            groupBox3.Controls.Add(cbCategoryID);
+            groupBox3.Controls.Add(cbCategoryName);
             groupBox3.Controls.Add(lblItemIdGetter);
             groupBox3.Controls.Add(btnDeleteItem);
             groupBox3.Controls.Add(lblItemID);
@@ -272,14 +272,15 @@
             groupBox3.TabStop = false;
             groupBox3.Text = "Set Items";
             // 
-            // cbCategoryID
+            // cbCategoryName
             // 
-            cbCategoryID.FormattingEnabled = true;
-            cbCategoryID.Location = new Point(6, 98);
-            cbCategoryID.Name = "cbCategoryID";
-            cbCategoryID.Size = new Size(204, 23);
-            cbCategoryID.TabIndex = 21;
-            cbCategoryID.Text = "Item Category ID";
+            cbCategoryName.DropDownStyle = ComboBoxStyle.DropDownList;
+            cbCategoryName.ForeColor = SystemColors.InfoText;
+            cbCategoryName.FormattingEnabled = true;
+            cbCategoryName.Location = new Point(6, 98);
+            cbCategoryName.Name = "cbCategoryName";
+            cbCategoryName.Size = new Size(204, 23);
+            cbCategoryName.TabIndex = 21;
             // 
             // lblItemIdGetter
             // 
@@ -512,6 +513,7 @@
             Controls.Add(groupBox1);
             Name = "frmMaintenance";
             Text = "Maintenance";
+            Load += frmMaintenance_Load;
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)dgvUsers).EndInit();
@@ -568,6 +570,6 @@
         private Label lblCategoryIdGetter;
         private Label lblItemIdGetter;
         private Label lblSupplierIdGetter;
-        private ComboBox cbCategoryID;
+        private ComboBox cbCategoryName;
     }
 }

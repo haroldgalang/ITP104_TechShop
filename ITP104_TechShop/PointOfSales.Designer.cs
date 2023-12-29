@@ -29,79 +29,134 @@
         private void InitializeComponent()
         {
             groupBox1 = new GroupBox();
-            button13 = new Button();
+            lblItemIdGetter = new Label();
+            label6 = new Label();
+            lblStocksChecker = new Label();
+            label5 = new Label();
+            dataGridView1 = new DataGridView();
+            btnCheckOut = new Button();
+            btnAddToCart = new Button();
             label3 = new Label();
-            comboBox1 = new ComboBox();
+            cbCategoryName = new ComboBox();
             label2 = new Label();
             label1 = new Label();
             numericUpDown1 = new NumericUpDown();
-            cbCpu = new ComboBox();
-            btnCheckOut = new Button();
-            richTextBox1 = new RichTextBox();
-            textBox1 = new TextBox();
-            button8 = new Button();
-            button2 = new Button();
-            button1 = new Button();
-            button3 = new Button();
-            button4 = new Button();
-            button5 = new Button();
-            button6 = new Button();
-            button7 = new Button();
-            button9 = new Button();
-            button10 = new Button();
-            button11 = new Button();
-            button12 = new Button();
-            btnBack = new Button();
+            cbItemName = new ComboBox();
+            rtbReceipt = new RichTextBox();
+            label4 = new Label();
             groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)numericUpDown1).BeginInit();
             SuspendLayout();
             // 
             // groupBox1
             // 
-            groupBox1.Controls.Add(button13);
+            groupBox1.Controls.Add(lblItemIdGetter);
+            groupBox1.Controls.Add(label6);
+            groupBox1.Controls.Add(lblStocksChecker);
+            groupBox1.Controls.Add(label5);
+            groupBox1.Controls.Add(dataGridView1);
+            groupBox1.Controls.Add(btnCheckOut);
+            groupBox1.Controls.Add(btnAddToCart);
             groupBox1.Controls.Add(label3);
-            groupBox1.Controls.Add(comboBox1);
+            groupBox1.Controls.Add(cbCategoryName);
             groupBox1.Controls.Add(label2);
             groupBox1.Controls.Add(label1);
             groupBox1.Controls.Add(numericUpDown1);
-            groupBox1.Controls.Add(cbCpu);
+            groupBox1.Controls.Add(cbItemName);
             groupBox1.Location = new Point(12, 12);
             groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(311, 405);
+            groupBox1.Size = new Size(311, 443);
             groupBox1.TabIndex = 1;
             groupBox1.TabStop = false;
             groupBox1.Text = "Computer Components";
             // 
-            // button13
+            // lblItemIdGetter
             // 
-            button13.Location = new Point(6, 183);
-            button13.Name = "button13";
-            button13.Size = new Size(299, 32);
-            button13.TabIndex = 32;
-            button13.Text = "Enter Selected Items";
-            button13.UseVisualStyleBackColor = true;
+            lblItemIdGetter.AutoSize = true;
+            lblItemIdGetter.Location = new Point(60, 107);
+            lblItemIdGetter.Name = "lblItemIdGetter";
+            lblItemIdGetter.Size = new Size(12, 15);
+            lblItemIdGetter.TabIndex = 37;
+            lblItemIdGetter.Text = "/";
+            // 
+            // label6
+            // 
+            label6.AutoSize = true;
+            label6.Location = new Point(6, 107);
+            label6.Name = "label6";
+            label6.Size = new Size(48, 15);
+            label6.TabIndex = 36;
+            label6.Text = "Item ID:";
+            // 
+            // lblStocksChecker
+            // 
+            lblStocksChecker.AutoSize = true;
+            lblStocksChecker.Location = new Point(250, 146);
+            lblStocksChecker.Name = "lblStocksChecker";
+            lblStocksChecker.Size = new Size(12, 15);
+            lblStocksChecker.TabIndex = 35;
+            lblStocksChecker.Text = "/";
+            // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.Location = new Point(149, 146);
+            label5.Name = "label5";
+            label5.Size = new Size(95, 15);
+            label5.TabIndex = 34;
+            label5.Text = "Stocks Available:";
+            // 
+            // dataGridView1
+            // 
+            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridView1.Location = new Point(6, 211);
+            dataGridView1.Name = "dataGridView1";
+            dataGridView1.Size = new Size(299, 183);
+            dataGridView1.TabIndex = 33;
+            // 
+            // btnCheckOut
+            // 
+            btnCheckOut.Location = new Point(6, 400);
+            btnCheckOut.Name = "btnCheckOut";
+            btnCheckOut.Size = new Size(299, 32);
+            btnCheckOut.TabIndex = 10;
+            btnCheckOut.Text = "Checkout";
+            btnCheckOut.UseVisualStyleBackColor = true;
+            btnCheckOut.Click += btnCheckOut_Click;
+            // 
+            // btnAddToCart
+            // 
+            btnAddToCart.Location = new Point(6, 173);
+            btnAddToCart.Name = "btnAddToCart";
+            btnAddToCart.Size = new Size(299, 32);
+            btnAddToCart.TabIndex = 32;
+            btnAddToCart.Text = "Add To Cart";
+            btnAddToCart.UseVisualStyleBackColor = true;
             // 
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(6, 34);
+            label3.Location = new Point(6, 19);
             label3.Name = "label3";
             label3.Size = new Size(89, 15);
             label3.TabIndex = 23;
             label3.Text = "Select Category";
             // 
-            // comboBox1
+            // cbCategoryName
             // 
-            comboBox1.FormattingEnabled = true;
-            comboBox1.Location = new Point(6, 52);
-            comboBox1.Name = "comboBox1";
-            comboBox1.Size = new Size(299, 23);
-            comboBox1.TabIndex = 22;
+            cbCategoryName.DropDownStyle = ComboBoxStyle.DropDownList;
+            cbCategoryName.FormattingEnabled = true;
+            cbCategoryName.Location = new Point(6, 37);
+            cbCategoryName.Name = "cbCategoryName";
+            cbCategoryName.Size = new Size(299, 23);
+            cbCategoryName.TabIndex = 22;
+            cbCategoryName.SelectedIndexChanged += cbCategoryName_SelectedIndexChanged;
             // 
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(6, 136);
+            label2.Location = new Point(6, 126);
             label2.Name = "label2";
             label2.Size = new Size(53, 15);
             label2.TabIndex = 21;
@@ -110,196 +165,62 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(6, 82);
+            label1.Location = new Point(6, 63);
             label1.Name = "label1";
-            label1.Size = new Size(66, 15);
+            label1.Size = new Size(65, 15);
             label1.TabIndex = 20;
-            label1.Text = "Item Name";
+            label1.Text = "Select item";
             // 
             // numericUpDown1
             // 
-            numericUpDown1.Location = new Point(6, 154);
+            numericUpDown1.Location = new Point(6, 144);
             numericUpDown1.Name = "numericUpDown1";
-            numericUpDown1.Size = new Size(299, 23);
+            numericUpDown1.Size = new Size(137, 23);
             numericUpDown1.TabIndex = 15;
             numericUpDown1.Value = new decimal(new int[] { 1, 0, 0, 0 });
             // 
-            // cbCpu
+            // cbItemName
             // 
-            cbCpu.FormattingEnabled = true;
-            cbCpu.Location = new Point(6, 100);
-            cbCpu.Name = "cbCpu";
-            cbCpu.Size = new Size(299, 23);
-            cbCpu.TabIndex = 10;
+            cbItemName.DropDownStyle = ComboBoxStyle.DropDownList;
+            cbItemName.FormattingEnabled = true;
+            cbItemName.Location = new Point(6, 81);
+            cbItemName.Name = "cbItemName";
+            cbItemName.Size = new Size(299, 23);
+            cbItemName.TabIndex = 10;
+            cbItemName.Tag = "";
+            cbItemName.SelectedIndexChanged += cbItemName_SelectedIndexChanged;
             // 
-            // btnCheckOut
+            // rtbReceipt
             // 
-            btnCheckOut.Location = new Point(329, 423);
-            btnCheckOut.Name = "btnCheckOut";
-            btnCheckOut.Size = new Size(195, 32);
-            btnCheckOut.TabIndex = 10;
-            btnCheckOut.Text = "Checkout";
-            btnCheckOut.UseVisualStyleBackColor = true;
+            rtbReceipt.Location = new Point(329, 31);
+            rtbReceipt.Name = "rtbReceipt";
+            rtbReceipt.Size = new Size(262, 413);
+            rtbReceipt.TabIndex = 11;
+            rtbReceipt.Text = "";
             // 
-            // richTextBox1
+            // label4
             // 
-            richTextBox1.Location = new Point(329, 12);
-            richTextBox1.Name = "richTextBox1";
-            richTextBox1.Size = new Size(350, 227);
-            richTextBox1.TabIndex = 11;
-            richTextBox1.Text = "";
-            // 
-            // textBox1
-            // 
-            textBox1.Location = new Point(329, 248);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(350, 23);
-            textBox1.TabIndex = 12;
-            // 
-            // button8
-            // 
-            button8.Location = new Point(396, 277);
-            button8.Name = "button8";
-            button8.Size = new Size(61, 43);
-            button8.TabIndex = 19;
-            button8.Text = "8";
-            button8.UseVisualStyleBackColor = true;
-            // 
-            // button2
-            // 
-            button2.Location = new Point(396, 375);
-            button2.Name = "button2";
-            button2.Size = new Size(61, 43);
-            button2.TabIndex = 20;
-            button2.Text = "2";
-            button2.UseVisualStyleBackColor = true;
-            // 
-            // button1
-            // 
-            button1.Location = new Point(329, 375);
-            button1.Name = "button1";
-            button1.Size = new Size(61, 43);
-            button1.TabIndex = 21;
-            button1.Text = "1";
-            button1.UseVisualStyleBackColor = true;
-            // 
-            // button3
-            // 
-            button3.Location = new Point(463, 375);
-            button3.Name = "button3";
-            button3.Size = new Size(61, 43);
-            button3.TabIndex = 22;
-            button3.Text = "3";
-            button3.UseVisualStyleBackColor = true;
-            // 
-            // button4
-            // 
-            button4.Location = new Point(329, 326);
-            button4.Name = "button4";
-            button4.Size = new Size(61, 43);
-            button4.TabIndex = 23;
-            button4.Text = "4";
-            button4.UseVisualStyleBackColor = true;
-            // 
-            // button5
-            // 
-            button5.Location = new Point(396, 326);
-            button5.Name = "button5";
-            button5.Size = new Size(61, 43);
-            button5.TabIndex = 24;
-            button5.Text = "5";
-            button5.UseVisualStyleBackColor = true;
-            // 
-            // button6
-            // 
-            button6.Location = new Point(463, 325);
-            button6.Name = "button6";
-            button6.Size = new Size(61, 43);
-            button6.TabIndex = 25;
-            button6.Text = "6";
-            button6.UseVisualStyleBackColor = true;
-            // 
-            // button7
-            // 
-            button7.Location = new Point(329, 277);
-            button7.Name = "button7";
-            button7.Size = new Size(61, 43);
-            button7.TabIndex = 26;
-            button7.Text = "7";
-            button7.UseVisualStyleBackColor = true;
-            // 
-            // button9
-            // 
-            button9.Location = new Point(463, 277);
-            button9.Name = "button9";
-            button9.Size = new Size(61, 43);
-            button9.TabIndex = 27;
-            button9.Text = "9";
-            button9.UseVisualStyleBackColor = true;
-            // 
-            // button10
-            // 
-            button10.Location = new Point(530, 374);
-            button10.Name = "button10";
-            button10.Size = new Size(149, 43);
-            button10.TabIndex = 28;
-            button10.Text = "Enter";
-            button10.UseVisualStyleBackColor = true;
-            // 
-            // button11
-            // 
-            button11.Location = new Point(530, 326);
-            button11.Name = "button11";
-            button11.Size = new Size(149, 43);
-            button11.TabIndex = 29;
-            button11.Text = "Clear";
-            button11.UseVisualStyleBackColor = true;
-            // 
-            // button12
-            // 
-            button12.Location = new Point(530, 277);
-            button12.Name = "button12";
-            button12.Size = new Size(149, 43);
-            button12.TabIndex = 30;
-            button12.Text = "<---";
-            button12.UseVisualStyleBackColor = true;
-            // 
-            // btnBack
-            // 
-            btnBack.Location = new Point(530, 423);
-            btnBack.Name = "btnBack";
-            btnBack.Size = new Size(149, 32);
-            btnBack.TabIndex = 31;
-            btnBack.Text = "Back";
-            btnBack.UseVisualStyleBackColor = true;
-            btnBack.Click += btnBack_Click;
+            label4.AutoSize = true;
+            label4.Location = new Point(329, 9);
+            label4.Name = "label4";
+            label4.Size = new Size(49, 15);
+            label4.TabIndex = 34;
+            label4.Text = "Receipt:";
             // 
             // frmPointOfSales
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(699, 467);
-            Controls.Add(btnBack);
-            Controls.Add(button12);
-            Controls.Add(button11);
-            Controls.Add(button10);
-            Controls.Add(button9);
-            Controls.Add(button7);
-            Controls.Add(button6);
-            Controls.Add(button5);
-            Controls.Add(button4);
-            Controls.Add(button3);
-            Controls.Add(button1);
-            Controls.Add(button2);
-            Controls.Add(button8);
-            Controls.Add(textBox1);
-            Controls.Add(richTextBox1);
-            Controls.Add(btnCheckOut);
+            ClientSize = new Size(603, 467);
+            Controls.Add(label4);
+            Controls.Add(rtbReceipt);
             Controls.Add(groupBox1);
             Name = "frmPointOfSales";
             Text = "Point Of Sales";
+            Load += frmPointOfSales_Load;
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ((System.ComponentModel.ISupportInitialize)numericUpDown1).EndInit();
             ResumeLayout(false);
             PerformLayout();
@@ -307,28 +228,20 @@
 
         #endregion
         private GroupBox groupBox1;
-        private ComboBox cbCpu;
+        private ComboBox cbItemName;
         private Label label1;
         private NumericUpDown numericUpDown1;
         private Label label2;
         private Button btnCheckOut;
-        private RichTextBox richTextBox1;
-        private TextBox textBox1;
-        private Button button8;
-        private Button button2;
-        private Button button1;
-        private Button button3;
-        private Button button4;
-        private Button button5;
-        private Button button6;
-        private Button button7;
-        private Button button9;
-        private Button button10;
-        private Button button11;
-        private Button button12;
-        private Button btnBack;
-        private Button button13;
+        private RichTextBox rtbReceipt;
+        private Button btnAddToCart;
         private Label label3;
-        private ComboBox comboBox1;
+        private ComboBox cbCategoryName;
+        private DataGridView dataGridView1;
+        private Label label4;
+        private Label label5;
+        private Label lblStocksChecker;
+        private Label label6;
+        private Label lblItemIdGetter;
     }
 }

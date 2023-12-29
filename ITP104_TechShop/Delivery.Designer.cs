@@ -38,6 +38,7 @@
             label5 = new Label();
             btnDeliver = new Button();
             label6 = new Label();
+            btnBack = new Button();
             ((System.ComponentModel.ISupportInitialize)dgvDelivery).BeginInit();
             ((System.ComponentModel.ISupportInitialize)nudQuantity).BeginInit();
             SuspendLayout();
@@ -133,11 +134,22 @@
             label6.TabIndex = 11;
             label6.Text = "Item ID:";
             // 
+            // btnBack
+            // 
+            btnBack.Location = new Point(414, 12);
+            btnBack.Name = "btnBack";
+            btnBack.Size = new Size(148, 30);
+            btnBack.TabIndex = 18;
+            btnBack.Text = "Back";
+            btnBack.UseVisualStyleBackColor = true;
+            btnBack.Click += btnBack_Click;
+            // 
             // frmDelivery
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(574, 348);
+            Controls.Add(btnBack);
             Controls.Add(label6);
             Controls.Add(btnDeliver);
             Controls.Add(label5);
@@ -169,5 +181,6 @@
         private Label label5;
         private Button btnDeliver;
         private Label label6;
+        private Button btnBack;
     }
 }
