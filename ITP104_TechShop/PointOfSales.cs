@@ -7,9 +7,11 @@ using System.Diagnostics;
 using System.Drawing;
 using System.Globalization;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.ComponentModel.Design.ObjectSelectorEditor;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace ITP104_TechShop
@@ -131,27 +133,37 @@ namespace ITP104_TechShop
             lblItemIdGetter.Text = tblItemID;
             lblItemPriceGetter.Text = tblItemBasePrice;
             lblStocksChecker.Text = tblQuantity;
-            decimal value = decimal.Parse(tblQuantity, CultureInfo.InvariantCulture);
-            nudQuantity.Maximum = value;
-
+            nudQuantity.Minimum = 1;
+            try
+            {
+                decimal QuantityDecimal = decimal.Parse(tblQuantity, CultureInfo.InvariantCulture);
+                nudQuantity.Maximum = QuantityDecimal;
+            }
+            catch (FormatException)
+            {
+            }
         }
 
         private void btnAddToCart_Click(object sender, EventArgs e)
         {
-            MySqlConnection connection = null;
+            String sentInfo = "";
+            MySqlConnection connection = new MySqlConnection(con);
+            connection.Open();
+            MySqlCommand command = connection.CreateCommand();
+            command.Connection = connection;
             try
             {
-                connection = new MySqlConnection(con);
-                connection.Open();
-                MySqlCommand cmd = connection.CreateCommand();
-                cmd.CommandText = "INSERT INTO tblItems VALUES('" + lblItemIdGetter.Text + "', '" + cbItemName.Text + "', '" + cbCategoryName.Text + "', '" + lblItemPriceGetter.Text + "', '" + nudQuantity.Text + "')";
-                cmd.ExecuteNonQuery();
-                MessageBox.Show("Item Category ID: " + lblItemIdGetter.Text + " is successfully updated");
-                lblItemIdGetter.Text = "/";
+                command.CommandText = "CALL tingen('" + lblItemIdGetter.Text + "');";
+                MySqlDataReader dr = command.ExecuteReader();
+                while (dr.Read())
+                {
+                    sentInfo = dr["isMatch"].ToString();
+                }
+                dr.Close();
             }
             catch (Exception z)
             {
-                MessageBox.Show("Connection Problem");
+                MessageBox.Show(z.Message);
             }
             finally
             {
@@ -160,7 +172,82 @@ namespace ITP104_TechShop
                     connection.Close();
                 }
             }
+
+            if (lblStocksChecker.Text == "Out Of Stock")
+            {
+                MessageBox.Show("Can't add out of stock items");
+            }
+            else
+            {
+                MySqlCommand cmd = connection.CreateCommand();
+               
+                if (sentInfo == "1")
+                {
+                    connection.Open();
+                    try
+                    {
+                        String getTotalPrice = "", getQuantity = "";
+                        command.CommandText = "SELECT cart_TotalPrice,cart_Quantity FROM tblCart WHERE cart_itemID = '" + lblItemIdGetter.Text + "';";
+                        MySqlDataReader dr = command.ExecuteReader();
+                        while (dr.Read())
+                        {
+                            getTotalPrice = dr["cart_TotalPrice"].ToString();
+                            getQuantity = dr["cart_Quantity"].ToString();
+                        }
+                        dr.Close();
+                        decimal totalPriceGetter = decimal.Parse(lblTotalPriceGetter.Text, CultureInfo.InvariantCulture);
+                        decimal totalPrice = decimal.Parse(getTotalPrice, CultureInfo.InvariantCulture);
+                        decimal quantityGetter = decimal.Parse(nudQuantity.Text, CultureInfo.InvariantCulture);
+                        decimal quantity = decimal.Parse(getQuantity, CultureInfo.InvariantCulture);
+
+                        totalPriceGetter = totalPriceGetter + totalPrice;
+                        quantityGetter = quantityGetter + quantity;
+
+                        command.CommandText = "UPDATE tblCart SET cart_item = '" + cbItemName.Text + "',cart_itemCategory = '" + cbCategoryName.Text + "',cart_itemPrice = '" + lblItemPriceGetter.Text + "', cart_Quantity = '" + quantityGetter + "',cart_TotalPrice = '" + totalPriceGetter + "' WHERE cart_itemID = '" + lblItemIdGetter.Text + "';";
+                        command.ExecuteNonQuery();
+                        MessageBox.Show("Item added successfully");
+                    }
+                    catch (Exception z)
+                    {
+                        MessageBox.Show(z.Message);
+                    }
+                    finally
+                    {
+                        if (connection.State == ConnectionState.Open)
+                        {
+                            connection.Close();
+                        }
+                    }
+                }
+                else
+                {
+                    connection.Open();
+                    try
+                    {
+                        command.CommandText = "INSERT INTO tblCart VALUES('" + lblItemIdGetter.Text + "', '" + cbItemName.Text + "','" + cbCategoryName.Text + "', '" + lblItemPriceGetter.Text + "', '" + nudQuantity.Text + "', '" + lblTotalPriceGetter.Text + "');";
+                        command.ExecuteNonQuery();                       
+                        MessageBox.Show("Item added successfully");
+                    }
+                    catch (Exception z)
+                    {
+                        MessageBox.Show(z.Message);
+                    }
+                    finally
+                    {
+                        if (connection.State == ConnectionState.Open)
+                        {
+                            connection.Close();
+                        }
+                    }
+                }
+                cmd.CommandText = "SELECT * FROM tblCart";
+                MySqlDataAdapter adap = new MySqlDataAdapter(cmd);
+                DataSet ds = new DataSet();
+                adap.Fill(ds);
+                dgvCart.DataSource = ds.Tables[0].DefaultView;
+            }
         }
+
         private void showTblCart()
         {
             MySqlConnection connection = null;
@@ -175,9 +262,9 @@ namespace ITP104_TechShop
                 adap.Fill(ds);
                 dgvCart.DataSource = ds.Tables[0].DefaultView;
             }
-            catch (MySqlException)
+            catch (Exception z)
             {
-                
+                MessageBox.Show(z.Message);
             }
             finally
             {
@@ -185,6 +272,21 @@ namespace ITP104_TechShop
                 {
                     connection.Close();
                 }
+            }
+        }
+
+        private void nudQuantity_ValueChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                double priceDecimal = double.Parse(lblItemPriceGetter.Text, CultureInfo.InvariantCulture);
+                double quantityDecimal = double.Parse(nudQuantity.Text, CultureInfo.InvariantCulture);
+
+                double totalPrice = priceDecimal * quantityDecimal;
+                lblTotalPriceGetter.Text = totalPrice.ToString();
+            }
+            catch (FormatException)
+            {
             }
         }
     }

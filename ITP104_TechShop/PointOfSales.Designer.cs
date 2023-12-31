@@ -32,11 +32,10 @@
             lblItemPriceGetter = new Label();
             label7 = new Label();
             lblItemIdGetter = new Label();
+            btnCheckOut = new Button();
             label6 = new Label();
             lblStocksChecker = new Label();
             label5 = new Label();
-            dgvCart = new DataGridView();
-            btnCheckOut = new Button();
             btnAddToCart = new Button();
             label3 = new Label();
             cbCategoryName = new ComboBox();
@@ -44,15 +43,20 @@
             label1 = new Label();
             nudQuantity = new NumericUpDown();
             cbItemName = new ComboBox();
+            dgvCart = new DataGridView();
             rtbReceipt = new RichTextBox();
             label4 = new Label();
+            label8 = new Label();
+            lblTotalPriceGetter = new Label();
             groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)dgvCart).BeginInit();
             ((System.ComponentModel.ISupportInitialize)nudQuantity).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dgvCart).BeginInit();
             SuspendLayout();
             // 
             // groupBox1
             // 
+            groupBox1.Controls.Add(lblTotalPriceGetter);
+            groupBox1.Controls.Add(label8);
             groupBox1.Controls.Add(lblItemPriceGetter);
             groupBox1.Controls.Add(label7);
             groupBox1.Controls.Add(lblItemIdGetter);
@@ -77,7 +81,7 @@
             // lblItemPriceGetter
             // 
             lblItemPriceGetter.AutoSize = true;
-            lblItemPriceGetter.Location = new Point(48, 155);
+            lblItemPriceGetter.Location = new Point(95, 155);
             lblItemPriceGetter.Name = "lblItemPriceGetter";
             lblItemPriceGetter.Size = new Size(13, 15);
             lblItemPriceGetter.TabIndex = 39;
@@ -88,9 +92,9 @@
             label7.AutoSize = true;
             label7.Location = new Point(6, 155);
             label7.Name = "label7";
-            label7.Size = new Size(36, 15);
+            label7.Size = new Size(83, 15);
             label7.TabIndex = 38;
-            label7.Text = "Price:";
+            label7.Text = "Price Per Item:";
             // 
             // lblItemIdGetter
             // 
@@ -100,6 +104,16 @@
             lblItemIdGetter.Size = new Size(12, 15);
             lblItemIdGetter.TabIndex = 37;
             lblItemIdGetter.Text = "/";
+            // 
+            // btnCheckOut
+            // 
+            btnCheckOut.Location = new Point(6, 307);
+            btnCheckOut.Name = "btnCheckOut";
+            btnCheckOut.Size = new Size(299, 32);
+            btnCheckOut.TabIndex = 10;
+            btnCheckOut.Text = "Checkout";
+            btnCheckOut.UseVisualStyleBackColor = true;
+            btnCheckOut.Click += btnCheckOut_Click;
             // 
             // label6
             // 
@@ -127,27 +141,6 @@
             label5.Size = new Size(95, 15);
             label5.TabIndex = 34;
             label5.Text = "Stocks Available:";
-            // 
-            // dgvCart
-            // 
-            dgvCart.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            dgvCart.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvCart.EditMode = DataGridViewEditMode.EditProgrammatically;
-            dgvCart.Location = new Point(12, 363);
-            dgvCart.Name = "dgvCart";
-            dgvCart.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dgvCart.Size = new Size(579, 141);
-            dgvCart.TabIndex = 33;
-            // 
-            // btnCheckOut
-            // 
-            btnCheckOut.Location = new Point(6, 307);
-            btnCheckOut.Name = "btnCheckOut";
-            btnCheckOut.Size = new Size(299, 32);
-            btnCheckOut.TabIndex = 10;
-            btnCheckOut.Text = "Checkout";
-            btnCheckOut.UseVisualStyleBackColor = true;
-            btnCheckOut.Click += btnCheckOut_Click;
             // 
             // btnAddToCart
             // 
@@ -203,6 +196,7 @@
             nudQuantity.Size = new Size(64, 23);
             nudQuantity.TabIndex = 15;
             nudQuantity.Value = new decimal(new int[] { 1, 0, 0, 0 });
+            nudQuantity.ValueChanged += nudQuantity_ValueChanged;
             // 
             // cbItemName
             // 
@@ -214,6 +208,17 @@
             cbItemName.TabIndex = 10;
             cbItemName.Tag = "";
             cbItemName.SelectedIndexChanged += cbItemName_SelectedIndexChanged;
+            // 
+            // dgvCart
+            // 
+            dgvCart.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dgvCart.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvCart.EditMode = DataGridViewEditMode.EditProgrammatically;
+            dgvCart.Location = new Point(12, 363);
+            dgvCart.Name = "dgvCart";
+            dgvCart.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dgvCart.Size = new Size(579, 141);
+            dgvCart.TabIndex = 33;
             // 
             // rtbReceipt
             // 
@@ -232,6 +237,24 @@
             label4.TabIndex = 34;
             label4.Text = "Receipt:";
             // 
+            // label8
+            // 
+            label8.AutoSize = true;
+            label8.Location = new Point(137, 229);
+            label8.Name = "label8";
+            label8.Size = new Size(64, 15);
+            label8.TabIndex = 40;
+            label8.Text = "Total Price:";
+            // 
+            // lblTotalPriceGetter
+            // 
+            lblTotalPriceGetter.AutoSize = true;
+            lblTotalPriceGetter.Location = new Point(207, 229);
+            lblTotalPriceGetter.Name = "lblTotalPriceGetter";
+            lblTotalPriceGetter.Size = new Size(13, 15);
+            lblTotalPriceGetter.TabIndex = 41;
+            lblTotalPriceGetter.Text = "0";
+            // 
             // frmPointOfSales
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -246,8 +269,8 @@
             Load += frmPointOfSales_Load;
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)dgvCart).EndInit();
             ((System.ComponentModel.ISupportInitialize)nudQuantity).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dgvCart).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -271,5 +294,7 @@
         private Label lblItemIdGetter;
         private Label lblItemPriceGetter;
         private Label label7;
+        private Label lblTotalPriceGetter;
+        private Label label8;
     }
 }
