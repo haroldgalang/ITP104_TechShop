@@ -70,7 +70,7 @@
             dgvDelivery.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dgvDelivery.Size = new Size(711, 201);
             dgvDelivery.TabIndex = 0;
-            dgvDelivery.CellContentClick += dgvDelivery_CellContentClick;
+            dgvDelivery.CellClick += dgvDelivery_CellClick;
             // 
             // dateTimePicker1
             // 

@@ -43,9 +43,11 @@
             panel3 = new Panel();
             label2 = new Label();
             label1 = new Label();
+            panel5 = new Panel();
             ((System.ComponentModel.ISupportInitialize)dgvInventory).BeginInit();
             panel1.SuspendLayout();
             panel3.SuspendLayout();
+            panel5.SuspendLayout();
             SuspendLayout();
             // 
             // dgvInventory
@@ -53,10 +55,10 @@
             dgvInventory.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgvInventory.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvInventory.EditMode = DataGridViewEditMode.EditProgrammatically;
-            dgvInventory.Location = new Point(178, 259);
+            dgvInventory.Location = new Point(16, 26);
             dgvInventory.Name = "dgvInventory";
             dgvInventory.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dgvInventory.Size = new Size(656, 262);
+            dgvInventory.Size = new Size(713, 320);
             dgvInventory.TabIndex = 0;
             // 
             // btnHome
@@ -236,6 +238,15 @@
             label1.TabIndex = 0;
             label1.Text = "GamersUnite";
             // 
+            // panel5
+            // 
+            panel5.BackColor = Color.FromArgb(33, 33, 33);
+            panel5.Controls.Add(dgvInventory);
+            panel5.Location = new Point(142, 138);
+            panel5.Name = "panel5";
+            panel5.Size = new Size(741, 369);
+            panel5.TabIndex = 28;
+            // 
             // frmInventory
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -245,7 +256,7 @@
             Controls.Add(panel3);
             Controls.Add(panel2);
             Controls.Add(panel1);
-            Controls.Add(dgvInventory);
+            Controls.Add(panel5);
             Name = "frmInventory";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Inventory";
@@ -254,6 +265,7 @@
             panel1.ResumeLayout(false);
             panel3.ResumeLayout(false);
             panel3.PerformLayout();
+            panel5.ResumeLayout(false);
             ResumeLayout(false);
         }
 
@@ -274,5 +286,6 @@
         private Label label2;
         private Label label1;
         private Panel panel4;
+        private Panel panel5;
     }
 }

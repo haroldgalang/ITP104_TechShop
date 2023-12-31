@@ -43,9 +43,11 @@
             panel3 = new Panel();
             label2 = new Label();
             label1 = new Label();
+            panel5 = new Panel();
             ((System.ComponentModel.ISupportInitialize)dgvSales).BeginInit();
             panel1.SuspendLayout();
             panel3.SuspendLayout();
+            panel5.SuspendLayout();
             SuspendLayout();
             // 
             // dgvSales
@@ -53,10 +55,10 @@
             dgvSales.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgvSales.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvSales.EditMode = DataGridViewEditMode.EditProgrammatically;
-            dgvSales.Location = new Point(205, 302);
+            dgvSales.Location = new Point(16, 26);
             dgvSales.Name = "dgvSales";
             dgvSales.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dgvSales.Size = new Size(606, 231);
+            dgvSales.Size = new Size(713, 320);
             dgvSales.TabIndex = 0;
             // 
             // btnHome
@@ -237,16 +239,25 @@
             label1.TabIndex = 0;
             label1.Text = "GamersUnite";
             // 
+            // panel5
+            // 
+            panel5.BackColor = Color.FromArgb(33, 33, 33);
+            panel5.Controls.Add(dgvSales);
+            panel5.Location = new Point(142, 138);
+            panel5.Name = "panel5";
+            panel5.Size = new Size(741, 369);
+            panel5.TabIndex = 47;
+            // 
             // frmSales
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(66, 66, 66);
             ClientSize = new Size(883, 556);
+            Controls.Add(panel5);
             Controls.Add(panel3);
             Controls.Add(panel2);
             Controls.Add(panel1);
-            Controls.Add(dgvSales);
             Name = "frmSales";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Sales";
@@ -255,6 +266,7 @@
             panel1.ResumeLayout(false);
             panel3.ResumeLayout(false);
             panel3.PerformLayout();
+            panel5.ResumeLayout(false);
             ResumeLayout(false);
         }
 
@@ -275,5 +287,6 @@
         private Label label2;
         private Label label1;
         private Panel panel4;
+        private Panel panel5;
     }
 }

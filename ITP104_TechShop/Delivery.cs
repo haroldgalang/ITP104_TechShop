@@ -48,7 +48,7 @@ namespace ITP104_TechShop
             }
         }
 
-        private void dgvDelivery_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void dgvDelivery_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             var row = dgvDelivery.CurrentRow;
             if (dgvDelivery.CurrentCell != null)
@@ -173,6 +173,5 @@ namespace ITP104_TechShop
             frm.ShowDialog();
             this.Close();
         }
-
     }
 }

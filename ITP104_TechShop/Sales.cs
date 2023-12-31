@@ -29,7 +29,7 @@ namespace ITP104_TechShop
                 connection = new MySqlConnection(con);
                 connection.Open();
                 MySqlCommand cmd = connection.CreateCommand();
-                cmd.CommandText = "SELECT * FROM tblInventory";
+                cmd.CommandText = "SELECT * FROM tblSales";
                 MySqlDataAdapter adap = new MySqlDataAdapter(cmd);
                 DataSet ds = new DataSet();
                 adap.Fill(ds);
