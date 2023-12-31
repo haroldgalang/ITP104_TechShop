@@ -60,11 +60,13 @@
             panel3 = new Panel();
             label4 = new Label();
             label9 = new Label();
+            panel5 = new Panel();
             groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgvCart).BeginInit();
             ((System.ComponentModel.ISupportInitialize)nudQuantity).BeginInit();
             panel1.SuspendLayout();
             panel3.SuspendLayout();
+            panel5.SuspendLayout();
             SuspendLayout();
             // 
             // groupBox1
@@ -86,9 +88,9 @@
             groupBox1.Controls.Add(label1);
             groupBox1.Controls.Add(nudQuantity);
             groupBox1.Controls.Add(cbItemName);
-            groupBox1.Location = new Point(429, 105);
+            groupBox1.Location = new Point(37, 39);
             groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(311, 345);
+            groupBox1.Size = new Size(677, 298);
             groupBox1.TabIndex = 1;
             groupBox1.TabStop = false;
             groupBox1.Text = "Computer Components";
@@ -98,7 +100,7 @@
             dgvCart.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgvCart.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvCart.EditMode = DataGridViewEditMode.EditProgrammatically;
-            dgvCart.Location = new Point(295, 110);
+            dgvCart.Location = new Point(667, 288);
             dgvCart.Name = "dgvCart";
             dgvCart.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dgvCart.Size = new Size(10, 10);
@@ -108,7 +110,7 @@
             // lblTotalPriceGetter
             // 
             lblTotalPriceGetter.AutoSize = true;
-            lblTotalPriceGetter.Location = new Point(207, 229);
+            lblTotalPriceGetter.Location = new Point(417, 112);
             lblTotalPriceGetter.Name = "lblTotalPriceGetter";
             lblTotalPriceGetter.Size = new Size(13, 15);
             lblTotalPriceGetter.TabIndex = 41;
@@ -117,7 +119,7 @@
             // label8
             // 
             label8.AutoSize = true;
-            label8.Location = new Point(137, 229);
+            label8.Location = new Point(335, 112);
             label8.Name = "label8";
             label8.Size = new Size(64, 15);
             label8.TabIndex = 40;
@@ -126,7 +128,7 @@
             // lblItemPriceGetter
             // 
             lblItemPriceGetter.AutoSize = true;
-            lblItemPriceGetter.Location = new Point(95, 155);
+            lblItemPriceGetter.Location = new Point(424, 36);
             lblItemPriceGetter.Name = "lblItemPriceGetter";
             lblItemPriceGetter.Size = new Size(13, 15);
             lblItemPriceGetter.TabIndex = 39;
@@ -135,7 +137,7 @@
             // label7
             // 
             label7.AutoSize = true;
-            label7.Location = new Point(6, 155);
+            label7.Location = new Point(335, 36);
             label7.Name = "label7";
             label7.Size = new Size(83, 15);
             label7.TabIndex = 38;
@@ -144,7 +146,7 @@
             // lblItemIdGetter
             // 
             lblItemIdGetter.AutoSize = true;
-            lblItemIdGetter.Location = new Point(60, 117);
+            lblItemIdGetter.Location = new Point(68, 157);
             lblItemIdGetter.Name = "lblItemIdGetter";
             lblItemIdGetter.Size = new Size(12, 15);
             lblItemIdGetter.TabIndex = 37;
@@ -152,7 +154,7 @@
             // 
             // btnCheckOut
             // 
-            btnCheckOut.Location = new Point(6, 307);
+            btnCheckOut.Location = new Point(21, 234);
             btnCheckOut.Name = "btnCheckOut";
             btnCheckOut.Size = new Size(299, 32);
             btnCheckOut.TabIndex = 10;
@@ -163,7 +165,7 @@
             // label6
             // 
             label6.AutoSize = true;
-            label6.Location = new Point(6, 117);
+            label6.Location = new Point(14, 157);
             label6.Name = "label6";
             label6.Size = new Size(48, 15);
             label6.TabIndex = 36;
@@ -172,7 +174,7 @@
             // lblStocksChecker
             // 
             lblStocksChecker.AutoSize = true;
-            lblStocksChecker.Location = new Point(107, 190);
+            lblStocksChecker.Location = new Point(115, 206);
             lblStocksChecker.Name = "lblStocksChecker";
             lblStocksChecker.Size = new Size(12, 15);
             lblStocksChecker.TabIndex = 35;
@@ -181,7 +183,7 @@
             // label5
             // 
             label5.AutoSize = true;
-            label5.Location = new Point(6, 190);
+            label5.Location = new Point(14, 206);
             label5.Name = "label5";
             label5.Size = new Size(95, 15);
             label5.TabIndex = 34;
@@ -189,7 +191,7 @@
             // 
             // btnAddToCart
             // 
-            btnAddToCart.Location = new Point(6, 269);
+            btnAddToCart.Location = new Point(356, 234);
             btnAddToCart.Name = "btnAddToCart";
             btnAddToCart.Size = new Size(299, 32);
             btnAddToCart.TabIndex = 32;
@@ -201,7 +203,7 @@
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(6, 19);
+            label3.Location = new Point(14, 36);
             label3.Name = "label3";
             label3.Size = new Size(89, 15);
             label3.TabIndex = 23;
@@ -211,7 +213,7 @@
             // 
             cbCategoryName.DropDownStyle = ComboBoxStyle.DropDownList;
             cbCategoryName.FormattingEnabled = true;
-            cbCategoryName.Location = new Point(6, 37);
+            cbCategoryName.Location = new Point(14, 54);
             cbCategoryName.Name = "cbCategoryName";
             cbCategoryName.Size = new Size(299, 23);
             cbCategoryName.TabIndex = 22;
@@ -220,7 +222,7 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(8, 229);
+            label2.Location = new Point(335, 206);
             label2.Name = "label2";
             label2.Size = new Size(53, 15);
             label2.TabIndex = 21;
@@ -229,7 +231,7 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(6, 63);
+            label1.Location = new Point(14, 94);
             label1.Name = "label1";
             label1.Size = new Size(65, 15);
             label1.TabIndex = 20;
@@ -237,7 +239,7 @@
             // 
             // nudQuantity
             // 
-            nudQuantity.Location = new Point(67, 227);
+            nudQuantity.Location = new Point(394, 204);
             nudQuantity.Minimum = new decimal(new int[] { 1, 0, 0, 0 });
             nudQuantity.Name = "nudQuantity";
             nudQuantity.Size = new Size(64, 23);
@@ -249,7 +251,7 @@
             // 
             cbItemName.DropDownStyle = ComboBoxStyle.DropDownList;
             cbItemName.FormattingEnabled = true;
-            cbItemName.Location = new Point(6, 81);
+            cbItemName.Location = new Point(14, 112);
             cbItemName.Name = "cbItemName";
             cbItemName.Size = new Size(299, 23);
             cbItemName.TabIndex = 10;
@@ -433,6 +435,15 @@
             label9.TabIndex = 0;
             label9.Text = "GamersUnite";
             // 
+            // panel5
+            // 
+            panel5.BackColor = Color.FromArgb(33, 33, 33);
+            panel5.Controls.Add(groupBox1);
+            panel5.Location = new Point(142, 138);
+            panel5.Name = "panel5";
+            panel5.Size = new Size(741, 369);
+            panel5.TabIndex = 29;
+            // 
             // frmPointOfSales
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -442,7 +453,7 @@
             Controls.Add(panel3);
             Controls.Add(panel2);
             Controls.Add(panel1);
-            Controls.Add(groupBox1);
+            Controls.Add(panel5);
             Name = "frmPointOfSales";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Point Of Sales";
@@ -454,6 +465,7 @@
             panel1.ResumeLayout(false);
             panel3.ResumeLayout(false);
             panel3.PerformLayout();
+            panel5.ResumeLayout(false);
             ResumeLayout(false);
         }
 
@@ -490,5 +502,6 @@
         private Label label4;
         private Label label9;
         private Panel panel4;
+        private Panel panel5;
     }
 }
