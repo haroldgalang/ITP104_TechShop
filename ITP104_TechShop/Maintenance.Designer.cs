@@ -81,6 +81,7 @@
             panel3 = new Panel();
             label2 = new Label();
             label1 = new Label();
+            panel5 = new Panel();
             groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgvUsers).BeginInit();
             groupBox2.SuspendLayout();
@@ -91,16 +92,20 @@
             ((System.ComponentModel.ISupportInitialize)dgvSuppliers).BeginInit();
             panel1.SuspendLayout();
             panel3.SuspendLayout();
+            panel5.SuspendLayout();
             SuspendLayout();
             // 
             // btnEditUser
             // 
+            btnEditUser.BackColor = Color.FromArgb(0, 137, 123);
+            btnEditUser.FlatAppearance.BorderSize = 0;
+            btnEditUser.FlatStyle = FlatStyle.Flat;
             btnEditUser.Location = new Point(6, 155);
             btnEditUser.Name = "btnEditUser";
             btnEditUser.Size = new Size(59, 26);
             btnEditUser.TabIndex = 1;
             btnEditUser.Text = "Edit";
-            btnEditUser.UseVisualStyleBackColor = true;
+            btnEditUser.UseVisualStyleBackColor = false;
             btnEditUser.Click += btnEditUser_Click;
             // 
             // txtPassword
@@ -108,7 +113,7 @@
             txtPassword.Location = new Point(6, 110);
             txtPassword.Name = "txtPassword";
             txtPassword.PlaceholderText = "Password";
-            txtPassword.Size = new Size(204, 23);
+            txtPassword.Size = new Size(204, 22);
             txtPassword.TabIndex = 5;
             // 
             // txtUsername
@@ -116,7 +121,7 @@
             txtUsername.Location = new Point(6, 69);
             txtUsername.Name = "txtUsername";
             txtUsername.PlaceholderText = "Username";
-            txtUsername.Size = new Size(204, 23);
+            txtUsername.Size = new Size(204, 22);
             txtUsername.TabIndex = 6;
             // 
             // groupBox1
@@ -127,7 +132,9 @@
             groupBox1.Controls.Add(txtPassword);
             groupBox1.Controls.Add(btnEditUser);
             groupBox1.Controls.Add(btnShowTblUser);
-            groupBox1.Location = new Point(190, 357);
+            groupBox1.Font = new Font("Century Gothic", 9F);
+            groupBox1.ForeColor = Color.White;
+            groupBox1.Location = new Point(34, 227);
             groupBox1.Name = "groupBox1";
             groupBox1.Size = new Size(219, 187);
             groupBox1.TabIndex = 12;
@@ -136,42 +143,54 @@
             // 
             // btnDeleteUser
             // 
+            btnDeleteUser.BackColor = Color.FromArgb(0, 137, 123);
+            btnDeleteUser.FlatAppearance.BorderSize = 0;
+            btnDeleteUser.FlatStyle = FlatStyle.Flat;
             btnDeleteUser.Location = new Point(151, 155);
             btnDeleteUser.Name = "btnDeleteUser";
             btnDeleteUser.Size = new Size(59, 26);
             btnDeleteUser.TabIndex = 20;
             btnDeleteUser.Text = "Delete";
-            btnDeleteUser.UseVisualStyleBackColor = true;
+            btnDeleteUser.UseVisualStyleBackColor = false;
             btnDeleteUser.Click += btnDeleteUser_Click;
             // 
             // btnAddUser
             // 
+            btnAddUser.BackColor = Color.FromArgb(0, 137, 123);
+            btnAddUser.FlatAppearance.BorderSize = 0;
+            btnAddUser.FlatStyle = FlatStyle.Flat;
             btnAddUser.Location = new Point(71, 155);
             btnAddUser.Name = "btnAddUser";
             btnAddUser.Size = new Size(74, 26);
             btnAddUser.TabIndex = 9;
             btnAddUser.Text = "+";
-            btnAddUser.UseVisualStyleBackColor = true;
+            btnAddUser.UseVisualStyleBackColor = false;
             btnAddUser.Click += btnAddUser_Click;
             // 
             // btnShowTblUser
             // 
+            btnShowTblUser.BackColor = Color.FromArgb(0, 137, 123);
+            btnShowTblUser.FlatAppearance.BorderSize = 0;
+            btnShowTblUser.FlatStyle = FlatStyle.Flat;
             btnShowTblUser.Location = new Point(0, 22);
             btnShowTblUser.Name = "btnShowTblUser";
             btnShowTblUser.Size = new Size(118, 26);
             btnShowTblUser.TabIndex = 7;
             btnShowTblUser.Text = "Show Table";
-            btnShowTblUser.UseVisualStyleBackColor = true;
+            btnShowTblUser.UseVisualStyleBackColor = false;
             btnShowTblUser.Click += btnShowTblUser_Click;
             // 
             // btnShowTblCategory
             // 
+            btnShowTblCategory.BackColor = Color.FromArgb(0, 137, 123);
+            btnShowTblCategory.FlatAppearance.BorderSize = 0;
+            btnShowTblCategory.FlatStyle = FlatStyle.Flat;
             btnShowTblCategory.Location = new Point(0, 22);
             btnShowTblCategory.Name = "btnShowTblCategory";
             btnShowTblCategory.Size = new Size(118, 26);
             btnShowTblCategory.TabIndex = 7;
             btnShowTblCategory.Text = "Show Table";
-            btnShowTblCategory.UseVisualStyleBackColor = true;
+            btnShowTblCategory.UseVisualStyleBackColor = false;
             btnShowTblCategory.Click += btnShowTblCategory_Click;
             // 
             // dgvUsers
@@ -179,7 +198,7 @@
             dgvUsers.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgvUsers.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvUsers.EditMode = DataGridViewEditMode.EditProgrammatically;
-            dgvUsers.Location = new Point(420, 357);
+            dgvUsers.Location = new Point(264, 227);
             dgvUsers.Name = "dgvUsers";
             dgvUsers.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dgvUsers.Size = new Size(451, 187);
@@ -195,7 +214,9 @@
             groupBox2.Controls.Add(btnShowTblCategory);
             groupBox2.Controls.Add(btnAddCategory);
             groupBox2.Controls.Add(btnEditCategory);
-            groupBox2.Location = new Point(190, 149);
+            groupBox2.Font = new Font("Century Gothic", 9F);
+            groupBox2.ForeColor = Color.White;
+            groupBox2.Location = new Point(34, 19);
             groupBox2.Name = "groupBox2";
             groupBox2.Size = new Size(219, 187);
             groupBox2.TabIndex = 13;
@@ -207,18 +228,21 @@
             lblCategoryIdGetter.AutoSize = true;
             lblCategoryIdGetter.Location = new Point(87, 69);
             lblCategoryIdGetter.Name = "lblCategoryIdGetter";
-            lblCategoryIdGetter.Size = new Size(12, 15);
+            lblCategoryIdGetter.Size = new Size(13, 17);
             lblCategoryIdGetter.TabIndex = 19;
             lblCategoryIdGetter.Text = "/";
             // 
             // btnDeleteCatergory
             // 
+            btnDeleteCatergory.BackColor = Color.FromArgb(0, 137, 123);
+            btnDeleteCatergory.FlatAppearance.BorderSize = 0;
+            btnDeleteCatergory.FlatStyle = FlatStyle.Flat;
             btnDeleteCatergory.Location = new Point(151, 155);
             btnDeleteCatergory.Name = "btnDeleteCatergory";
             btnDeleteCatergory.Size = new Size(59, 26);
             btnDeleteCatergory.TabIndex = 18;
             btnDeleteCatergory.Text = "Delete";
-            btnDeleteCatergory.UseVisualStyleBackColor = true;
+            btnDeleteCatergory.UseVisualStyleBackColor = false;
             btnDeleteCatergory.Click += btnDeleteCatergory_Click;
             // 
             // lblCategoryID
@@ -226,7 +250,7 @@
             lblCategoryID.AutoSize = true;
             lblCategoryID.Location = new Point(6, 69);
             lblCategoryID.Name = "lblCategoryID";
-            lblCategoryID.Size = new Size(75, 15);
+            lblCategoryID.Size = new Size(85, 17);
             lblCategoryID.TabIndex = 17;
             lblCategoryID.Text = "Category ID: ";
             lblCategoryID.TextAlign = ContentAlignment.MiddleRight;
@@ -236,37 +260,46 @@
             txtCategoryName.Location = new Point(6, 98);
             txtCategoryName.Name = "txtCategoryName";
             txtCategoryName.PlaceholderText = "Category Name";
-            txtCategoryName.Size = new Size(204, 23);
+            txtCategoryName.Size = new Size(204, 22);
             txtCategoryName.TabIndex = 10;
             // 
             // btnAddCategory
             // 
+            btnAddCategory.BackColor = Color.FromArgb(0, 137, 123);
+            btnAddCategory.FlatAppearance.BorderSize = 0;
+            btnAddCategory.FlatStyle = FlatStyle.Flat;
             btnAddCategory.Location = new Point(71, 155);
             btnAddCategory.Name = "btnAddCategory";
             btnAddCategory.Size = new Size(74, 26);
             btnAddCategory.TabIndex = 9;
             btnAddCategory.Text = "+";
-            btnAddCategory.UseVisualStyleBackColor = true;
+            btnAddCategory.UseVisualStyleBackColor = false;
             btnAddCategory.Click += btnAddCategory_Click;
             // 
             // btnEditCategory
             // 
+            btnEditCategory.BackColor = Color.FromArgb(0, 137, 123);
+            btnEditCategory.FlatAppearance.BorderSize = 0;
+            btnEditCategory.FlatStyle = FlatStyle.Flat;
             btnEditCategory.Location = new Point(6, 155);
             btnEditCategory.Name = "btnEditCategory";
             btnEditCategory.Size = new Size(59, 26);
             btnEditCategory.TabIndex = 1;
             btnEditCategory.Text = "Edit";
-            btnEditCategory.UseVisualStyleBackColor = true;
+            btnEditCategory.UseVisualStyleBackColor = false;
             btnEditCategory.Click += btnEditCategory_Click;
             // 
             // btnAddSupplier
             // 
+            btnAddSupplier.BackColor = Color.FromArgb(0, 137, 123);
+            btnAddSupplier.FlatAppearance.BorderSize = 0;
+            btnAddSupplier.FlatStyle = FlatStyle.Flat;
             btnAddSupplier.Location = new Point(71, 156);
             btnAddSupplier.Name = "btnAddSupplier";
             btnAddSupplier.Size = new Size(74, 26);
             btnAddSupplier.TabIndex = 9;
             btnAddSupplier.Text = "+";
-            btnAddSupplier.UseVisualStyleBackColor = true;
+            btnAddSupplier.UseVisualStyleBackColor = false;
             btnAddSupplier.Click += btnAddSupplier_Click;
             // 
             // groupBox3
@@ -280,7 +313,9 @@
             groupBox3.Controls.Add(btnShowTblItems);
             groupBox3.Controls.Add(btnAddItem);
             groupBox3.Controls.Add(btnEditItems);
-            groupBox3.Location = new Point(420, 149);
+            groupBox3.Font = new Font("Century Gothic", 9F);
+            groupBox3.ForeColor = Color.White;
+            groupBox3.Location = new Point(264, 19);
             groupBox3.Name = "groupBox3";
             groupBox3.Size = new Size(219, 187);
             groupBox3.TabIndex = 13;
@@ -294,7 +329,7 @@
             cbCategoryName.FormattingEnabled = true;
             cbCategoryName.Location = new Point(6, 98);
             cbCategoryName.Name = "cbCategoryName";
-            cbCategoryName.Size = new Size(204, 23);
+            cbCategoryName.Size = new Size(204, 25);
             cbCategoryName.TabIndex = 21;
             // 
             // lblItemIdGetter
@@ -302,18 +337,21 @@
             lblItemIdGetter.AutoSize = true;
             lblItemIdGetter.Location = new Point(63, 51);
             lblItemIdGetter.Name = "lblItemIdGetter";
-            lblItemIdGetter.Size = new Size(12, 15);
+            lblItemIdGetter.Size = new Size(13, 17);
             lblItemIdGetter.TabIndex = 20;
             lblItemIdGetter.Text = "/";
             // 
             // btnDeleteItem
             // 
+            btnDeleteItem.BackColor = Color.FromArgb(0, 137, 123);
+            btnDeleteItem.FlatAppearance.BorderSize = 0;
+            btnDeleteItem.FlatStyle = FlatStyle.Flat;
             btnDeleteItem.Location = new Point(154, 155);
             btnDeleteItem.Name = "btnDeleteItem";
             btnDeleteItem.Size = new Size(59, 26);
             btnDeleteItem.TabIndex = 19;
             btnDeleteItem.Text = "Delete";
-            btnDeleteItem.UseVisualStyleBackColor = true;
+            btnDeleteItem.UseVisualStyleBackColor = false;
             btnDeleteItem.Click += btnDeleteItem_Click;
             // 
             // lblItemID
@@ -321,7 +359,7 @@
             lblItemID.AutoSize = true;
             lblItemID.Location = new Point(6, 51);
             lblItemID.Name = "lblItemID";
-            lblItemID.Size = new Size(51, 15);
+            lblItemID.Size = new Size(56, 17);
             lblItemID.TabIndex = 14;
             lblItemID.Text = "Item ID: ";
             lblItemID.TextAlign = ContentAlignment.MiddleRight;
@@ -331,7 +369,7 @@
             txtItemName.Location = new Point(6, 69);
             txtItemName.Name = "txtItemName";
             txtItemName.PlaceholderText = "Item Name";
-            txtItemName.Size = new Size(204, 23);
+            txtItemName.Size = new Size(204, 22);
             txtItemName.TabIndex = 13;
             // 
             // txtBasePrice
@@ -339,37 +377,46 @@
             txtBasePrice.Location = new Point(6, 127);
             txtBasePrice.Name = "txtBasePrice";
             txtBasePrice.PlaceholderText = "Base Price";
-            txtBasePrice.Size = new Size(204, 23);
+            txtBasePrice.Size = new Size(204, 22);
             txtBasePrice.TabIndex = 11;
             // 
             // btnShowTblItems
             // 
+            btnShowTblItems.BackColor = Color.FromArgb(0, 137, 123);
+            btnShowTblItems.FlatAppearance.BorderSize = 0;
+            btnShowTblItems.FlatStyle = FlatStyle.Flat;
             btnShowTblItems.Location = new Point(0, 22);
             btnShowTblItems.Name = "btnShowTblItems";
             btnShowTblItems.Size = new Size(118, 26);
             btnShowTblItems.TabIndex = 7;
             btnShowTblItems.Text = "Show Table";
-            btnShowTblItems.UseVisualStyleBackColor = true;
+            btnShowTblItems.UseVisualStyleBackColor = false;
             btnShowTblItems.Click += btnShowTblItems_Click;
             // 
             // btnAddItem
             // 
+            btnAddItem.BackColor = Color.FromArgb(0, 137, 123);
+            btnAddItem.FlatAppearance.BorderSize = 0;
+            btnAddItem.FlatStyle = FlatStyle.Flat;
             btnAddItem.Location = new Point(71, 156);
             btnAddItem.Name = "btnAddItem";
             btnAddItem.Size = new Size(77, 26);
             btnAddItem.TabIndex = 9;
             btnAddItem.Text = "+";
-            btnAddItem.UseVisualStyleBackColor = true;
+            btnAddItem.UseVisualStyleBackColor = false;
             btnAddItem.Click += btnAddItem_Click;
             // 
             // btnEditItems
             // 
+            btnEditItems.BackColor = Color.FromArgb(0, 137, 123);
+            btnEditItems.FlatAppearance.BorderSize = 0;
+            btnEditItems.FlatStyle = FlatStyle.Flat;
             btnEditItems.Location = new Point(6, 156);
             btnEditItems.Name = "btnEditItems";
             btnEditItems.Size = new Size(59, 26);
             btnEditItems.TabIndex = 1;
             btnEditItems.Text = "Edit";
-            btnEditItems.UseVisualStyleBackColor = true;
+            btnEditItems.UseVisualStyleBackColor = false;
             btnEditItems.Click += btnEditItems_Click;
             // 
             // groupBox4
@@ -383,31 +430,36 @@
             groupBox4.Controls.Add(txtSupplierContact);
             groupBox4.Controls.Add(btnShowTblSuppliers);
             groupBox4.Controls.Add(btnEditSupplier);
-            groupBox4.Location = new Point(652, 149);
+            groupBox4.Font = new Font("Century Gothic", 9F);
+            groupBox4.ForeColor = Color.White;
+            groupBox4.Location = new Point(496, 19);
             groupBox4.Name = "groupBox4";
             groupBox4.Size = new Size(219, 187);
             groupBox4.TabIndex = 15;
             groupBox4.TabStop = false;
-            groupBox4.Text = "Set Suppliers";
+            groupBox4.Text = "Set Suppliers";    
             // 
             // lblSupplierIdGetter
             // 
             lblSupplierIdGetter.AutoSize = true;
             lblSupplierIdGetter.Location = new Point(82, 51);
             lblSupplierIdGetter.Name = "lblSupplierIdGetter";
-            lblSupplierIdGetter.Size = new Size(12, 15);
+            lblSupplierIdGetter.Size = new Size(13, 17);
             lblSupplierIdGetter.TabIndex = 21;
             lblSupplierIdGetter.Text = "/";
             lblSupplierIdGetter.TextAlign = ContentAlignment.MiddleLeft;
             // 
             // btnDeleteSupplier
             // 
+            btnDeleteSupplier.BackColor = Color.FromArgb(0, 137, 123);
+            btnDeleteSupplier.FlatAppearance.BorderSize = 0;
+            btnDeleteSupplier.FlatStyle = FlatStyle.Flat;
             btnDeleteSupplier.Location = new Point(151, 155);
             btnDeleteSupplier.Name = "btnDeleteSupplier";
             btnDeleteSupplier.Size = new Size(59, 26);
             btnDeleteSupplier.TabIndex = 19;
             btnDeleteSupplier.Text = "Delete";
-            btnDeleteSupplier.UseVisualStyleBackColor = true;
+            btnDeleteSupplier.UseVisualStyleBackColor = false;
             btnDeleteSupplier.Click += btnDeleteSupplier_Click;
             // 
             // lblSupplierID
@@ -415,7 +467,7 @@
             lblSupplierID.AutoSize = true;
             lblSupplierID.Location = new Point(6, 51);
             lblSupplierID.Name = "lblSupplierID";
-            lblSupplierID.Size = new Size(70, 15);
+            lblSupplierID.Size = new Size(77, 17);
             lblSupplierID.TabIndex = 14;
             lblSupplierID.Text = "Supplier ID: ";
             // 
@@ -424,7 +476,7 @@
             txtSupplierName.Location = new Point(6, 69);
             txtSupplierName.Name = "txtSupplierName";
             txtSupplierName.PlaceholderText = "Supplier Name";
-            txtSupplierName.Size = new Size(204, 23);
+            txtSupplierName.Size = new Size(204, 22);
             txtSupplierName.TabIndex = 13;
             // 
             // txtSupplierAddress
@@ -432,7 +484,7 @@
             txtSupplierAddress.Location = new Point(6, 98);
             txtSupplierAddress.Name = "txtSupplierAddress";
             txtSupplierAddress.PlaceholderText = "Supplier Address";
-            txtSupplierAddress.Size = new Size(204, 23);
+            txtSupplierAddress.Size = new Size(204, 22);
             txtSupplierAddress.TabIndex = 12;
             // 
             // txtSupplierContact
@@ -440,27 +492,33 @@
             txtSupplierContact.Location = new Point(6, 127);
             txtSupplierContact.Name = "txtSupplierContact";
             txtSupplierContact.PlaceholderText = "Supplier Contact Number";
-            txtSupplierContact.Size = new Size(204, 23);
+            txtSupplierContact.Size = new Size(204, 22);
             txtSupplierContact.TabIndex = 11;
             // 
             // btnShowTblSuppliers
             // 
+            btnShowTblSuppliers.BackColor = Color.FromArgb(0, 137, 123);
+            btnShowTblSuppliers.FlatAppearance.BorderSize = 0;
+            btnShowTblSuppliers.FlatStyle = FlatStyle.Flat;
             btnShowTblSuppliers.Location = new Point(0, 22);
             btnShowTblSuppliers.Name = "btnShowTblSuppliers";
             btnShowTblSuppliers.Size = new Size(118, 26);
             btnShowTblSuppliers.TabIndex = 7;
             btnShowTblSuppliers.Text = "Show Table";
-            btnShowTblSuppliers.UseVisualStyleBackColor = true;
+            btnShowTblSuppliers.UseVisualStyleBackColor = false;
             btnShowTblSuppliers.Click += btnShowTblSuppliers_Click;
             // 
             // btnEditSupplier
             // 
+            btnEditSupplier.BackColor = Color.FromArgb(0, 137, 123);
+            btnEditSupplier.FlatAppearance.BorderSize = 0;
+            btnEditSupplier.FlatStyle = FlatStyle.Flat;
             btnEditSupplier.Location = new Point(6, 156);
             btnEditSupplier.Name = "btnEditSupplier";
             btnEditSupplier.Size = new Size(59, 26);
             btnEditSupplier.TabIndex = 1;
             btnEditSupplier.Text = "Edit";
-            btnEditSupplier.UseVisualStyleBackColor = true;
+            btnEditSupplier.UseVisualStyleBackColor = false;
             btnEditSupplier.Click += btnEditSupplier_Click;
             // 
             // btnHome
@@ -482,7 +540,7 @@
             dgvItemCategory.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgvItemCategory.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvItemCategory.EditMode = DataGridViewEditMode.EditProgrammatically;
-            dgvItemCategory.Location = new Point(420, 357);
+            dgvItemCategory.Location = new Point(264, 227);
             dgvItemCategory.Name = "dgvItemCategory";
             dgvItemCategory.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dgvItemCategory.Size = new Size(451, 187);
@@ -495,7 +553,7 @@
             dgvItems.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgvItems.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvItems.EditMode = DataGridViewEditMode.EditProgrammatically;
-            dgvItems.Location = new Point(420, 357);
+            dgvItems.Location = new Point(264, 227);
             dgvItems.Name = "dgvItems";
             dgvItems.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dgvItems.Size = new Size(451, 187);
@@ -508,7 +566,7 @@
             dgvSuppliers.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgvSuppliers.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvSuppliers.EditMode = DataGridViewEditMode.EditProgrammatically;
-            dgvSuppliers.Location = new Point(420, 357);
+            dgvSuppliers.Location = new Point(264, 227);
             dgvSuppliers.Name = "dgvSuppliers";
             dgvSuppliers.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dgvSuppliers.Size = new Size(451, 187);
@@ -679,6 +737,22 @@
             label1.TabIndex = 0;
             label1.Text = "GamersUnite";
             // 
+            // panel5
+            // 
+            panel5.BackColor = Color.FromArgb(33, 33, 33);
+            panel5.Controls.Add(groupBox2);
+            panel5.Controls.Add(groupBox1);
+            panel5.Controls.Add(groupBox3);
+            panel5.Controls.Add(dgvUsers);
+            panel5.Controls.Add(dgvItemCategory);
+            panel5.Controls.Add(dgvItems);
+            panel5.Controls.Add(dgvSuppliers);
+            panel5.Controls.Add(groupBox4);
+            panel5.Location = new Point(142, 106);
+            panel5.Name = "panel5";
+            panel5.Size = new Size(741, 438);
+            panel5.TabIndex = 27;
+            // 
             // frmMaintenance
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -688,14 +762,7 @@
             Controls.Add(panel3);
             Controls.Add(panel2);
             Controls.Add(panel1);
-            Controls.Add(dgvSuppliers);
-            Controls.Add(dgvItems);
-            Controls.Add(dgvItemCategory);
-            Controls.Add(groupBox4);
-            Controls.Add(groupBox3);
-            Controls.Add(groupBox2);
-            Controls.Add(dgvUsers);
-            Controls.Add(groupBox1);
+            Controls.Add(panel5);
             Name = "frmMaintenance";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Maintenance";
@@ -715,6 +782,7 @@
             panel1.ResumeLayout(false);
             panel3.ResumeLayout(false);
             panel3.PerformLayout();
+            panel5.ResumeLayout(false);
             ResumeLayout(false);
         }
 
@@ -773,5 +841,6 @@
         private Label label2;
         private Label label1;
         private Panel panel4;
+        private Panel panel5;
     }
 }

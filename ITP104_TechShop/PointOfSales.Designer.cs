@@ -29,10 +29,11 @@
         private void InitializeComponent()
         {
             groupBox1 = new GroupBox();
+            lblItemPriceGetter = new Label();
+            label10 = new Label();
             dgvCart = new DataGridView();
             lblTotalPriceGetter = new Label();
             label8 = new Label();
-            lblItemPriceGetter = new Label();
             label7 = new Label();
             lblItemIdGetter = new Label();
             btnCheckOut = new Button();
@@ -61,6 +62,7 @@
             label4 = new Label();
             label9 = new Label();
             panel5 = new Panel();
+            label11 = new Label();
             groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgvCart).BeginInit();
             ((System.ComponentModel.ISupportInitialize)nudQuantity).BeginInit();
@@ -71,10 +73,12 @@
             // 
             // groupBox1
             // 
-            groupBox1.Controls.Add(dgvCart);
             groupBox1.Controls.Add(lblTotalPriceGetter);
-            groupBox1.Controls.Add(label8);
+            groupBox1.Controls.Add(label11);
             groupBox1.Controls.Add(lblItemPriceGetter);
+            groupBox1.Controls.Add(label10);
+            groupBox1.Controls.Add(dgvCart);
+            groupBox1.Controls.Add(label8);
             groupBox1.Controls.Add(label7);
             groupBox1.Controls.Add(lblItemIdGetter);
             groupBox1.Controls.Add(btnCheckOut);
@@ -88,12 +92,36 @@
             groupBox1.Controls.Add(label1);
             groupBox1.Controls.Add(nudQuantity);
             groupBox1.Controls.Add(cbItemName);
-            groupBox1.Location = new Point(37, 39);
+            groupBox1.Font = new Font("Century Gothic", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            groupBox1.ForeColor = Color.White;
+            groupBox1.Location = new Point(37, 48);
             groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(677, 298);
+            groupBox1.Size = new Size(677, 270);
             groupBox1.TabIndex = 1;
             groupBox1.TabStop = false;
-            groupBox1.Text = "Computer Components";
+            groupBox1.Text = "Choose Computer Components";
+            // 
+            // lblItemPriceGetter
+            // 
+            lblItemPriceGetter.AutoSize = true;
+            lblItemPriceGetter.Font = new Font("Century Gothic", 24F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lblItemPriceGetter.ForeColor = Color.White;
+            lblItemPriceGetter.Location = new Point(359, 27);
+            lblItemPriceGetter.Name = "lblItemPriceGetter";
+            lblItemPriceGetter.Size = new Size(35, 39);
+            lblItemPriceGetter.TabIndex = 39;
+            lblItemPriceGetter.Text = "0";
+            // 
+            // label10
+            // 
+            label10.AutoSize = true;
+            label10.Font = new Font("Century Gothic", 24F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label10.ForeColor = Color.White;
+            label10.Location = new Point(335, 27);
+            label10.Name = "label10";
+            label10.Size = new Size(35, 39);
+            label10.TabIndex = 42;
+            label10.Text = "$";
             // 
             // dgvCart
             // 
@@ -110,102 +138,115 @@
             // lblTotalPriceGetter
             // 
             lblTotalPriceGetter.AutoSize = true;
-            lblTotalPriceGetter.Location = new Point(417, 112);
+            lblTotalPriceGetter.Font = new Font("Century Gothic", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lblTotalPriceGetter.ForeColor = Color.White;
+            lblTotalPriceGetter.Location = new Point(423, 154);
             lblTotalPriceGetter.Name = "lblTotalPriceGetter";
-            lblTotalPriceGetter.Size = new Size(13, 15);
+            lblTotalPriceGetter.Size = new Size(17, 20);
             lblTotalPriceGetter.TabIndex = 41;
             lblTotalPriceGetter.Text = "0";
             // 
             // label8
             // 
             label8.AutoSize = true;
-            label8.Location = new Point(335, 112);
+            label8.Font = new Font("Century Gothic", 9F);
+            label8.ForeColor = Color.White;
+            label8.Location = new Point(339, 156);
             label8.Name = "label8";
-            label8.Size = new Size(64, 15);
+            label8.Size = new Size(73, 17);
             label8.TabIndex = 40;
             label8.Text = "Total Price:";
-            // 
-            // lblItemPriceGetter
-            // 
-            lblItemPriceGetter.AutoSize = true;
-            lblItemPriceGetter.Location = new Point(424, 36);
-            lblItemPriceGetter.Name = "lblItemPriceGetter";
-            lblItemPriceGetter.Size = new Size(13, 15);
-            lblItemPriceGetter.TabIndex = 39;
-            lblItemPriceGetter.Text = "0";
             // 
             // label7
             // 
             label7.AutoSize = true;
-            label7.Location = new Point(335, 36);
+            label7.Font = new Font("Century Gothic", 9F);
+            label7.ForeColor = Color.White;
+            label7.Location = new Point(339, 66);
             label7.Name = "label7";
-            label7.Size = new Size(83, 15);
+            label7.Size = new Size(90, 17);
             label7.TabIndex = 38;
-            label7.Text = "Price Per Item:";
+            label7.Text = "Price Per Item";
             // 
             // lblItemIdGetter
             // 
             lblItemIdGetter.AutoSize = true;
-            lblItemIdGetter.Location = new Point(68, 157);
+            lblItemIdGetter.Font = new Font("Century Gothic", 9F);
+            lblItemIdGetter.ForeColor = Color.White;
+            lblItemIdGetter.Location = new Point(73, 157);
             lblItemIdGetter.Name = "lblItemIdGetter";
-            lblItemIdGetter.Size = new Size(12, 15);
+            lblItemIdGetter.Size = new Size(13, 17);
             lblItemIdGetter.TabIndex = 37;
             lblItemIdGetter.Text = "/";
             // 
             // btnCheckOut
             // 
-            btnCheckOut.Location = new Point(21, 234);
+            btnCheckOut.BackColor = Color.FromArgb(0, 137, 123);
+            btnCheckOut.FlatAppearance.BorderSize = 0;
+            btnCheckOut.FlatStyle = FlatStyle.Flat;
+            btnCheckOut.Location = new Point(335, 191);
             btnCheckOut.Name = "btnCheckOut";
-            btnCheckOut.Size = new Size(299, 32);
+            btnCheckOut.Size = new Size(299, 37);
             btnCheckOut.TabIndex = 10;
             btnCheckOut.Text = "Checkout";
-            btnCheckOut.UseVisualStyleBackColor = true;
+            btnCheckOut.UseVisualStyleBackColor = false;
             btnCheckOut.Click += btnCheckOut_Click;
             // 
             // label6
             // 
             label6.AutoSize = true;
+            label6.Font = new Font("Century Gothic", 9F);
+            label6.ForeColor = Color.White;
             label6.Location = new Point(14, 157);
             label6.Name = "label6";
-            label6.Size = new Size(48, 15);
+            label6.Size = new Size(53, 17);
             label6.TabIndex = 36;
             label6.Text = "Item ID:";
             // 
             // lblStocksChecker
             // 
             lblStocksChecker.AutoSize = true;
-            lblStocksChecker.Location = new Point(115, 206);
+            lblStocksChecker.Font = new Font("Century Gothic", 9F);
+            lblStocksChecker.ForeColor = Color.White;
+            lblStocksChecker.Location = new Point(131, 206);
             lblStocksChecker.Name = "lblStocksChecker";
-            lblStocksChecker.Size = new Size(12, 15);
+            lblStocksChecker.Size = new Size(13, 17);
             lblStocksChecker.TabIndex = 35;
             lblStocksChecker.Text = "/";
             // 
             // label5
             // 
             label5.AutoSize = true;
+            label5.Font = new Font("Century Gothic", 9F);
+            label5.ForeColor = Color.White;
             label5.Location = new Point(14, 206);
             label5.Name = "label5";
-            label5.Size = new Size(95, 15);
+            label5.Size = new Size(111, 17);
             label5.TabIndex = 34;
             label5.Text = "Stocks Available:";
             // 
             // btnAddToCart
             // 
-            btnAddToCart.Location = new Point(356, 234);
+            btnAddToCart.BackColor = Color.FromArgb(0, 137, 123);
+            btnAddToCart.FlatAppearance.BorderSize = 0;
+            btnAddToCart.FlatStyle = FlatStyle.Flat;
+            btnAddToCart.Location = new Point(508, 112);
             btnAddToCart.Name = "btnAddToCart";
-            btnAddToCart.Size = new Size(299, 32);
+            btnAddToCart.Size = new Size(126, 24);
             btnAddToCart.TabIndex = 32;
             btnAddToCart.Text = "Add To Cart";
-            btnAddToCart.UseVisualStyleBackColor = true;
+            btnAddToCart.UseVisualStyleBackColor = false;
             btnAddToCart.Visible = false;
             btnAddToCart.Click += btnAddToCart_Click;
             // 
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(14, 36);
+            label3.Font = new Font("Century Gothic", 9F);
+            label3.ForeColor = Color.White;
+            label3.Location = new Point(14, 34);
             label3.Name = "label3";
-            label3.Size = new Size(89, 15);
+            label3.Size = new Size(106, 17);
             label3.TabIndex = 23;
             label3.Text = "Select Category";
             // 
@@ -215,31 +256,35 @@
             cbCategoryName.FormattingEnabled = true;
             cbCategoryName.Location = new Point(14, 54);
             cbCategoryName.Name = "cbCategoryName";
-            cbCategoryName.Size = new Size(299, 23);
+            cbCategoryName.Size = new Size(299, 24);
             cbCategoryName.TabIndex = 22;
             cbCategoryName.SelectedIndexChanged += cbCategoryName_SelectedIndexChanged;
             // 
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(335, 206);
+            label2.Font = new Font("Century Gothic", 9F);
+            label2.ForeColor = Color.White;
+            label2.Location = new Point(339, 115);
             label2.Name = "label2";
-            label2.Size = new Size(53, 15);
+            label2.Size = new Size(59, 17);
             label2.TabIndex = 21;
             label2.Text = "Quantity";
             // 
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(14, 94);
+            label1.Font = new Font("Century Gothic", 9F);
+            label1.ForeColor = Color.White;
+            label1.Location = new Point(14, 92);
             label1.Name = "label1";
-            label1.Size = new Size(65, 15);
+            label1.Size = new Size(77, 17);
             label1.TabIndex = 20;
             label1.Text = "Select item";
             // 
             // nudQuantity
             // 
-            nudQuantity.Location = new Point(394, 204);
+            nudQuantity.Location = new Point(424, 112);
             nudQuantity.Minimum = new decimal(new int[] { 1, 0, 0, 0 });
             nudQuantity.Name = "nudQuantity";
             nudQuantity.Size = new Size(64, 23);
@@ -253,7 +298,7 @@
             cbItemName.FormattingEnabled = true;
             cbItemName.Location = new Point(14, 112);
             cbItemName.Name = "cbItemName";
-            cbItemName.Size = new Size(299, 23);
+            cbItemName.Size = new Size(299, 24);
             cbItemName.TabIndex = 10;
             cbItemName.Tag = "";
             cbItemName.SelectedIndexChanged += cbItemName_SelectedIndexChanged;
@@ -444,6 +489,17 @@
             panel5.Size = new Size(741, 369);
             panel5.TabIndex = 29;
             // 
+            // label11
+            // 
+            label11.AutoSize = true;
+            label11.Font = new Font("Century Gothic", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label11.ForeColor = Color.White;
+            label11.Location = new Point(412, 154);
+            label11.Name = "label11";
+            label11.Size = new Size(17, 20);
+            label11.TabIndex = 43;
+            label11.Text = "$";
+            // 
             // frmPointOfSales
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -503,5 +559,7 @@
         private Label label9;
         private Panel panel4;
         private Panel panel5;
+        private Label label10;
+        private Label label11;
     }
 }
