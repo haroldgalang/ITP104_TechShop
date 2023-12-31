@@ -81,5 +81,18 @@ namespace ITP104_TechShop
             frm.ShowDialog();
             this.Close();
         }
+
+        private void btnSalesMonitoring_Click(object sender, EventArgs e)
+        {
+            sales_form();
+        }
+
+        private void sales_form()
+        {
+            this.Hide();
+            frmSales frm = new frmSales();
+            frm.ShowDialog();
+            this.Close();
+        }
     }
 }

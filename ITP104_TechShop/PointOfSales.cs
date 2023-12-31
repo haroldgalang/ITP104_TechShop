@@ -99,7 +99,7 @@ namespace ITP104_TechShop
                 }
             }
 
-            
+
         }
 
         private void frmPointOfSales_Load(object sender, EventArgs e)

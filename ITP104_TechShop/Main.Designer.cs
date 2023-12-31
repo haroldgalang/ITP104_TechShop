@@ -85,6 +85,7 @@
             btnSalesMonitoring.TabIndex = 4;
             btnSalesMonitoring.Text = "Sales Monitoring";
             btnSalesMonitoring.UseVisualStyleBackColor = true;
+            btnSalesMonitoring.Click += btnSalesMonitoring_Click;
             // 
             // btnLogout
             // 

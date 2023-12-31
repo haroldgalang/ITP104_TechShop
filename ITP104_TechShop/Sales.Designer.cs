@@ -35,9 +35,12 @@
             // 
             // dgvSales
             // 
+            dgvSales.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgvSales.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvSales.EditMode = DataGridViewEditMode.EditProgrammatically;
             dgvSales.Location = new Point(12, 50);
             dgvSales.Name = "dgvSales";
+            dgvSales.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dgvSales.Size = new Size(776, 240);
             dgvSales.TabIndex = 0;
             // 

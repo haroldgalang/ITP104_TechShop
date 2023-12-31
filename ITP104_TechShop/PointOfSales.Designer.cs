@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             groupBox1 = new GroupBox();
+            btnBack = new Button();
             lblTotalPriceGetter = new Label();
             label8 = new Label();
             lblItemPriceGetter = new Label();
@@ -46,9 +47,6 @@
             nudQuantity = new NumericUpDown();
             cbItemName = new ComboBox();
             dgvCart = new DataGridView();
-            rtbReceipt = new RichTextBox();
-            label4 = new Label();
-            btnBack = new Button();
             groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)nudQuantity).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dgvCart).BeginInit();
@@ -57,6 +55,7 @@
             // groupBox1
             // 
             groupBox1.Controls.Add(btnBack);
+            groupBox1.Controls.Add(dgvCart);
             groupBox1.Controls.Add(lblTotalPriceGetter);
             groupBox1.Controls.Add(label8);
             groupBox1.Controls.Add(lblItemPriceGetter);
@@ -79,6 +78,16 @@
             groupBox1.TabIndex = 1;
             groupBox1.TabStop = false;
             groupBox1.Text = "Computer Components";
+            // 
+            // btnBack
+            // 
+            btnBack.Location = new Point(6, 269);
+            btnBack.Name = "btnBack";
+            btnBack.Size = new Size(299, 32);
+            btnBack.TabIndex = 42;
+            btnBack.Text = "Back";
+            btnBack.UseVisualStyleBackColor = true;
+            btnBack.Click += btnBack_Click;
             // 
             // lblTotalPriceGetter
             // 
@@ -236,48 +245,19 @@
             dgvCart.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgvCart.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvCart.EditMode = DataGridViewEditMode.EditProgrammatically;
-            dgvCart.Location = new Point(581, 9);
+            dgvCart.Location = new Point(6, 104);
             dgvCart.Name = "dgvCart";
             dgvCart.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dgvCart.Size = new Size(10, 10);
             dgvCart.TabIndex = 33;
             dgvCart.Visible = false;
             // 
-            // rtbReceipt
-            // 
-            rtbReceipt.Location = new Point(329, 31);
-            rtbReceipt.Name = "rtbReceipt";
-            rtbReceipt.Size = new Size(262, 473);
-            rtbReceipt.TabIndex = 11;
-            rtbReceipt.Text = "";
-            // 
-            // label4
-            // 
-            label4.AutoSize = true;
-            label4.Location = new Point(329, 9);
-            label4.Name = "label4";
-            label4.Size = new Size(49, 15);
-            label4.TabIndex = 34;
-            label4.Text = "Receipt:";
-            // 
-            // btnBack
-            // 
-            btnBack.Location = new Point(6, 269);
-            btnBack.Name = "btnBack";
-            btnBack.Size = new Size(299, 32);
-            btnBack.TabIndex = 42;
-            btnBack.Text = "Back";
-            btnBack.UseVisualStyleBackColor = true;
-            // 
             // frmPointOfSales
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(603, 516);
-            Controls.Add(label4);
-            Controls.Add(rtbReceipt);
+            ClientSize = new Size(335, 362);
             Controls.Add(groupBox1);
-            Controls.Add(dgvCart);
             Name = "frmPointOfSales";
             Text = "Point Of Sales";
             Load += frmPointOfSales_Load;
@@ -286,7 +266,6 @@
             ((System.ComponentModel.ISupportInitialize)nudQuantity).EndInit();
             ((System.ComponentModel.ISupportInitialize)dgvCart).EndInit();
             ResumeLayout(false);
-            PerformLayout();
         }
 
         #endregion
@@ -296,12 +275,10 @@
         private NumericUpDown nudQuantity;
         private Label label2;
         private Button btnCheckOut;
-        private RichTextBox rtbReceipt;
         private Button btnAddToCart;
         private Label label3;
         private ComboBox cbCategoryName;
         private DataGridView dgvCart;
-        private Label label4;
         private Label label5;
         private Label lblStocksChecker;
         private Label label6;
