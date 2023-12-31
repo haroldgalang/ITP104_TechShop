@@ -94,5 +94,18 @@ namespace ITP104_TechShop
             frm.ShowDialog();
             this.Close();
         }
+
+        private void btnDbBackup_Click(object sender, EventArgs e)
+        {
+            backup_form();
+        }
+
+        private void backup_form()
+        {
+            this.Hide();
+            frmBackup frm = new frmBackup();
+            frm.ShowDialog();
+            this.Close();
+        }
     }
 }

@@ -105,6 +105,7 @@
             btnDbBackup.TabIndex = 19;
             btnDbBackup.Text = "Database Backup";
             btnDbBackup.UseVisualStyleBackColor = true;
+            btnDbBackup.Click += btnDbBackup_Click;
             // 
             // frmMain
             // 
