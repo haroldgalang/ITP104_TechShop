@@ -134,6 +134,7 @@ namespace ITP104_TechShop
             lblItemPriceGetter.Text = tblItemBasePrice;
             lblStocksChecker.Text = tblQuantity;
             nudQuantity.Minimum = 1;
+            nudQuantity.Value = 1;
             try
             {
                 decimal QuantityDecimal = decimal.Parse(tblQuantity, CultureInfo.InvariantCulture);
@@ -187,7 +188,7 @@ namespace ITP104_TechShop
                     try
                     {
                         String getTotalPrice = "", getQuantity = "";
-                        command.CommandText = "SELECT cart_TotalPrice,cart_Quantity FROM tblCart WHERE cart_itemID = '" + lblItemIdGetter.Text + "';";
+                        command.CommandText = "SELECT cart_TotalPrice,cart_Quantity FROM tblCart WHERE cart_itemID = '" + lblItemIdGetter.Text + "'; SELECT * FROM tblInventory;";
                         MySqlDataReader dr = command.ExecuteReader();
                         while (dr.Read())
                         {
@@ -199,12 +200,15 @@ namespace ITP104_TechShop
                         decimal totalPrice = decimal.Parse(getTotalPrice, CultureInfo.InvariantCulture);
                         decimal quantityGetter = decimal.Parse(nudQuantity.Text, CultureInfo.InvariantCulture);
                         decimal quantity = decimal.Parse(getQuantity, CultureInfo.InvariantCulture);
+                        decimal stocksGetter = decimal.Parse(lblStocksChecker.Text, CultureInfo.InvariantCulture);
 
                         totalPriceGetter = totalPriceGetter + totalPrice;
-                        quantityGetter = quantityGetter + quantity;
+                        quantity = quantityGetter + quantity;
+                        stocksGetter = stocksGetter - quantityGetter;
 
-                        command.CommandText = "UPDATE tblCart SET cart_item = '" + cbItemName.Text + "',cart_itemCategory = '" + cbCategoryName.Text + "',cart_itemPrice = '" + lblItemPriceGetter.Text + "', cart_Quantity = '" + quantityGetter + "',cart_TotalPrice = '" + totalPriceGetter + "' WHERE cart_itemID = '" + lblItemIdGetter.Text + "';";
+                        command.CommandText = "UPDATE tblCart SET cart_item = '" + cbItemName.Text + "',cart_itemCategory = '" + cbCategoryName.Text + "',cart_itemPrice = '" + lblItemPriceGetter.Text + "', cart_Quantity = '" + quantity + "',cart_TotalPrice = '" + totalPriceGetter + "' WHERE cart_itemID = '" + lblItemIdGetter.Text + "';";
                         command.ExecuteNonQuery();
+                        lblStocksChecker.Text = stocksGetter.ToString();
                         MessageBox.Show("Item added successfully");
                     }
                     catch (Exception z)
@@ -223,9 +227,15 @@ namespace ITP104_TechShop
                 {
                     connection.Open();
                     try
-                    {
+                    {  
+                        command.CommandText = "SELECT * FROM tblInventory;";
+                        decimal quantityGetter = decimal.Parse(nudQuantity.Text, CultureInfo.InvariantCulture);
+                        decimal stocksGetter = decimal.Parse(lblStocksChecker.Text, CultureInfo.InvariantCulture);
+
+                        stocksGetter = stocksGetter - quantityGetter;
                         command.CommandText = "INSERT INTO tblCart VALUES('" + lblItemIdGetter.Text + "', '" + cbItemName.Text + "','" + cbCategoryName.Text + "', '" + lblItemPriceGetter.Text + "', '" + nudQuantity.Text + "', '" + lblTotalPriceGetter.Text + "');";
-                        command.ExecuteNonQuery();                       
+                        command.ExecuteNonQuery();
+                        lblStocksChecker.Text = stocksGetter.ToString();
                         MessageBox.Show("Item added successfully");
                     }
                     catch (Exception z)
@@ -245,6 +255,8 @@ namespace ITP104_TechShop
                 DataSet ds = new DataSet();
                 adap.Fill(ds);
                 dgvCart.DataSource = ds.Tables[0].DefaultView;
+                nudQuantity.Minimum = 1;
+                nudQuantity.Value = 1;
             }
         }
 
