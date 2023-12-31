@@ -52,10 +52,12 @@
             panel3 = new Panel();
             label2 = new Label();
             label3 = new Label();
+            panel5 = new Panel();
             ((System.ComponentModel.ISupportInitialize)dgvDelivery).BeginInit();
             ((System.ComponentModel.ISupportInitialize)nudQuantity).BeginInit();
             panel1.SuspendLayout();
             panel3.SuspendLayout();
+            panel5.SuspendLayout();
             SuspendLayout();
             // 
             // dgvDelivery
@@ -63,33 +65,35 @@
             dgvDelivery.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgvDelivery.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvDelivery.EditMode = DataGridViewEditMode.EditProgrammatically;
-            dgvDelivery.Location = new Point(256, 328);
+            dgvDelivery.Location = new Point(158, 289);
             dgvDelivery.Name = "dgvDelivery";
             dgvDelivery.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dgvDelivery.Size = new Size(550, 160);
+            dgvDelivery.Size = new Size(711, 201);
             dgvDelivery.TabIndex = 0;
             dgvDelivery.CellContentClick += dgvDelivery_CellContentClick;
             // 
             // dateTimePicker1
             // 
-            dateTimePicker1.Location = new Point(256, 242);
+            dateTimePicker1.Location = new Point(69, 74);
             dateTimePicker1.Name = "dateTimePicker1";
-            dateTimePicker1.Size = new Size(200, 23);
+            dateTimePicker1.Size = new Size(195, 23);
             dateTimePicker1.TabIndex = 2;
             // 
             // nudQuantity
             // 
-            nudQuantity.Location = new Point(255, 299);
+            nudQuantity.Location = new Point(92, 111);
             nudQuantity.Name = "nudQuantity";
-            nudQuantity.Size = new Size(120, 23);
+            nudQuantity.Size = new Size(172, 23);
             nudQuantity.TabIndex = 4;
             // 
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(256, 159);
+            label1.Font = new Font("Century Gothic", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label1.ForeColor = Color.White;
+            label1.Location = new Point(19, 17);
             label1.Name = "label1";
-            label1.Size = new Size(81, 15);
+            label1.Size = new Size(100, 17);
             label1.TabIndex = 5;
             label1.Text = "Selected Item:";
             // 
@@ -97,55 +101,70 @@
             // 
             lblItemName.AutoEllipsis = true;
             lblItemName.AutoSize = true;
-            lblItemName.Location = new Point(343, 159);
+            lblItemName.Font = new Font("Century Gothic", 9.75F);
+            lblItemName.ForeColor = Color.White;
+            lblItemName.Location = new Point(125, 17);
             lblItemName.Name = "lblItemName";
-            lblItemName.Size = new Size(12, 15);
+            lblItemName.Size = new Size(14, 17);
             lblItemName.TabIndex = 6;
             lblItemName.Text = "/";
             // 
             // lblItemIdGetter
             // 
             lblItemIdGetter.AutoSize = true;
-            lblItemIdGetter.Location = new Point(310, 192);
+            lblItemIdGetter.Font = new Font("Century Gothic", 9.75F);
+            lblItemIdGetter.ForeColor = Color.White;
+            lblItemIdGetter.Location = new Point(83, 46);
             lblItemIdGetter.Name = "lblItemIdGetter";
-            lblItemIdGetter.Size = new Size(12, 15);
+            lblItemIdGetter.Size = new Size(14, 17);
             lblItemIdGetter.TabIndex = 7;
             lblItemIdGetter.Text = "/";
             // 
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(256, 224);
+            label4.Font = new Font("Century Gothic", 9.75F);
+            label4.ForeColor = Color.White;
+            label4.Location = new Point(19, 77);
             label4.Name = "label4";
-            label4.Size = new Size(34, 15);
+            label4.Size = new Size(44, 17);
             label4.TabIndex = 8;
             label4.Text = "Date:";
             // 
             // label5
             // 
             label5.AutoSize = true;
-            label5.Location = new Point(255, 281);
+            label5.Font = new Font("Century Gothic", 9.75F);
+            label5.ForeColor = Color.White;
+            label5.Location = new Point(19, 115);
             label5.Name = "label5";
-            label5.Size = new Size(56, 15);
+            label5.Size = new Size(67, 17);
             label5.TabIndex = 9;
             label5.Text = "Quantity:";
             // 
             // btnDeliver
             // 
-            btnDeliver.Location = new Point(381, 297);
+            btnDeliver.BackColor = Color.FromArgb(0, 137, 123);
+            btnDeliver.FlatAppearance.BorderSize = 0;
+            btnDeliver.FlatStyle = FlatStyle.Flat;
+            btnDeliver.Font = new Font("Century Gothic", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnDeliver.ForeColor = Color.White;
+            btnDeliver.Location = new Point(292, 74);
             btnDeliver.Name = "btnDeliver";
-            btnDeliver.Size = new Size(77, 25);
+            btnDeliver.Size = new Size(224, 60);
             btnDeliver.TabIndex = 10;
             btnDeliver.Text = "Deliver";
-            btnDeliver.UseVisualStyleBackColor = true;
+            btnDeliver.UseVisualStyleBackColor = false;
             btnDeliver.Click += btnDeliver_Click;
             // 
             // label6
             // 
             label6.AutoSize = true;
-            label6.Location = new Point(256, 192);
+            label6.Font = new Font("Century Gothic", 9.75F);
+            label6.ForeColor = Color.White;
+            label6.Location = new Point(19, 46);
             label6.Name = "label6";
-            label6.Size = new Size(48, 15);
+            label6.Size = new Size(58, 17);
             label6.TabIndex = 11;
             label6.Text = "Item ID:";
             // 
@@ -326,6 +345,23 @@
             label3.TabIndex = 0;
             label3.Text = "GamersUnite";
             // 
+            // panel5
+            // 
+            panel5.BackColor = Color.FromArgb(33, 33, 33);
+            panel5.Controls.Add(label1);
+            panel5.Controls.Add(lblItemName);
+            panel5.Controls.Add(label6);
+            panel5.Controls.Add(btnDeliver);
+            panel5.Controls.Add(lblItemIdGetter);
+            panel5.Controls.Add(nudQuantity);
+            panel5.Controls.Add(label5);
+            panel5.Controls.Add(label4);
+            panel5.Controls.Add(dateTimePicker1);
+            panel5.Location = new Point(142, 138);
+            panel5.Name = "panel5";
+            panel5.Size = new Size(741, 369);
+            panel5.TabIndex = 27;
+            // 
             // frmDelivery
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -335,16 +371,8 @@
             Controls.Add(panel3);
             Controls.Add(panel2);
             Controls.Add(panel1);
-            Controls.Add(label6);
-            Controls.Add(btnDeliver);
-            Controls.Add(label5);
-            Controls.Add(label4);
-            Controls.Add(lblItemIdGetter);
-            Controls.Add(lblItemName);
-            Controls.Add(label1);
-            Controls.Add(nudQuantity);
-            Controls.Add(dateTimePicker1);
             Controls.Add(dgvDelivery);
+            Controls.Add(panel5);
             Name = "frmDelivery";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Delivery";
@@ -354,8 +382,9 @@
             panel1.ResumeLayout(false);
             panel3.ResumeLayout(false);
             panel3.PerformLayout();
+            panel5.ResumeLayout(false);
+            panel5.PerformLayout();
             ResumeLayout(false);
-            PerformLayout();
         }
 
         #endregion
@@ -384,5 +413,6 @@
         private Label label2;
         private Label label3;
         private Panel panel4;
+        private Panel panel5;
     }
 }

@@ -44,6 +44,7 @@
             btnSalesMonitoring = new Button();
             btnPointOfSales = new Button();
             panel2 = new Panel();
+            panel5 = new Panel();
             panel3.SuspendLayout();
             panel1.SuspendLayout();
             SuspendLayout();
@@ -64,22 +65,32 @@
             // 
             // btnBackup
             // 
-            btnBackup.Location = new Point(424, 233);
+            btnBackup.BackColor = Color.FromArgb(0, 137, 123);
+            btnBackup.FlatAppearance.BorderSize = 0;
+            btnBackup.FlatStyle = FlatStyle.Flat;
+            btnBackup.Font = new Font("Century Gothic", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnBackup.ForeColor = Color.White;
+            btnBackup.Location = new Point(315, 204);
             btnBackup.Name = "btnBackup";
-            btnBackup.Size = new Size(148, 30);
+            btnBackup.Size = new Size(398, 58);
             btnBackup.TabIndex = 19;
-            btnBackup.Text = "Backup";
-            btnBackup.UseVisualStyleBackColor = true;
+            btnBackup.Text = "Backup Database";
+            btnBackup.UseVisualStyleBackColor = false;
             btnBackup.Click += btnBackup_Click;
             // 
             // btnRestore
             // 
-            btnRestore.Location = new Point(424, 302);
+            btnRestore.BackColor = Color.FromArgb(0, 137, 123);
+            btnRestore.FlatAppearance.BorderSize = 0;
+            btnRestore.FlatStyle = FlatStyle.Flat;
+            btnRestore.Font = new Font("Century Gothic", 12F, FontStyle.Bold);
+            btnRestore.ForeColor = Color.White;
+            btnRestore.Location = new Point(315, 302);
             btnRestore.Name = "btnRestore";
-            btnRestore.Size = new Size(148, 30);
+            btnRestore.Size = new Size(398, 58);
             btnRestore.TabIndex = 20;
-            btnRestore.Text = "Restore";
-            btnRestore.UseVisualStyleBackColor = true;
+            btnRestore.Text = "Restore Database";
+            btnRestore.UseVisualStyleBackColor = false;
             btnRestore.Click += btnRestore_Click;
             // 
             // panel3
@@ -177,7 +188,7 @@
             btnDbBackup.Name = "btnDbBackup";
             btnDbBackup.Size = new Size(142, 43);
             btnDbBackup.TabIndex = 19;
-            btnDbBackup.Text = "Database Backup";
+            btnDbBackup.Text = "Backup and Restore\r\nDatabase";
             btnDbBackup.UseVisualStyleBackColor = true;
             // 
             // btnDelivery
@@ -245,6 +256,14 @@
             panel2.Size = new Size(741, 10);
             panel2.TabIndex = 25;
             // 
+            // panel5
+            // 
+            panel5.BackColor = Color.FromArgb(33, 33, 33);
+            panel5.Location = new Point(142, 157);
+            panel5.Name = "panel5";
+            panel5.Size = new Size(741, 266);
+            panel5.TabIndex = 26;
+            // 
             // frmBackup
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -256,6 +275,7 @@
             Controls.Add(panel1);
             Controls.Add(btnRestore);
             Controls.Add(btnBackup);
+            Controls.Add(panel5);
             Name = "frmBackup";
             StartPosition = FormStartPosition.CenterParent;
             Text = "Backup";
@@ -283,5 +303,6 @@
         private Button btnPointOfSales;
         private Panel panel2;
         private Panel panel4;
+        private Panel panel5;
     }
 }
