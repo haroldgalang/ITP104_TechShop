@@ -36,7 +36,70 @@ namespace ITP104_TechShop
 
         private void btnCheckOut_Click(object sender, EventArgs e)
         {
+            if (lblStocksChecker.Text == "Out Of Stock")
+            {
+                MessageBox.Show("Can't Checkout out of stock items");
+            }
+            else
+            {
+                String sentInfo = "";
+                MySqlConnection connection = new MySqlConnection(con);
+                MySqlCommand command = connection.CreateCommand();
+                command.Connection = connection;
+                nudQuantity.Value = 1;
+                MySqlCommand cmd = connection.CreateCommand();
+                connection.Open();
+                try
+                {
+                    command.CommandText = "SELECT IF(ISNULL(MAX(last_insert_id(receipt_ID))),'0',MAX(last_insert_id(receipt_ID))) AS 'getId' FROM tblSales";
+                    MySqlDataReader dr = command.ExecuteReader();
+                    while (dr.Read())
+                    {
+                        sentInfo = dr["getId"].ToString();
+                    }
+                    dr.Close();
+                }
+                catch (Exception z)
+                {
+                    MessageBox.Show(z.Message);
+                }
+                finally
+                {
+                    if (connection.State == ConnectionState.Open)
+                    {
+                        connection.Close();
+                    }
+                }
 
+                connection.Open();
+                try
+                {
+                    int IdIncrement = int.Parse(sentInfo);
+                    IdIncrement++;
+                    decimal quantityGetter = decimal.Parse(nudQuantity.Text, CultureInfo.InvariantCulture);
+                    decimal stocksGetter = decimal.Parse(lblStocksChecker.Text, CultureInfo.InvariantCulture);
+
+                    stocksGetter = stocksGetter - quantityGetter;
+                    command.CommandText = "INSERT INTO tblSales VALUES('" + IdIncrement + "',curdate() ,'" + lblItemIdGetter.Text + "', '" + nudQuantity.Text + "', '" + lblTotalPriceGetter.Text + "');";
+                    command.ExecuteNonQuery();
+                    lblStocksChecker.Text = stocksGetter.ToString();
+                    MessageBox.Show("Item added successfully");
+
+                }
+                catch (Exception z)
+                {
+                    MessageBox.Show(z.Message);
+                }
+                finally
+                {
+                    if (connection.State == ConnectionState.Open)
+                    {
+                        connection.Close();
+                    }
+                }
+            }
+
+            
         }
 
         private void frmPointOfSales_Load(object sender, EventArgs e)
@@ -145,9 +208,51 @@ namespace ITP104_TechShop
             }
         }
 
+        private void showTblCart()
+        {
+            MySqlConnection connection = null;
+            try
+            {
+                connection = new MySqlConnection(con);
+                connection.Open();
+                MySqlCommand cmd = connection.CreateCommand();
+                cmd.CommandText = "CALL createCart();";
+                MySqlDataAdapter adap = new MySqlDataAdapter(cmd);
+                DataSet ds = new DataSet();
+                adap.Fill(ds);
+                dgvCart.DataSource = ds.Tables[0].DefaultView;
+            }
+            catch (Exception z)
+            {
+                MessageBox.Show(z.Message);
+            }
+            finally
+            {
+                if (connection.State == ConnectionState.Open)
+                {
+                    connection.Close();
+                }
+            }
+        }
+
+        private void nudQuantity_ValueChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                double priceDecimal = double.Parse(lblItemPriceGetter.Text, CultureInfo.InvariantCulture);
+                double quantityDecimal = double.Parse(nudQuantity.Text, CultureInfo.InvariantCulture);
+
+                double totalPrice = priceDecimal * quantityDecimal;
+                lblTotalPriceGetter.Text = totalPrice.ToString();
+            }
+            catch (FormatException)
+            {
+            }
+        }
+
         private void btnAddToCart_Click(object sender, EventArgs e)
         {
-            String sentInfo = "";
+            /*String sentInfo = "";
             MySqlConnection connection = new MySqlConnection(con);
             connection.Open();
             MySqlCommand command = connection.CreateCommand();
@@ -181,7 +286,7 @@ namespace ITP104_TechShop
             else
             {
                 MySqlCommand cmd = connection.CreateCommand();
-               
+
                 if (sentInfo == "1")
                 {
                     connection.Open();
@@ -227,7 +332,7 @@ namespace ITP104_TechShop
                 {
                     connection.Open();
                     try
-                    {  
+                    {
                         command.CommandText = "SELECT * FROM tblInventory;";
                         decimal quantityGetter = decimal.Parse(nudQuantity.Text, CultureInfo.InvariantCulture);
                         decimal stocksGetter = decimal.Parse(lblStocksChecker.Text, CultureInfo.InvariantCulture);
@@ -257,49 +362,7 @@ namespace ITP104_TechShop
                 dgvCart.DataSource = ds.Tables[0].DefaultView;
                 nudQuantity.Minimum = 1;
                 nudQuantity.Value = 1;
-            }
-        }
-
-        private void showTblCart()
-        {
-            MySqlConnection connection = null;
-            try
-            {
-                connection = new MySqlConnection(con);
-                connection.Open();
-                MySqlCommand cmd = connection.CreateCommand();
-                cmd.CommandText = "CALL createCart();";
-                MySqlDataAdapter adap = new MySqlDataAdapter(cmd);
-                DataSet ds = new DataSet();
-                adap.Fill(ds);
-                dgvCart.DataSource = ds.Tables[0].DefaultView;
-            }
-            catch (Exception z)
-            {
-                MessageBox.Show(z.Message);
-            }
-            finally
-            {
-                if (connection.State == ConnectionState.Open)
-                {
-                    connection.Close();
-                }
-            }
-        }
-
-        private void nudQuantity_ValueChanged(object sender, EventArgs e)
-        {
-            try
-            {
-                double priceDecimal = double.Parse(lblItemPriceGetter.Text, CultureInfo.InvariantCulture);
-                double quantityDecimal = double.Parse(nudQuantity.Text, CultureInfo.InvariantCulture);
-
-                double totalPrice = priceDecimal * quantityDecimal;
-                lblTotalPriceGetter.Text = totalPrice.ToString();
-            }
-            catch (FormatException)
-            {
-            }
+            }*/
         }
     }
 }

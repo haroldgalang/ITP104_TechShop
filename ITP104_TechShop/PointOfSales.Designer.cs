@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             groupBox1 = new GroupBox();
+            lblTotalPriceGetter = new Label();
+            label8 = new Label();
             lblItemPriceGetter = new Label();
             label7 = new Label();
             lblItemIdGetter = new Label();
@@ -46,8 +48,7 @@
             dgvCart = new DataGridView();
             rtbReceipt = new RichTextBox();
             label4 = new Label();
-            label8 = new Label();
-            lblTotalPriceGetter = new Label();
+            btnBack = new Button();
             groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)nudQuantity).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dgvCart).BeginInit();
@@ -55,6 +56,7 @@
             // 
             // groupBox1
             // 
+            groupBox1.Controls.Add(btnBack);
             groupBox1.Controls.Add(lblTotalPriceGetter);
             groupBox1.Controls.Add(label8);
             groupBox1.Controls.Add(lblItemPriceGetter);
@@ -77,6 +79,24 @@
             groupBox1.TabIndex = 1;
             groupBox1.TabStop = false;
             groupBox1.Text = "Computer Components";
+            // 
+            // lblTotalPriceGetter
+            // 
+            lblTotalPriceGetter.AutoSize = true;
+            lblTotalPriceGetter.Location = new Point(207, 229);
+            lblTotalPriceGetter.Name = "lblTotalPriceGetter";
+            lblTotalPriceGetter.Size = new Size(13, 15);
+            lblTotalPriceGetter.TabIndex = 41;
+            lblTotalPriceGetter.Text = "0";
+            // 
+            // label8
+            // 
+            label8.AutoSize = true;
+            label8.Location = new Point(137, 229);
+            label8.Name = "label8";
+            label8.Size = new Size(64, 15);
+            label8.TabIndex = 40;
+            label8.Text = "Total Price:";
             // 
             // lblItemPriceGetter
             // 
@@ -150,6 +170,7 @@
             btnAddToCart.TabIndex = 32;
             btnAddToCart.Text = "Add To Cart";
             btnAddToCart.UseVisualStyleBackColor = true;
+            btnAddToCart.Visible = false;
             btnAddToCart.Click += btnAddToCart_Click;
             // 
             // label3
@@ -192,6 +213,7 @@
             // nudQuantity
             // 
             nudQuantity.Location = new Point(67, 227);
+            nudQuantity.Minimum = new decimal(new int[] { 1, 0, 0, 0 });
             nudQuantity.Name = "nudQuantity";
             nudQuantity.Size = new Size(64, 23);
             nudQuantity.TabIndex = 15;
@@ -214,17 +236,18 @@
             dgvCart.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgvCart.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvCart.EditMode = DataGridViewEditMode.EditProgrammatically;
-            dgvCart.Location = new Point(12, 363);
+            dgvCart.Location = new Point(581, 9);
             dgvCart.Name = "dgvCart";
             dgvCart.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dgvCart.Size = new Size(579, 141);
+            dgvCart.Size = new Size(10, 10);
             dgvCart.TabIndex = 33;
+            dgvCart.Visible = false;
             // 
             // rtbReceipt
             // 
             rtbReceipt.Location = new Point(329, 31);
             rtbReceipt.Name = "rtbReceipt";
-            rtbReceipt.Size = new Size(262, 326);
+            rtbReceipt.Size = new Size(262, 473);
             rtbReceipt.TabIndex = 11;
             rtbReceipt.Text = "";
             // 
@@ -237,23 +260,14 @@
             label4.TabIndex = 34;
             label4.Text = "Receipt:";
             // 
-            // label8
+            // btnBack
             // 
-            label8.AutoSize = true;
-            label8.Location = new Point(137, 229);
-            label8.Name = "label8";
-            label8.Size = new Size(64, 15);
-            label8.TabIndex = 40;
-            label8.Text = "Total Price:";
-            // 
-            // lblTotalPriceGetter
-            // 
-            lblTotalPriceGetter.AutoSize = true;
-            lblTotalPriceGetter.Location = new Point(207, 229);
-            lblTotalPriceGetter.Name = "lblTotalPriceGetter";
-            lblTotalPriceGetter.Size = new Size(13, 15);
-            lblTotalPriceGetter.TabIndex = 41;
-            lblTotalPriceGetter.Text = "0";
+            btnBack.Location = new Point(6, 269);
+            btnBack.Name = "btnBack";
+            btnBack.Size = new Size(299, 32);
+            btnBack.TabIndex = 42;
+            btnBack.Text = "Back";
+            btnBack.UseVisualStyleBackColor = true;
             // 
             // frmPointOfSales
             // 
@@ -296,5 +310,6 @@
         private Label label7;
         private Label lblTotalPriceGetter;
         private Label label8;
+        private Button btnBack;
     }
 }

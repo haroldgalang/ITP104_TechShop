@@ -332,6 +332,17 @@ namespace ITP104_TechShop
                 MessageBox.Show("Item Category is successfully added");
                 lblCategoryIdGetter.Text = "/";
                 txtCategoryName.Text = String.Empty;
+                MySqlCommand cmd = connection.CreateCommand();
+                cmd.CommandText = "SELECT * FROM tblItemCategory";
+                MySqlDataAdapter adap = new MySqlDataAdapter(cmd);
+                DataTable table = new DataTable();
+                adap.Fill(table);
+                cbCategoryName.DataSource = new BindingSource(table, null);
+                DataRow dr = table.NewRow();
+                table.Rows.InsertAt(dr, 0);
+                cbCategoryName.DataSource = table;
+                cbCategoryName.DisplayMember = "category_Name";
+
             }
             catch (Exception z)
             {
@@ -357,6 +368,15 @@ namespace ITP104_TechShop
                 cmd.CommandText = "DELETE FROM tblItemCategory WHERE category_ID = '" + lblCategoryIdGetter.Text + "'";
                 cmd.ExecuteNonQuery();
                 MessageBox.Show("Item Category ID: " + lblCategoryIdGetter.Text + " is successfully deleted");
+                cmd.CommandText = "SELECT * FROM tblItemCategory";
+                MySqlDataAdapter adap = new MySqlDataAdapter(cmd);
+                DataTable table = new DataTable();
+                adap.Fill(table);
+                cbCategoryName.DataSource = new BindingSource(table, null);
+                DataRow dr = table.NewRow();
+                table.Rows.InsertAt(dr, 0);
+                cbCategoryName.DataSource = table;
+                cbCategoryName.DisplayMember = "category_Name";
             }
             catch (Exception z)
             {
@@ -385,6 +405,15 @@ namespace ITP104_TechShop
                 MessageBox.Show("Item Category ID: " + lblCategoryIdGetter.Text + " is successfully updated");
                 lblCategoryIdGetter.Text = "/";
                 txtCategoryName.Text = String.Empty;
+                cmd.CommandText = "SELECT * FROM tblItemCategory";
+                MySqlDataAdapter adap = new MySqlDataAdapter(cmd);
+                DataTable table = new DataTable();
+                adap.Fill(table);
+                cbCategoryName.DataSource = new BindingSource(table, null);
+                DataRow dr = table.NewRow();
+                table.Rows.InsertAt(dr, 0);
+                cbCategoryName.DataSource = table;
+                cbCategoryName.DisplayMember = "category_Name";
             }
             catch (Exception z)
             {
