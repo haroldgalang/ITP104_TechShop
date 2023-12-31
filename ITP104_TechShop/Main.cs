@@ -21,10 +21,41 @@ namespace ITP104_TechShop
         {
 
         }
-
         private void btnMaintenance_Click(object sender, EventArgs e)
         {
             maintenance_form();
+        }
+        private void btnLogout_Click(object sender, EventArgs e)
+        {
+            login_form();
+        }
+        private void btnPointOfSales_Click(object sender, EventArgs e)
+        {
+            pointofsales_form();
+        }
+        private void btnDelivery_Click(object sender, EventArgs e)
+        {
+            delivery_form();
+        }
+        private void btnInventoryMonitoring_Click(object sender, EventArgs e)
+        {
+            inventory_form();
+        }
+        private void btnSalesMonitoring_Click(object sender, EventArgs e)
+        {
+            sales_form();
+        }
+        private void btnDbBackup_Click(object sender, EventArgs e)
+        {
+            backup_form();
+        }
+
+        private void login_form()
+        {
+            this.Hide();
+            frmLogin frm = new frmLogin();
+            frm.ShowDialog();
+            this.Close();
         }
         private void maintenance_form()
         {
@@ -33,46 +64,12 @@ namespace ITP104_TechShop
             frm.ShowDialog();
             this.Close();
         }
-
-        private void btnLogout_Click(object sender, EventArgs e)
-        {
-            login_form();
-        }
-        private void login_form()
-        {
-            this.Hide();
-            frmLogin frm = new frmLogin();
-            frm.ShowDialog();
-            this.Close();
-        }
-
-        private void btnPointOfSales_Click(object sender, EventArgs e)
-        {
-            pointofsales_form();
-        }
         private void pointofsales_form()
         {
             this.Hide();
             frmPointOfSales frm = new frmPointOfSales();
             frm.ShowDialog();
             this.Close();
-        }
-
-        private void btnDelivery_Click(object sender, EventArgs e)
-        {
-            delivery_form();
-        }
-        private void delivery_form()
-        {
-            this.Hide();
-            frmDelivery frm = new frmDelivery();
-            frm.ShowDialog();
-            this.Close();
-        }
-
-        private void btnInventoryMonitoring_Click(object sender, EventArgs e)
-        {
-            inventory_form();
         }
         private void inventory_form()
         {
@@ -81,12 +78,13 @@ namespace ITP104_TechShop
             frm.ShowDialog();
             this.Close();
         }
-
-        private void btnSalesMonitoring_Click(object sender, EventArgs e)
+        private void delivery_form()
         {
-            sales_form();
+            this.Hide();
+            frmDelivery frm = new frmDelivery();
+            frm.ShowDialog();
+            this.Close();
         }
-
         private void sales_form()
         {
             this.Hide();
@@ -94,12 +92,6 @@ namespace ITP104_TechShop
             frm.ShowDialog();
             this.Close();
         }
-
-        private void btnDbBackup_Click(object sender, EventArgs e)
-        {
-            backup_form();
-        }
-
         private void backup_form()
         {
             this.Hide();

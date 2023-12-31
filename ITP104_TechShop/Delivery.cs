@@ -83,12 +83,96 @@ namespace ITP104_TechShop
             }
         }
 
+        private void btnMaintenance_Click(object sender, EventArgs e)
+        {
+            maintenance_form();
+        }
+        private void btnLogout_Click(object sender, EventArgs e)
+        {
+            login_form();
+        }
+        private void btnPointOfSales_Click(object sender, EventArgs e)
+        {
+            pointofsales_form();
+        }
+        private void btnDelivery_Click(object sender, EventArgs e)
+        {
+            delivery_form();
+        }
+        private void btnInventoryMonitoring_Click(object sender, EventArgs e)
+        {
+            inventory_form();
+        }
+        private void btnSalesMonitoring_Click(object sender, EventArgs e)
+        {
+            sales_form();
+        }
+        private void btnDbBackup_Click(object sender, EventArgs e)
+        {
+            backup_form();
+        }
         private void btnBack_Click(object sender, EventArgs e)
+        {
+            home_form();
+        }
+
+        private void home_form()
         {
             this.Hide();
             frmMain frm = new frmMain();
             frm.ShowDialog();
             this.Close();
         }
+
+        private void login_form()
+        {
+            this.Hide();
+            frmLogin frm = new frmLogin();
+            frm.ShowDialog();
+            this.Close();
+        }
+        private void maintenance_form()
+        {
+            this.Hide();
+            frmMaintenance frm = new frmMaintenance();
+            frm.ShowDialog();
+            this.Close();
+        }
+        private void pointofsales_form()
+        {
+            this.Hide();
+            frmPointOfSales frm = new frmPointOfSales();
+            frm.ShowDialog();
+            this.Close();
+        }
+        private void inventory_form()
+        {
+            this.Hide();
+            frmInventory frm = new frmInventory();
+            frm.ShowDialog();
+            this.Close();
+        }
+        private void delivery_form()
+        {
+            this.Hide();
+            frmDelivery frm = new frmDelivery();
+            frm.ShowDialog();
+            this.Close();
+        }
+        private void sales_form()
+        {
+            this.Hide();
+            frmSales frm = new frmSales();
+            frm.ShowDialog();
+            this.Close();
+        }
+        private void backup_form()
+        {
+            this.Hide();
+            frmBackup frm = new frmBackup();
+            frm.ShowDialog();
+            this.Close();
+        }
+
     }
 }
