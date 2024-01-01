@@ -29,10 +29,11 @@
         private void InitializeComponent()
         {
             groupBox1 = new GroupBox();
+            lblTotalPriceGetter = new Label();
+            label11 = new Label();
             lblItemPriceGetter = new Label();
             label10 = new Label();
             dgvCart = new DataGridView();
-            lblTotalPriceGetter = new Label();
             label8 = new Label();
             label7 = new Label();
             lblItemIdGetter = new Label();
@@ -62,7 +63,6 @@
             label4 = new Label();
             label9 = new Label();
             panel5 = new Panel();
-            label11 = new Label();
             groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgvCart).BeginInit();
             ((System.ComponentModel.ISupportInitialize)nudQuantity).BeginInit();
@@ -101,6 +101,28 @@
             groupBox1.TabStop = false;
             groupBox1.Text = "Choose Computer Components";
             // 
+            // lblTotalPriceGetter
+            // 
+            lblTotalPriceGetter.AutoSize = true;
+            lblTotalPriceGetter.Font = new Font("Century Gothic", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lblTotalPriceGetter.ForeColor = Color.White;
+            lblTotalPriceGetter.Location = new Point(423, 154);
+            lblTotalPriceGetter.Name = "lblTotalPriceGetter";
+            lblTotalPriceGetter.Size = new Size(17, 20);
+            lblTotalPriceGetter.TabIndex = 41;
+            lblTotalPriceGetter.Text = "0";
+            // 
+            // label11
+            // 
+            label11.AutoSize = true;
+            label11.Font = new Font("Century Gothic", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label11.ForeColor = Color.White;
+            label11.Location = new Point(412, 154);
+            label11.Name = "label11";
+            label11.Size = new Size(17, 20);
+            label11.TabIndex = 43;
+            label11.Text = "$";
+            // 
             // lblItemPriceGetter
             // 
             lblItemPriceGetter.AutoSize = true;
@@ -134,17 +156,6 @@
             dgvCart.Size = new Size(10, 10);
             dgvCart.TabIndex = 33;
             dgvCart.Visible = false;
-            // 
-            // lblTotalPriceGetter
-            // 
-            lblTotalPriceGetter.AutoSize = true;
-            lblTotalPriceGetter.Font = new Font("Century Gothic", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lblTotalPriceGetter.ForeColor = Color.White;
-            lblTotalPriceGetter.Location = new Point(423, 154);
-            lblTotalPriceGetter.Name = "lblTotalPriceGetter";
-            lblTotalPriceGetter.Size = new Size(17, 20);
-            lblTotalPriceGetter.TabIndex = 41;
-            lblTotalPriceGetter.Text = "0";
             // 
             // label8
             // 
@@ -284,10 +295,11 @@
             // 
             // nudQuantity
             // 
-            nudQuantity.Location = new Point(424, 112);
+            nudQuantity.Font = new Font("Century Gothic", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            nudQuantity.Location = new Point(424, 113);
             nudQuantity.Minimum = new decimal(new int[] { 1, 0, 0, 0 });
             nudQuantity.Name = "nudQuantity";
-            nudQuantity.Size = new Size(64, 23);
+            nudQuantity.Size = new Size(64, 22);
             nudQuantity.TabIndex = 15;
             nudQuantity.Value = new decimal(new int[] { 1, 0, 0, 0 });
             nudQuantity.ValueChanged += nudQuantity_ValueChanged;
@@ -489,17 +501,6 @@
             panel5.Size = new Size(741, 369);
             panel5.TabIndex = 29;
             // 
-            // label11
-            // 
-            label11.AutoSize = true;
-            label11.Font = new Font("Century Gothic", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label11.ForeColor = Color.White;
-            label11.Location = new Point(412, 154);
-            label11.Name = "label11";
-            label11.Size = new Size(17, 20);
-            label11.TabIndex = 43;
-            label11.Text = "$";
-            // 
             // frmPointOfSales
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -529,7 +530,6 @@
         private GroupBox groupBox1;
         private ComboBox cbItemName;
         private Label label1;
-        private NumericUpDown nudQuantity;
         private Label label2;
         private Button btnCheckOut;
         private Button btnAddToCart;
@@ -561,5 +561,6 @@
         private Panel panel5;
         private Label label10;
         private Label label11;
+        public NumericUpDown nudQuantity;
     }
 }

@@ -45,8 +45,7 @@ namespace ITP104_TechShop
                 String sentInfo = "";
                 MySqlConnection connection = new MySqlConnection(con);
                 MySqlCommand command = connection.CreateCommand();
-                command.Connection = connection;
-                nudQuantity.Value = 1;
+                command.Connection = connection;     
                 MySqlCommand cmd = connection.CreateCommand();
                 connection.Open();
                 try
@@ -76,15 +75,15 @@ namespace ITP104_TechShop
                 {
                     int IdIncrement = int.Parse(sentInfo);
                     IdIncrement++;
-                    decimal quantityGetter = decimal.Parse(nudQuantity.Text, CultureInfo.InvariantCulture);
-                    decimal stocksGetter = decimal.Parse(lblStocksChecker.Text, CultureInfo.InvariantCulture);
+                    int quantityGetter = int.Parse(nudQuantity.Text);
+                    int stocksGetter = int.Parse(lblStocksChecker.Text);
 
                     stocksGetter = stocksGetter - quantityGetter;
-                    command.CommandText = "INSERT INTO tblSales VALUES('" + IdIncrement + "',curdate() ,'" + lblItemIdGetter.Text + "', '" + nudQuantity.Text + "', '" + lblTotalPriceGetter.Text + "');";
+
+                    command.CommandText = "INSERT INTO tblSales VALUES('" + IdIncrement + "',curdate() ,'" + lblItemIdGetter.Text + "', '" + nudQuantity.Text + "', '" + lblTotalPriceGetter.Text + "'); UPDATE tblInventory SET quantity = '" + stocksGetter + "' WHERE item_ID = '" + lblItemIdGetter.Text + "';";
                     command.ExecuteNonQuery();
                     lblStocksChecker.Text = stocksGetter.ToString();
-                    MessageBox.Show("Item added successfully");
-
+                    MessageBox.Show("Item added successfully");   
                 }
                 catch (Exception z)
                 {
