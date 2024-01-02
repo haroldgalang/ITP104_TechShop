@@ -46,6 +46,7 @@
             panel2 = new Panel();
             panel5 = new Panel();
             label3 = new Label();
+            label4 = new Label();
             panel3.SuspendLayout();
             panel1.SuspendLayout();
             SuspendLayout();
@@ -277,12 +278,24 @@
             label3.TabIndex = 27;
             label3.Text = "Backup And Restore Database";
             // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Font = new Font("Century Gothic", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label4.ForeColor = Color.White;
+            label4.Location = new Point(320, 72);
+            label4.Name = "label4";
+            label4.Size = new Size(333, 17);
+            label4.TabIndex = 2;
+            label4.Text = "Save or retrieve database from your local storage.";
+            // 
             // frmBackup
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(66, 66, 66);
             ClientSize = new Size(883, 556);
+            Controls.Add(label4);
             Controls.Add(label3);
             Controls.Add(panel3);
             Controls.Add(panel2);
@@ -320,5 +333,6 @@
         private Panel panel4;
         private Panel panel5;
         private Label label3;
+        private Label label4;
     }
 }

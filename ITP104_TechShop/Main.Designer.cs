@@ -36,11 +36,11 @@
             btnLogout = new Button();
             btnDbBackup = new Button();
             panel1 = new Panel();
+            panel4 = new Panel();
+            button1 = new Button();
             panel5 = new Panel();
             label3 = new Label();
             label4 = new Label();
-            panel4 = new Panel();
-            button1 = new Button();
             panel2 = new Panel();
             panel3 = new Panel();
             label2 = new Label();
@@ -48,6 +48,7 @@
             label7 = new Label();
             panel6 = new Panel();
             label6 = new Label();
+            label8 = new Label();
             panel1.SuspendLayout();
             panel5.SuspendLayout();
             panel3.SuspendLayout();
@@ -170,6 +171,27 @@
             panel1.Size = new Size(142, 556);
             panel1.TabIndex = 20;
             // 
+            // panel4
+            // 
+            panel4.BackColor = Color.FromArgb(0, 137, 123);
+            panel4.Location = new Point(0, 57);
+            panel4.Name = "panel4";
+            panel4.Size = new Size(10, 43);
+            panel4.TabIndex = 23;
+            // 
+            // button1
+            // 
+            button1.FlatAppearance.BorderSize = 0;
+            button1.FlatStyle = FlatStyle.Flat;
+            button1.Font = new Font("Century Gothic", 9F);
+            button1.ForeColor = Color.White;
+            button1.Location = new Point(0, 57);
+            button1.Name = "button1";
+            button1.Size = new Size(142, 43);
+            button1.TabIndex = 20;
+            button1.Text = "Home";
+            button1.UseVisualStyleBackColor = true;
+            // 
             // panel5
             // 
             panel5.BackColor = Color.FromArgb(0, 137, 123);
@@ -201,27 +223,6 @@
             label4.Size = new Size(432, 77);
             label4.TabIndex = 0;
             label4.Text = "GamersUnite";
-            // 
-            // panel4
-            // 
-            panel4.BackColor = Color.FromArgb(0, 137, 123);
-            panel4.Location = new Point(0, 57);
-            panel4.Name = "panel4";
-            panel4.Size = new Size(10, 43);
-            panel4.TabIndex = 23;
-            // 
-            // button1
-            // 
-            button1.FlatAppearance.BorderSize = 0;
-            button1.FlatStyle = FlatStyle.Flat;
-            button1.Font = new Font("Century Gothic", 9F);
-            button1.ForeColor = Color.White;
-            button1.Location = new Point(0, 57);
-            button1.Name = "button1";
-            button1.Size = new Size(142, 43);
-            button1.TabIndex = 20;
-            button1.Text = "Home";
-            button1.UseVisualStyleBackColor = true;
             // 
             // panel2
             // 
@@ -296,12 +297,24 @@
             label6.Text = "C\r\nH\r\nE\r\nC\r\nK\r\nO\r\nU\r\nT\r\nNOW!";
             label6.TextAlign = ContentAlignment.MiddleCenter;
             // 
+            // label8
+            // 
+            label8.AutoSize = true;
+            label8.Font = new Font("Century Gothic", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label8.ForeColor = Color.White;
+            label8.Location = new Point(320, 72);
+            label8.Name = "label8";
+            label8.Size = new Size(226, 17);
+            label8.TabIndex = 30;
+            label8.Text = "The main page of the application";
+            // 
             // frmMain
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(66, 66, 66);
             ClientSize = new Size(883, 556);
+            Controls.Add(label8);
             Controls.Add(panel6);
             Controls.Add(panel5);
             Controls.Add(label7);
@@ -345,5 +358,6 @@
         private Label label4;
         private Panel panel6;
         private Label label6;
+        private Label label8;
     }
 }

@@ -83,6 +83,7 @@
             label1 = new Label();
             panel5 = new Panel();
             label7 = new Label();
+            label8 = new Label();
             groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgvUsers).BeginInit();
             groupBox2.SuspendLayout();
@@ -766,12 +767,24 @@
             label7.TabIndex = 29;
             label7.Text = "Maintenance";
             // 
+            // label8
+            // 
+            label8.AutoSize = true;
+            label8.Font = new Font("Century Gothic", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label8.ForeColor = Color.White;
+            label8.Location = new Point(320, 72);
+            label8.Name = "label8";
+            label8.Size = new Size(183, 17);
+            label8.TabIndex = 30;
+            label8.Text = "Add, Edit and Delete data.";
+            // 
             // frmMaintenance
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(66, 66, 66);
             ClientSize = new Size(883, 556);
+            Controls.Add(label8);
             Controls.Add(label7);
             Controls.Add(panel3);
             Controls.Add(panel2);
@@ -858,5 +871,6 @@
         private Panel panel4;
         private Panel panel5;
         private Label label7;
+        private Label label8;
     }
 }

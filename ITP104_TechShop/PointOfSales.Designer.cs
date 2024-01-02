@@ -64,6 +64,7 @@
             label9 = new Label();
             panel5 = new Panel();
             label12 = new Label();
+            label13 = new Label();
             groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgvCart).BeginInit();
             ((System.ComponentModel.ISupportInitialize)nudQuantity).BeginInit();
@@ -514,12 +515,24 @@
             label12.TabIndex = 30;
             label12.Text = "Point of Sales";
             // 
+            // label13
+            // 
+            label13.AutoSize = true;
+            label13.Font = new Font("Century Gothic", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label13.ForeColor = Color.White;
+            label13.Location = new Point(320, 72);
+            label13.Name = "label13";
+            label13.Size = new Size(297, 17);
+            label13.TabIndex = 31;
+            label13.Text = "Checkout items that is available in the shop.";
+            // 
             // frmPointOfSales
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(66, 66, 66);
             ClientSize = new Size(883, 556);
+            Controls.Add(label13);
             Controls.Add(label12);
             Controls.Add(panel3);
             Controls.Add(panel2);
@@ -578,5 +591,6 @@
         private Label label11;
         public NumericUpDown nudQuantity;
         private Label label12;
+        private Label label13;
     }
 }

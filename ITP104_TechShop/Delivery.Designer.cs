@@ -54,6 +54,7 @@
             label3 = new Label();
             panel5 = new Panel();
             label7 = new Label();
+            label8 = new Label();
             ((System.ComponentModel.ISupportInitialize)dgvDelivery).BeginInit();
             ((System.ComponentModel.ISupportInitialize)nudQuantity).BeginInit();
             panel1.SuspendLayout();
@@ -148,7 +149,7 @@
             btnDeliver.BackColor = Color.FromArgb(0, 137, 123);
             btnDeliver.FlatAppearance.BorderSize = 0;
             btnDeliver.FlatStyle = FlatStyle.Flat;
-            btnDeliver.Font = new Font("Century Gothic", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnDeliver.Font = new Font("Century Gothic", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnDeliver.ForeColor = Color.White;
             btnDeliver.Location = new Point(292, 74);
             btnDeliver.Name = "btnDeliver";
@@ -375,12 +376,24 @@
             label7.TabIndex = 28;
             label7.Text = "Delivery";
             // 
+            // label8
+            // 
+            label8.AutoSize = true;
+            label8.Font = new Font("Century Gothic", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label8.ForeColor = Color.White;
+            label8.Location = new Point(320, 72);
+            label8.Name = "label8";
+            label8.Size = new Size(264, 17);
+            label8.TabIndex = 29;
+            label8.Text = "Deliver quantity of item stocks selected.";
+            // 
             // frmDelivery
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(66, 66, 66);
             ClientSize = new Size(883, 556);
+            Controls.Add(label8);
             Controls.Add(label7);
             Controls.Add(panel3);
             Controls.Add(panel2);
@@ -430,5 +443,6 @@
         private Panel panel4;
         private Panel panel5;
         private Label label7;
+        private Label label8;
     }
 }

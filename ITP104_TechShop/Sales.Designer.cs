@@ -45,6 +45,7 @@
             label1 = new Label();
             panel5 = new Panel();
             label7 = new Label();
+            label8 = new Label();
             ((System.ComponentModel.ISupportInitialize)dgvSales).BeginInit();
             panel1.SuspendLayout();
             panel3.SuspendLayout();
@@ -261,12 +262,24 @@
             label7.TabIndex = 48;
             label7.Text = "Sales Monitoring";
             // 
+            // label8
+            // 
+            label8.AutoSize = true;
+            label8.Font = new Font("Century Gothic", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label8.ForeColor = Color.White;
+            label8.Location = new Point(320, 72);
+            label8.Name = "label8";
+            label8.Size = new Size(542, 17);
+            label8.TabIndex = 49;
+            label8.Text = "Items that have been checked out and other reciept information is displayed here.";
+            // 
             // frmSales
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(66, 66, 66);
             ClientSize = new Size(883, 556);
+            Controls.Add(label8);
             Controls.Add(label7);
             Controls.Add(panel5);
             Controls.Add(panel3);
@@ -304,5 +317,6 @@
         private Panel panel4;
         private Panel panel5;
         private Label label7;
+        private Label label8;
     }
 }
