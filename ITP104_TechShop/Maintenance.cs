@@ -482,7 +482,7 @@ namespace ITP104_TechShop
                 {
                     int IdIncrement = int.Parse(sentInfo);
                     IdIncrement++;
-                    command.CommandText = "INSERT INTO tblItems VALUES('" + IdIncrement + "', '" + txtItemName.Text + "', (SELECT category_ID FROM tblItemCategory WHERE category_Name = '" + cbCategoryName.Text + "'),'" + txtBasePrice.Text + "')";
+                    command.CommandText = "INSERT INTO tblItems VALUES('" + IdIncrement + "', '" + txtItemName.Text + "', (SELECT category_ID FROM tblItemCategory WHERE category_Name = '" + cbCategoryName.Text + "'),'" + txtBasePrice.Text + "'); INSERT INTO tblInventory VALUES ('" + IdIncrement + "',0);";
                     command.ExecuteNonQuery();
 
                     MessageBox.Show("Item Category ID: " + lblItemIdGetter.Text + " is successfully updated");

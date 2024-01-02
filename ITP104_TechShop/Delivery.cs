@@ -23,7 +23,33 @@ namespace ITP104_TechShop
 
         private void frmDelivery_Load(object sender, EventArgs e)
         {
-            MySqlConnection connection = null!;
+            String sentInfo = "";
+            MySqlConnection connection = new MySqlConnection(con);
+            connection.Open();
+            MySqlCommand command = connection.CreateCommand();
+            command.Connection = connection;
+            try
+            {
+                command.CommandText = "SELECT now() AS DateNow;";
+                MySqlDataReader dr = command.ExecuteReader();
+                while (dr.Read())
+                {
+                    sentInfo = dr["DateNow"].ToString()!;
+                }
+                dr.Close();
+            }
+            catch (Exception z)
+            {
+                MessageBox.Show(z.Message);
+            }
+            finally
+            {
+                if (connection.State == ConnectionState.Open)
+                {
+                    connection.Close();
+                }
+            }
+            connection.Open();
             try
             {
                 connection = new MySqlConnection(con);
@@ -34,10 +60,12 @@ namespace ITP104_TechShop
                 DataSet ds = new DataSet();
                 adap.Fill(ds);
                 dgvDelivery.DataSource = ds.Tables[0].DefaultView;
+                showDeliveryTable();
+                lblDate.Text = sentInfo;
             }
-            catch (Exception)
+            catch (Exception z)
             {
-                MessageBox.Show("Connection Problem");
+                MessageBox.Show(z.Message);
             }
             finally
             {
@@ -60,19 +88,45 @@ namespace ITP104_TechShop
 
         private void btnDeliver_Click(object sender, EventArgs e)
         {
-            MySqlConnection connection = null!;
+            String sentInfo = "";
+            MySqlConnection connection = new MySqlConnection(con);
+            connection.Open();
+            MySqlCommand command = connection.CreateCommand();
+            command.Connection = connection;
             try
             {
-                connection = new MySqlConnection(con);
-                connection.Open();
-                MySqlCommand cmd = connection.CreateCommand();
-                cmd.CommandText = "CALL deliverStocks('" + lblItemIdGetter.Text + "', '" + nudQuantity.Text + "');";
-                cmd.ExecuteNonQuery();
-                MessageBox.Show(lblItemName.Text + " successfully delivered");
+                command.CommandText = "SELECT MAX(last_insert_id(delivery_ID)) AS 'getId' FROM tblDelivery;";
+                MySqlDataReader dr = command.ExecuteReader();
+                while (dr.Read())
+                {
+                    sentInfo = dr["getId"].ToString()!;
+                }
+                dr.Close();
             }
-            catch (Exception)
+            catch (Exception z)
             {
-                MessageBox.Show("Connection Problem");
+                MessageBox.Show(z.Message);
+            }
+            finally
+            {
+                if (connection.State == ConnectionState.Open)
+                {
+                    connection.Close();
+                }
+            }
+            connection.Open();
+            try
+            {
+                int IdIncrement = int.Parse(sentInfo);
+                IdIncrement++;
+                command.CommandText = "CALL deliverStocks('" + lblItemIdGetter.Text + "', '" + nudQuantity.Text + "'); CALL insertDelivery('" + IdIncrement + "','" + lblItemIdGetter.Text + "','" + nudQuantity.Text + "');";
+                command.ExecuteNonQuery();
+                MessageBox.Show(lblItemName.Text + " successfully delivered");
+                showDeliveryTable();
+            }
+            catch (Exception z)
+            {
+                MessageBox.Show(z.Message);
             }
             finally
             {
@@ -172,6 +226,32 @@ namespace ITP104_TechShop
             frmBackup frm = new frmBackup();
             frm.ShowDialog();
             this.Close();
+        }
+        private void showDeliveryTable()
+        {
+            MySqlConnection connection = null!;
+            try
+            {
+                connection = new MySqlConnection(con);
+                connection.Open();
+                MySqlCommand cmd = connection.CreateCommand();
+                cmd.CommandText = "SELECT * FROM tblDelivery;";
+                MySqlDataAdapter adap = new MySqlDataAdapter(cmd);
+                DataSet ds = new DataSet();
+                adap.Fill(ds);
+                dgvDeliveryTable.DataSource = ds.Tables[0].DefaultView;
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Connection Problem");
+            }
+            finally
+            {
+                if (connection.State == ConnectionState.Open)
+                {
+                    connection.Close();
+                }
+            }
         }
     }
 }

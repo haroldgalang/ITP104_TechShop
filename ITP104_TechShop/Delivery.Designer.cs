@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             dgvDelivery = new DataGridView();
-            dateTimePicker1 = new DateTimePicker();
             nudQuantity = new NumericUpDown();
             label1 = new Label();
             lblItemName = new Label();
@@ -53,6 +52,9 @@
             label2 = new Label();
             label3 = new Label();
             panel5 = new Panel();
+            lblDate = new Label();
+            label9 = new Label();
+            dgvDeliveryTable = new DataGridView();
             label7 = new Label();
             label8 = new Label();
             ((System.ComponentModel.ISupportInitialize)dgvDelivery).BeginInit();
@@ -60,6 +62,7 @@
             panel1.SuspendLayout();
             panel3.SuspendLayout();
             panel5.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)dgvDeliveryTable).BeginInit();
             SuspendLayout();
             // 
             // dgvDelivery
@@ -67,26 +70,21 @@
             dgvDelivery.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgvDelivery.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvDelivery.EditMode = DataGridViewEditMode.EditProgrammatically;
-            dgvDelivery.Location = new Point(158, 289);
+            dgvDelivery.Location = new Point(391, 16);
             dgvDelivery.Name = "dgvDelivery";
             dgvDelivery.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dgvDelivery.Size = new Size(711, 201);
+            dgvDelivery.Size = new Size(330, 118);
             dgvDelivery.TabIndex = 0;
             dgvDelivery.CellClick += dgvDelivery_CellClick;
             // 
-            // dateTimePicker1
-            // 
-            dateTimePicker1.Location = new Point(69, 74);
-            dateTimePicker1.Name = "dateTimePicker1";
-            dateTimePicker1.Size = new Size(195, 23);
-            dateTimePicker1.TabIndex = 2;
-            // 
             // nudQuantity
             // 
-            nudQuantity.Location = new Point(92, 111);
+            nudQuantity.Location = new Point(92, 110);
+            nudQuantity.Minimum = new decimal(new int[] { 1, 0, 0, 0 });
             nudQuantity.Name = "nudQuantity";
             nudQuantity.Size = new Size(172, 23);
             nudQuantity.TabIndex = 4;
+            nudQuantity.Value = new decimal(new int[] { 1, 0, 0, 0 });
             // 
             // label1
             // 
@@ -138,7 +136,7 @@
             label5.AutoSize = true;
             label5.Font = new Font("Century Gothic", 9.75F);
             label5.ForeColor = Color.White;
-            label5.Location = new Point(19, 115);
+            label5.Location = new Point(19, 113);
             label5.Name = "label5";
             label5.Size = new Size(67, 17);
             label5.TabIndex = 9;
@@ -151,9 +149,9 @@
             btnDeliver.FlatStyle = FlatStyle.Flat;
             btnDeliver.Font = new Font("Century Gothic", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnDeliver.ForeColor = Color.White;
-            btnDeliver.Location = new Point(292, 74);
+            btnDeliver.Location = new Point(281, 96);
             btnDeliver.Name = "btnDeliver";
-            btnDeliver.Size = new Size(224, 60);
+            btnDeliver.Size = new Size(96, 37);
             btnDeliver.TabIndex = 10;
             btnDeliver.Text = "Deliver";
             btnDeliver.UseVisualStyleBackColor = false;
@@ -351,19 +349,54 @@
             // panel5
             // 
             panel5.BackColor = Color.FromArgb(33, 33, 33);
+            panel5.Controls.Add(lblDate);
+            panel5.Controls.Add(label9);
+            panel5.Controls.Add(dgvDeliveryTable);
             panel5.Controls.Add(label1);
             panel5.Controls.Add(lblItemName);
             panel5.Controls.Add(label6);
             panel5.Controls.Add(btnDeliver);
+            panel5.Controls.Add(dgvDelivery);
             panel5.Controls.Add(lblItemIdGetter);
             panel5.Controls.Add(nudQuantity);
             panel5.Controls.Add(label5);
             panel5.Controls.Add(label4);
-            panel5.Controls.Add(dateTimePicker1);
             panel5.Location = new Point(142, 138);
             panel5.Name = "panel5";
-            panel5.Size = new Size(741, 369);
+            panel5.Size = new Size(741, 385);
             panel5.TabIndex = 27;
+            // 
+            // lblDate
+            // 
+            lblDate.Font = new Font("Century Gothic", 9.75F);
+            lblDate.ForeColor = Color.White;
+            lblDate.Location = new Point(69, 77);
+            lblDate.Name = "lblDate";
+            lblDate.Size = new Size(82, 17);
+            lblDate.TabIndex = 32;
+            lblDate.Text = "/";
+            // 
+            // label9
+            // 
+            label9.AutoSize = true;
+            label9.Font = new Font("Century Gothic", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label9.ForeColor = Color.White;
+            label9.Location = new Point(21, 174);
+            label9.Name = "label9";
+            label9.Size = new Size(96, 17);
+            label9.TabIndex = 31;
+            label9.Text = "Delivery Table";
+            // 
+            // dgvDeliveryTable
+            // 
+            dgvDeliveryTable.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dgvDeliveryTable.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvDeliveryTable.EditMode = DataGridViewEditMode.EditProgrammatically;
+            dgvDeliveryTable.Location = new Point(21, 194);
+            dgvDeliveryTable.Name = "dgvDeliveryTable";
+            dgvDeliveryTable.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dgvDeliveryTable.Size = new Size(700, 173);
+            dgvDeliveryTable.TabIndex = 30;
             // 
             // label7
             // 
@@ -398,7 +431,6 @@
             Controls.Add(panel3);
             Controls.Add(panel2);
             Controls.Add(panel1);
-            Controls.Add(dgvDelivery);
             Controls.Add(panel5);
             Name = "frmDelivery";
             StartPosition = FormStartPosition.CenterScreen;
@@ -411,6 +443,7 @@
             panel3.PerformLayout();
             panel5.ResumeLayout(false);
             panel5.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)dgvDeliveryTable).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -418,7 +451,6 @@
         #endregion
 
         private DataGridView dgvDelivery;
-        private DateTimePicker dateTimePicker1;
         private NumericUpDown nudQuantity;
         private Label label1;
         private Label lblItemName;
@@ -444,5 +476,8 @@
         private Panel panel5;
         private Label label7;
         private Label label8;
+        private DataGridView dgvDeliveryTable;
+        private Label label9;
+        private Label lblDate;
     }
 }

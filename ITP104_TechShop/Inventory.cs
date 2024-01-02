@@ -47,7 +47,6 @@ namespace ITP104_TechShop
                 }
             }
         }
-
         private void btnBack_Click(object sender, EventArgs e)
         {
             this.Hide();
@@ -55,7 +54,6 @@ namespace ITP104_TechShop
             frm.ShowDialog();
             this.Close();
         }
-
         private void btnMaintenance_Click(object sender, EventArgs e)
         {
             maintenance_form();

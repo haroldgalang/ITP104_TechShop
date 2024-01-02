@@ -24,6 +24,7 @@ namespace ITP104_TechShop
             InitializeComponent();
             con = "Server=localhost;Database=db_TechShop; User = root; Password =1234; ";
             MySqlConnection connection = new MySqlConnection(con);
+            nudQuantity.Controls[0].Visible = false;
         }
 
         private void frmPointOfSales_Load(object sender, EventArgs e)
@@ -166,12 +167,12 @@ namespace ITP104_TechShop
             lblItemIdGetter.Text = tblItemID;
             lblItemPriceGetter.Text = tblItemBasePrice;
             lblStocksChecker.Text = tblQuantity;
+            lblTotalPriceGetter.Text = tblItemBasePrice;
             nudQuantity.Minimum = 1;
-            nudQuantity.Value = 1;
             try
             {
-                decimal QuantityDecimal = decimal.Parse(tblQuantity, CultureInfo.InvariantCulture);
-                nudQuantity.Maximum = QuantityDecimal;
+                decimal QuantityDecimal = decimal.Parse(tblQuantity, CultureInfo.InvariantCulture);         
+                nudQuantity.Maximum = QuantityDecimal;  
             }
             catch (FormatException)
             {
@@ -209,11 +210,11 @@ namespace ITP104_TechShop
         {
             try
             {
-                double priceDecimal = double.Parse(lblItemPriceGetter.Text, CultureInfo.InvariantCulture);
-                double quantityDecimal = double.Parse(nudQuantity.Text, CultureInfo.InvariantCulture);
+                decimal priceDecimal = decimal.Parse(lblItemPriceGetter.Text, CultureInfo.InvariantCulture);
+                decimal quantityDecimal = decimal.Parse(nudQuantity.Text, CultureInfo.InvariantCulture);
 
-                double totalPrice = priceDecimal * quantityDecimal;
-                lblTotalPriceGetter.Text = totalPrice.ToString();
+                decimal TotalPrice = priceDecimal * quantityDecimal;
+                lblTotalPriceGetter.Text = TotalPrice.ToString();
             }
             catch (FormatException)
             {
