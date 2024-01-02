@@ -24,17 +24,26 @@ namespace ITP104_TechShop
 
         private void btnEditUser_Click(object sender, EventArgs e)
         {
-            MySqlConnection connection = null;
+            MySqlConnection connection = null!;
             try
             {
                 connection = new MySqlConnection(con);
                 connection.Open();
-                MySqlCommand cmd = connection.CreateCommand();
-                cmd.CommandText = "UPDATE tblUsers SET password = '" + txtPassword.Text + "' WHERE username = '" + txtUsername.Text + "'";
-                cmd.ExecuteNonQuery();
-                MessageBox.Show(txtUsername.Text + " is successfully updated");
+                if (txtUsername.Text == String.Empty || txtPassword.Text == String.Empty)
+                {           
+                    MessageBox.Show("can't leave text field(s) empty");
+                }
+                else {
+                    MySqlCommand cmd = connection.CreateCommand();
+                    cmd.CommandText = "UPDATE tblUsers SET password = '" + txtPassword.Text + "' WHERE username = '" + txtUsername.Text + "'";
+                    cmd.ExecuteNonQuery();
+                    MessageBox.Show(txtUsername.Text + " is successfully updated");
+                    txtUsername.Text = String.Empty;
+                    txtPassword.Text = String.Empty;
+                    showTblUsers();
+                }
             }
-            catch (Exception z)
+            catch (Exception)
             {
                 MessageBox.Show("Connection Problem");
             }
@@ -85,7 +94,7 @@ namespace ITP104_TechShop
 
         private void showTblUsers()
         {
-            MySqlConnection connection = null;
+            MySqlConnection connection = null!;
             try
             {
                 connection = new MySqlConnection(con);
@@ -97,7 +106,7 @@ namespace ITP104_TechShop
                 adap.Fill(ds);
                 dgvUsers.DataSource = ds.Tables[0].DefaultView;
             }
-            catch (Exception z)
+            catch (Exception)
             {
                 MessageBox.Show("Connection Problem");
             }
@@ -111,7 +120,7 @@ namespace ITP104_TechShop
         }
         private void showTblItemCategory()
         {
-            MySqlConnection connection = null;
+            MySqlConnection connection = null!;
             try
             {
                 connection = new MySqlConnection(con);
@@ -123,7 +132,7 @@ namespace ITP104_TechShop
                 adap.Fill(ds);
                 dgvItemCategory.DataSource = ds.Tables[0].DefaultView;
             }
-            catch (Exception z)
+            catch (Exception)
             {
                 MessageBox.Show("Connection Problem");
             }
@@ -137,7 +146,7 @@ namespace ITP104_TechShop
         }
         private void showTblSuppliers()
         {
-            MySqlConnection connection = null;
+            MySqlConnection connection = null!;
             try
             {
                 connection = new MySqlConnection(con);
@@ -149,7 +158,7 @@ namespace ITP104_TechShop
                 adap.Fill(ds);
                 dgvSuppliers.DataSource = ds.Tables[0].DefaultView;
             }
-            catch (Exception z)
+            catch (Exception)
             {
                 MessageBox.Show("Connection Problem");
             }
@@ -163,7 +172,7 @@ namespace ITP104_TechShop
         }
         private void showTblItems()
         {
-            MySqlConnection connection = null;
+            MySqlConnection connection = null!;
             try
             {
                 connection = new MySqlConnection(con);
@@ -175,7 +184,7 @@ namespace ITP104_TechShop
                 adap.Fill(ds);
                 dgvItems.DataSource = ds.Tables[0].DefaultView;
             }
-            catch (Exception z)
+            catch (Exception)
             {
                 MessageBox.Show("Connection Problem");
             }
@@ -196,12 +205,20 @@ namespace ITP104_TechShop
             command.Connection = connection;
             try
             {
-                command.CommandText = "INSERT INTO tblUsers VALUES('" + txtUsername.Text + "', '" + txtPassword.Text + "')";
-                command.ExecuteNonQuery();
-                showTblUsers();
-                MessageBox.Show("User is successfully added");
-                txtUsername.Text = String.Empty;
-                txtPassword.Text = String.Empty;
+                if (txtUsername.Text == String.Empty || txtPassword.Text == String.Empty)
+                {
+                    MessageBox.Show("can't leave text field(s) empty");
+                }
+                else
+                {
+                    command.CommandText = "INSERT INTO tblUsers VALUES('" + txtUsername.Text + "', '" + txtPassword.Text + "')";
+                    command.ExecuteNonQuery();
+                    
+                    MessageBox.Show("User is successfully added");
+                    txtUsername.Text = String.Empty;
+                    txtPassword.Text = String.Empty;
+                    showTblUsers();
+                }
             }
             catch (Exception z)
             {
@@ -270,7 +287,7 @@ namespace ITP104_TechShop
 
         private void btnDeleteUser_Click(object sender, EventArgs e)
         {
-            MySqlConnection connection = null;
+            MySqlConnection connection = null!;
             try
             {
                 connection = new MySqlConnection(con);
@@ -278,9 +295,13 @@ namespace ITP104_TechShop
                 MySqlCommand cmd = connection.CreateCommand();
                 cmd.CommandText = "DELETE FROM tblUsers WHERE username = '" + txtUsername.Text + "'";
                 cmd.ExecuteNonQuery();
+
                 MessageBox.Show(txtUsername.Text + " is successfully deleted");
+                txtUsername.Text = String.Empty;
+                txtPassword.Text = String.Empty;
+                showTblUsers();
             }
-            catch (Exception z)
+            catch (Exception)
             {
                 MessageBox.Show("Connection Problem");
             }
@@ -306,7 +327,7 @@ namespace ITP104_TechShop
                 MySqlDataReader dr = command.ExecuteReader();
                 while (dr.Read())
                 {
-                    sentInfo = dr["getId"].ToString();
+                    sentInfo = dr["getId"].ToString()!;
                 }
                 dr.Close();
             }
@@ -324,25 +345,23 @@ namespace ITP104_TechShop
             connection.Open();
             try
             {
-                int IdIncrement = int.Parse(sentInfo);
-                IdIncrement++;
-                command.CommandText = "INSERT INTO tblItemCategory VALUES('" + IdIncrement + "', '" + txtCategoryName.Text + "')";
-                command.ExecuteNonQuery();
-                showTblItemCategory();
-                MessageBox.Show("Item Category is successfully added");
-                lblCategoryIdGetter.Text = "/";
-                txtCategoryName.Text = String.Empty;
-                MySqlCommand cmd = connection.CreateCommand();
-                cmd.CommandText = "SELECT * FROM tblItemCategory";
-                MySqlDataAdapter adap = new MySqlDataAdapter(cmd);
-                DataTable table = new DataTable();
-                adap.Fill(table);
-                cbCategoryName.DataSource = new BindingSource(table, null);
-                DataRow dr = table.NewRow();
-                table.Rows.InsertAt(dr, 0);
-                cbCategoryName.DataSource = table;
-                cbCategoryName.DisplayMember = "category_Name";
+                if (txtCategoryName.Text == String.Empty)
+                {
+                    MessageBox.Show("can't leave text field empty");
+                }
+                else
+                {
+                    int IdIncrement = int.Parse(sentInfo);
+                    IdIncrement++;
+                    command.CommandText = "INSERT INTO tblItemCategory VALUES('" + IdIncrement + "', '" + txtCategoryName.Text + "'); SELECT * FROM tblItemCategory;";
+                    command.ExecuteNonQuery();
 
+                    MessageBox.Show("Item Category is successfully added");
+                    txtCategoryName.Text = String.Empty;
+                    lblCategoryIdGetter.Text = "/";
+                    cbCategoryDisplay();
+                    showTblItemCategory();
+                }
             }
             catch (Exception z)
             {
@@ -359,26 +378,22 @@ namespace ITP104_TechShop
 
         private void btnDeleteCatergory_Click(object sender, EventArgs e)
         {
-            MySqlConnection connection = null;
+            MySqlConnection connection = null!;
             try
             {
                 connection = new MySqlConnection(con);
                 connection.Open();
                 MySqlCommand cmd = connection.CreateCommand();
-                cmd.CommandText = "DELETE FROM tblItemCategory WHERE category_ID = '" + lblCategoryIdGetter.Text + "'";
+                cmd.CommandText = "DELETE FROM tblItemCategory WHERE category_ID = '" + lblCategoryIdGetter.Text + "';";
                 cmd.ExecuteNonQuery();
+
                 MessageBox.Show("Item Category ID: " + lblCategoryIdGetter.Text + " is successfully deleted");
-                cmd.CommandText = "SELECT * FROM tblItemCategory";
-                MySqlDataAdapter adap = new MySqlDataAdapter(cmd);
-                DataTable table = new DataTable();
-                adap.Fill(table);
-                cbCategoryName.DataSource = new BindingSource(table, null);
-                DataRow dr = table.NewRow();
-                table.Rows.InsertAt(dr, 0);
-                cbCategoryName.DataSource = table;
-                cbCategoryName.DisplayMember = "category_Name";
+                txtCategoryName.Text = String.Empty;
+                lblCategoryIdGetter.Text = "/";
+                cbCategoryDisplay();
+                showTblItemCategory();
             }
-            catch (Exception z)
+            catch (Exception)
             {
                 MessageBox.Show("Connection Problem");
             }
@@ -393,29 +408,29 @@ namespace ITP104_TechShop
 
         private void btnEditCategory_Click(object sender, EventArgs e)
         {
-            MySqlConnection connection = null;
+            MySqlConnection connection = null!;
             try
             {
+                if (txtCategoryName.Text == String.Empty)
+                {
+                    MessageBox.Show("can't leave text field empty");
+                }
+                else 
+                { 
                 connection = new MySqlConnection(con);
                 connection.Open();
                 MySqlCommand cmd = connection.CreateCommand();
-                cmd.CommandText = "UPDATE tblItemCategory SET category_Name = '" + txtCategoryName.Text + "' WHERE Category_ID = '" + lblCategoryIdGetter.Text + "'";
+                cmd.CommandText = "UPDATE tblItemCategory SET category_Name = '" + txtCategoryName.Text + "' WHERE Category_ID = '" + lblCategoryIdGetter.Text + "'; SELECT * FROM tblItemCategory";
                 cmd.ExecuteNonQuery();
-                showTblItemCategory();
+
                 MessageBox.Show("Item Category ID: " + lblCategoryIdGetter.Text + " is successfully updated");
-                lblCategoryIdGetter.Text = "/";
                 txtCategoryName.Text = String.Empty;
-                cmd.CommandText = "SELECT * FROM tblItemCategory";
-                MySqlDataAdapter adap = new MySqlDataAdapter(cmd);
-                DataTable table = new DataTable();
-                adap.Fill(table);
-                cbCategoryName.DataSource = new BindingSource(table, null);
-                DataRow dr = table.NewRow();
-                table.Rows.InsertAt(dr, 0);
-                cbCategoryName.DataSource = table;
-                cbCategoryName.DisplayMember = "category_Name";
+                lblCategoryIdGetter.Text = "/";
+                cbCategoryDisplay();
+                showTblItems();
+                }
             }
-            catch (Exception z)
+            catch (Exception)
             {
                 MessageBox.Show("Connection Problem");
             }
@@ -441,7 +456,7 @@ namespace ITP104_TechShop
                 MySqlDataReader dr = command.ExecuteReader();
                 while (dr.Read())
                 {
-                    sentInfo = dr["getId"].ToString();
+                    sentInfo = dr["getId"].ToString()!;
                 }
                 dr.Close();
             }
@@ -459,16 +474,25 @@ namespace ITP104_TechShop
             connection.Open();
             try
             {
-                int IdIncrement = int.Parse(sentInfo);
-                IdIncrement++;
-                command.CommandText = "INSERT INTO tblItems VALUES('" + IdIncrement + "', '" + txtItemName.Text + "', (SELECT category_ID FROM tblItemCategory WHERE category_Name = '" + cbCategoryName.Text + "'),'" + txtBasePrice.Text + "')";
-                command.ExecuteNonQuery();
-                showTblItems();
-                MessageBox.Show("Item is successfully added");
-                lblItemIdGetter.Text = "/";
-                txtItemName.Text = String.Empty;
-                cbCategoryName.Text = "Category Name";
-                txtBasePrice.Text = String.Empty;
+                if (txtItemName.Text == String.Empty || txtBasePrice.Text == String.Empty || cbCategoryName.SelectedIndex == 0)
+                {
+                    MessageBox.Show("can't leave fields empty");
+                }
+                else
+                {
+                    int IdIncrement = int.Parse(sentInfo);
+                    IdIncrement++;
+                    command.CommandText = "INSERT INTO tblItems VALUES('" + IdIncrement + "', '" + txtItemName.Text + "', (SELECT category_ID FROM tblItemCategory WHERE category_Name = '" + cbCategoryName.Text + "'),'" + txtBasePrice.Text + "')";
+                    command.ExecuteNonQuery();
+
+                    MessageBox.Show("Item Category ID: " + lblItemIdGetter.Text + " is successfully updated");
+                    lblItemIdGetter.Text = "/";
+                    txtItemName.Text = String.Empty;
+                    txtBasePrice.Text = String.Empty;
+                    cbCategoryName.SelectedIndex = 0;
+                    cbCategoryDisplay();
+                    showTblItems();
+                }
             }
             catch (Exception z)
             {
@@ -485,21 +509,30 @@ namespace ITP104_TechShop
 
         private void btnEditItems_Click(object sender, EventArgs e)
         {
-            MySqlConnection connection = null;
+            MySqlConnection connection = null!;
             try
             {
-                connection = new MySqlConnection(con);
-                connection.Open();
-                MySqlCommand cmd = connection.CreateCommand();
-                cmd.CommandText = "CALL updateItem('" + txtItemName.Text + "', '" + cbCategoryName.Text + "', '" + txtBasePrice.Text + "', '" + lblItemIdGetter.Text + "')";
-                cmd.ExecuteNonQuery();
-                MessageBox.Show("Item Category ID: " + lblItemIdGetter.Text + " is successfully updated");
-                lblItemIdGetter.Text = "/";
-                txtItemName.Text = String.Empty;
-                cbCategoryName.Text = "Category ID";
-                txtBasePrice.Text = String.Empty;
+                if (txtItemName.Text == String.Empty || txtBasePrice.Text == String.Empty || cbCategoryName.SelectedIndex == 0)
+                {
+                    MessageBox.Show("can't leave fields empty");
+                }
+                else
+                {
+                    connection = new MySqlConnection(con);
+                    connection.Open();
+                    MySqlCommand cmd = connection.CreateCommand();
+                    cmd.CommandText = "CALL updateItem('" + txtItemName.Text + "', '" + cbCategoryName.Text + "', '" + txtBasePrice.Text + "', '" + lblItemIdGetter.Text + "')";
+                    cmd.ExecuteNonQuery();
+
+                    MessageBox.Show("Item Category ID: " + lblItemIdGetter.Text + " is successfully updated");
+                    lblItemIdGetter.Text = "/";
+                    txtItemName.Text = String.Empty;
+                    txtBasePrice.Text = String.Empty;
+                    cbCategoryName.SelectedIndex = 0;
+                    cbCategoryDisplay();
+                }
             }
-            catch (Exception z)
+            catch (Exception)
             {
                 MessageBox.Show("Connection Problem");
             }
@@ -514,7 +547,7 @@ namespace ITP104_TechShop
 
         private void btnDeleteItem_Click(object sender, EventArgs e)
         {
-            MySqlConnection connection = null;
+            MySqlConnection connection = null!;
             try
             {
                 connection = new MySqlConnection(con);
@@ -522,14 +555,14 @@ namespace ITP104_TechShop
                 MySqlCommand cmd = connection.CreateCommand();
                 cmd.CommandText = "DELETE FROM tblItems WHERE item_ID = '" + lblItemIdGetter.Text + "'";
                 cmd.ExecuteNonQuery();
-                showTblItems();
+
                 MessageBox.Show("Item ID: " + lblItemIdGetter.Text + " is successfully deleted");
-                lblItemIdGetter.Text = "/";
-                txtItemName.Text = String.Empty;
-                cbCategoryName.Text = "Category ID";
-                txtBasePrice.Text = String.Empty;
+                txtCategoryName.Text = String.Empty;
+                lblCategoryIdGetter.Text = "/";
+                cbCategoryDisplay();
+                showTblItems();
             }
-            catch (Exception z)
+            catch (Exception)
             {
                 MessageBox.Show("Connection Problem");
             }
@@ -552,10 +585,10 @@ namespace ITP104_TechShop
             try
             {
                 command.CommandText = "SELECT MAX(last_insert_id(supplier_ID)) AS 'getId' FROM tblSuppliers;";
-                MySqlDataReader dr = command.ExecuteReader();
+                MySqlDataReader dr = command.ExecuteReader()!;
                 while (dr.Read())
                 {
-                    sentInfo = dr["getId"].ToString();
+                    sentInfo = dr["getId"].ToString()!;
                 }
                 dr.Close();
             }
@@ -577,12 +610,13 @@ namespace ITP104_TechShop
                 IdIncrement++;
                 command.CommandText = "INSERT INTO tblSuppliers VALUES('" + IdIncrement + "', '" + txtSupplierName.Text + "', '" + txtSupplierAddress.Text + "','" + txtSupplierContact.Text + "' )";
                 command.ExecuteNonQuery();
-                showTblSuppliers();
+                
                 MessageBox.Show("Supplier is successfully added");
                 lblSupplierIdGetter.Text = "/";
                 txtSupplierName.Text = String.Empty;
                 txtSupplierAddress.Text = String.Empty;
                 txtSupplierContact.Text = String.Empty;
+                showTblSuppliers();
             }
             catch (Exception z)
             {
@@ -599,7 +633,7 @@ namespace ITP104_TechShop
 
         private void btnDeleteSupplier_Click(object sender, EventArgs e)
         {
-            MySqlConnection connection = null;
+            MySqlConnection connection = null!;
             try
             {
                 connection = new MySqlConnection(con);
@@ -607,14 +641,15 @@ namespace ITP104_TechShop
                 MySqlCommand cmd = connection.CreateCommand();
                 cmd.CommandText = "DELETE FROM tblSuppliers WHERE supplier_ID = '" + lblSupplierIdGetter.Text + "'";
                 cmd.ExecuteNonQuery();
-                showTblSuppliers();
+                
                 MessageBox.Show("Supplier ID: " + lblSupplierIdGetter.Text + " is successfully deleted");
                 lblSupplierIdGetter.Text = "/";
                 txtSupplierName.Text = String.Empty;
                 txtSupplierAddress.Text = String.Empty;
                 txtSupplierContact.Text = String.Empty;
+                showTblSuppliers();
             }
-            catch (Exception z)
+            catch (Exception)
             {
                 MessageBox.Show("Connection Problem");
             }
@@ -629,7 +664,7 @@ namespace ITP104_TechShop
 
         private void btnEditSupplier_Click(object sender, EventArgs e)
         {
-            MySqlConnection connection = null;
+            MySqlConnection connection = null!;
             try
             {
                 connection = new MySqlConnection(con);
@@ -637,14 +672,15 @@ namespace ITP104_TechShop
                 MySqlCommand cmd = connection.CreateCommand();
                 cmd.CommandText = "UPDATE tblSuppliers SET supplier_Name = '" + txtSupplierName.Text + "',supplier_Address = '" + txtSupplierAddress.Text + "',supplier_ContactNum = '" + txtSupplierContact.Text + "' WHERE supplier_ID = '" + lblSupplierIdGetter.Text + "'";
                 cmd.ExecuteNonQuery();
-                showTblSuppliers();
+             
                 MessageBox.Show("Item Category ID: " + lblSupplierIdGetter.Text + " is successfully updated");
                 lblSupplierIdGetter.Text = "/";
                 txtSupplierName.Text = String.Empty;
                 txtSupplierAddress.Text = String.Empty;
                 txtSupplierContact.Text = String.Empty;
+                showTblSuppliers();
             }
-            catch (Exception z)
+            catch (Exception)
             {
                 MessageBox.Show("Connection Problem");
             }
@@ -659,32 +695,7 @@ namespace ITP104_TechShop
 
         private void frmMaintenance_Load(object sender, EventArgs e)
         {
-            MySqlConnection connection = new MySqlConnection(con);
-            connection.Open();
-            try
-            {
-                MySqlCommand cmd = connection.CreateCommand();
-                cmd.CommandText = "SELECT * FROM tblItemCategory";
-                MySqlDataAdapter adap = new MySqlDataAdapter(cmd);
-                DataTable table = new DataTable();
-                adap.Fill(table);
-                cbCategoryName.DataSource = new BindingSource(table, null);
-                DataRow dr = table.NewRow();
-                table.Rows.InsertAt(dr, 0);
-                cbCategoryName.DataSource = table;
-                cbCategoryName.DisplayMember = "category_Name";
-            }
-            catch (Exception z)
-            {
-                MessageBox.Show(z.Message);
-            }
-            finally
-            {
-                if (connection.State == ConnectionState.Open)
-                {
-                    connection.Close();
-                }
-            }
+            cbCategoryDisplay();
         }
 
         private void btnMaintenance_Click(object sender, EventArgs e)
@@ -764,6 +775,37 @@ namespace ITP104_TechShop
             frmBackup frm = new frmBackup();
             frm.ShowDialog();
             this.Close();
+        }
+        private void cbCategoryDisplay()
+        {
+            MySqlConnection connection = null!;
+            connection = new MySqlConnection(con);
+            connection.Open();
+            MySqlCommand cmd = connection.CreateCommand();
+            try
+            {
+                cmd.CommandText = "SELECT * FROM tblItemCategory;";
+                cmd.ExecuteNonQuery();
+                MySqlDataAdapter adap = new MySqlDataAdapter(cmd);
+                DataTable table = new DataTable();
+                adap.Fill(table);
+                cbCategoryName.DataSource = new BindingSource(table, null);
+                DataRow dr = table.NewRow();
+                table.Rows.InsertAt(dr, 0);
+                cbCategoryName.DataSource = table;
+                cbCategoryName.DisplayMember = "category_Name";
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Connection Problem");
+            }
+            finally
+            {
+                if (connection.State == ConnectionState.Open)
+                {
+                    connection.Close();
+                }
+            }
         }
     }
 }

@@ -36,14 +36,22 @@
             btnLogout = new Button();
             btnDbBackup = new Button();
             panel1 = new Panel();
+            panel5 = new Panel();
+            label3 = new Label();
+            label4 = new Label();
             panel4 = new Panel();
             button1 = new Button();
             panel2 = new Panel();
             panel3 = new Panel();
             label2 = new Label();
             label1 = new Label();
+            label7 = new Label();
+            panel6 = new Panel();
+            label6 = new Label();
             panel1.SuspendLayout();
+            panel5.SuspendLayout();
             panel3.SuspendLayout();
+            panel6.SuspendLayout();
             SuspendLayout();
             // 
             // btnMaintenance
@@ -162,6 +170,38 @@
             panel1.Size = new Size(142, 556);
             panel1.TabIndex = 20;
             // 
+            // panel5
+            // 
+            panel5.BackColor = Color.FromArgb(0, 137, 123);
+            panel5.Controls.Add(label3);
+            panel5.Controls.Add(label4);
+            panel5.Location = new Point(142, 172);
+            panel5.Name = "panel5";
+            panel5.Size = new Size(741, 260);
+            panel5.TabIndex = 23;
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Font = new Font("Century Gothic", 27.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label3.ForeColor = Color.White;
+            label3.Location = new Point(49, 130);
+            label3.Name = "label3";
+            label3.Size = new Size(205, 44);
+            label3.TabIndex = 1;
+            label3.Text = "Tech Shop";
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Font = new Font("Century Gothic", 48F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label4.ForeColor = Color.White;
+            label4.Location = new Point(34, 43);
+            label4.Name = "label4";
+            label4.Size = new Size(432, 77);
+            label4.TabIndex = 0;
+            label4.Text = "GamersUnite";
+            // 
             // panel4
             // 
             panel4.BackColor = Color.FromArgb(0, 137, 123);
@@ -224,12 +264,47 @@
             label1.TabIndex = 0;
             label1.Text = "GamersUnite";
             // 
+            // label7
+            // 
+            label7.AutoSize = true;
+            label7.Font = new Font("Century Gothic", 20.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label7.ForeColor = Color.White;
+            label7.Location = new Point(315, 38);
+            label7.Name = "label7";
+            label7.Size = new Size(162, 32);
+            label7.TabIndex = 29;
+            label7.Text = "Homepage";
+            // 
+            // panel6
+            // 
+            panel6.BackColor = Color.Firebrick;
+            panel6.Controls.Add(label6);
+            panel6.Location = new Point(688, 172);
+            panel6.Name = "panel6";
+            panel6.Size = new Size(107, 191);
+            panel6.TabIndex = 23;
+            // 
+            // label6
+            // 
+            label6.AutoSize = true;
+            label6.Font = new Font("Century Gothic", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label6.ForeColor = Color.White;
+            label6.Location = new Point(28, 6);
+            label6.Name = "label6";
+            label6.Size = new Size(50, 162);
+            label6.TabIndex = 0;
+            label6.Text = "C\r\nH\r\nE\r\nC\r\nK\r\nO\r\nU\r\nT\r\nNOW!";
+            label6.TextAlign = ContentAlignment.MiddleCenter;
+            // 
             // frmMain
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(66, 66, 66);
             ClientSize = new Size(883, 556);
+            Controls.Add(panel6);
+            Controls.Add(panel5);
+            Controls.Add(label7);
             Controls.Add(panel3);
             Controls.Add(panel2);
             Controls.Add(panel1);
@@ -238,9 +313,14 @@
             Text = "Main";
             Load += main_Load;
             panel1.ResumeLayout(false);
+            panel5.ResumeLayout(false);
+            panel5.PerformLayout();
             panel3.ResumeLayout(false);
             panel3.PerformLayout();
+            panel6.ResumeLayout(false);
+            panel6.PerformLayout();
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
@@ -259,5 +339,11 @@
         private Label label1;
         private Label label2;
         private Panel panel4;
+        private Label label7;
+        private Panel panel5;
+        private Label label3;
+        private Label label4;
+        private Panel panel6;
+        private Label label6;
     }
 }

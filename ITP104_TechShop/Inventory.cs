@@ -23,7 +23,7 @@ namespace ITP104_TechShop
 
         private void frmInventory_Load(object sender, EventArgs e)
         {
-            MySqlConnection connection = null;
+            MySqlConnection connection = null!;
             try
             {
                 connection = new MySqlConnection(con);
@@ -35,7 +35,7 @@ namespace ITP104_TechShop
                 adap.Fill(ds);
                 dgvInventory.DataSource = ds.Tables[0].DefaultView;
             }
-            catch (Exception z)
+            catch (Exception)
             {
                 MessageBox.Show("Connection Problem");
             }

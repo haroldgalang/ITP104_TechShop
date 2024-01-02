@@ -23,7 +23,7 @@ namespace ITP104_TechShop
 
         private void frmDelivery_Load(object sender, EventArgs e)
         {
-            MySqlConnection connection = null;
+            MySqlConnection connection = null!;
             try
             {
                 connection = new MySqlConnection(con);
@@ -35,7 +35,7 @@ namespace ITP104_TechShop
                 adap.Fill(ds);
                 dgvDelivery.DataSource = ds.Tables[0].DefaultView;
             }
-            catch (Exception z)
+            catch (Exception)
             {
                 MessageBox.Show("Connection Problem");
             }
@@ -60,7 +60,7 @@ namespace ITP104_TechShop
 
         private void btnDeliver_Click(object sender, EventArgs e)
         {
-            MySqlConnection connection = null;
+            MySqlConnection connection = null!;
             try
             {
                 connection = new MySqlConnection(con);
@@ -70,7 +70,7 @@ namespace ITP104_TechShop
                 cmd.ExecuteNonQuery();
                 MessageBox.Show(lblItemName.Text + " successfully delivered");
             }
-            catch (Exception z)
+            catch (Exception)
             {
                 MessageBox.Show("Connection Problem");
             }

@@ -82,6 +82,7 @@
             label2 = new Label();
             label1 = new Label();
             panel5 = new Panel();
+            label7 = new Label();
             groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgvUsers).BeginInit();
             groupBox2.SuspendLayout();
@@ -113,7 +114,7 @@
             txtPassword.Location = new Point(6, 110);
             txtPassword.Name = "txtPassword";
             txtPassword.PlaceholderText = "Password";
-            txtPassword.Size = new Size(204, 22);
+            txtPassword.Size = new Size(207, 22);
             txtPassword.TabIndex = 5;
             // 
             // txtUsername
@@ -121,7 +122,7 @@
             txtUsername.Location = new Point(6, 69);
             txtUsername.Name = "txtUsername";
             txtUsername.PlaceholderText = "Username";
-            txtUsername.Size = new Size(204, 22);
+            txtUsername.Size = new Size(207, 22);
             txtUsername.TabIndex = 6;
             // 
             // groupBox1
@@ -146,7 +147,7 @@
             btnDeleteUser.BackColor = Color.FromArgb(0, 137, 123);
             btnDeleteUser.FlatAppearance.BorderSize = 0;
             btnDeleteUser.FlatStyle = FlatStyle.Flat;
-            btnDeleteUser.Location = new Point(151, 155);
+            btnDeleteUser.Location = new Point(154, 155);
             btnDeleteUser.Name = "btnDeleteUser";
             btnDeleteUser.Size = new Size(59, 26);
             btnDeleteUser.TabIndex = 20;
@@ -161,7 +162,7 @@
             btnAddUser.FlatStyle = FlatStyle.Flat;
             btnAddUser.Location = new Point(71, 155);
             btnAddUser.Name = "btnAddUser";
-            btnAddUser.Size = new Size(74, 26);
+            btnAddUser.Size = new Size(77, 26);
             btnAddUser.TabIndex = 9;
             btnAddUser.Text = "+";
             btnAddUser.UseVisualStyleBackColor = false;
@@ -226,7 +227,7 @@
             // lblCategoryIdGetter
             // 
             lblCategoryIdGetter.AutoSize = true;
-            lblCategoryIdGetter.Location = new Point(87, 69);
+            lblCategoryIdGetter.Location = new Point(87, 68);
             lblCategoryIdGetter.Name = "lblCategoryIdGetter";
             lblCategoryIdGetter.Size = new Size(13, 17);
             lblCategoryIdGetter.TabIndex = 19;
@@ -237,7 +238,7 @@
             btnDeleteCatergory.BackColor = Color.FromArgb(0, 137, 123);
             btnDeleteCatergory.FlatAppearance.BorderSize = 0;
             btnDeleteCatergory.FlatStyle = FlatStyle.Flat;
-            btnDeleteCatergory.Location = new Point(151, 155);
+            btnDeleteCatergory.Location = new Point(154, 156);
             btnDeleteCatergory.Name = "btnDeleteCatergory";
             btnDeleteCatergory.Size = new Size(59, 26);
             btnDeleteCatergory.TabIndex = 18;
@@ -248,7 +249,7 @@
             // lblCategoryID
             // 
             lblCategoryID.AutoSize = true;
-            lblCategoryID.Location = new Point(6, 69);
+            lblCategoryID.Location = new Point(6, 68);
             lblCategoryID.Name = "lblCategoryID";
             lblCategoryID.Size = new Size(85, 17);
             lblCategoryID.TabIndex = 17;
@@ -260,7 +261,7 @@
             txtCategoryName.Location = new Point(6, 98);
             txtCategoryName.Name = "txtCategoryName";
             txtCategoryName.PlaceholderText = "Category Name";
-            txtCategoryName.Size = new Size(204, 22);
+            txtCategoryName.Size = new Size(207, 22);
             txtCategoryName.TabIndex = 10;
             // 
             // btnAddCategory
@@ -270,7 +271,7 @@
             btnAddCategory.FlatStyle = FlatStyle.Flat;
             btnAddCategory.Location = new Point(71, 155);
             btnAddCategory.Name = "btnAddCategory";
-            btnAddCategory.Size = new Size(74, 26);
+            btnAddCategory.Size = new Size(77, 26);
             btnAddCategory.TabIndex = 9;
             btnAddCategory.Text = "+";
             btnAddCategory.UseVisualStyleBackColor = false;
@@ -296,7 +297,7 @@
             btnAddSupplier.FlatStyle = FlatStyle.Flat;
             btnAddSupplier.Location = new Point(71, 156);
             btnAddSupplier.Name = "btnAddSupplier";
-            btnAddSupplier.Size = new Size(74, 26);
+            btnAddSupplier.Size = new Size(77, 26);
             btnAddSupplier.TabIndex = 9;
             btnAddSupplier.Text = "+";
             btnAddSupplier.UseVisualStyleBackColor = false;
@@ -327,9 +328,9 @@
             cbCategoryName.DropDownStyle = ComboBoxStyle.DropDownList;
             cbCategoryName.ForeColor = SystemColors.InfoText;
             cbCategoryName.FormattingEnabled = true;
-            cbCategoryName.Location = new Point(6, 98);
+            cbCategoryName.Location = new Point(6, 97);
             cbCategoryName.Name = "cbCategoryName";
-            cbCategoryName.Size = new Size(204, 25);
+            cbCategoryName.Size = new Size(207, 25);
             cbCategoryName.TabIndex = 21;
             // 
             // lblItemIdGetter
@@ -346,7 +347,7 @@
             btnDeleteItem.BackColor = Color.FromArgb(0, 137, 123);
             btnDeleteItem.FlatAppearance.BorderSize = 0;
             btnDeleteItem.FlatStyle = FlatStyle.Flat;
-            btnDeleteItem.Location = new Point(154, 155);
+            btnDeleteItem.Location = new Point(154, 156);
             btnDeleteItem.Name = "btnDeleteItem";
             btnDeleteItem.Size = new Size(59, 26);
             btnDeleteItem.TabIndex = 19;
@@ -369,7 +370,7 @@
             txtItemName.Location = new Point(6, 69);
             txtItemName.Name = "txtItemName";
             txtItemName.PlaceholderText = "Item Name";
-            txtItemName.Size = new Size(204, 22);
+            txtItemName.Size = new Size(207, 22);
             txtItemName.TabIndex = 13;
             // 
             // txtBasePrice
@@ -377,7 +378,7 @@
             txtBasePrice.Location = new Point(6, 127);
             txtBasePrice.Name = "txtBasePrice";
             txtBasePrice.PlaceholderText = "Base Price";
-            txtBasePrice.Size = new Size(204, 22);
+            txtBasePrice.Size = new Size(207, 22);
             txtBasePrice.TabIndex = 11;
             // 
             // btnShowTblItems
@@ -437,7 +438,7 @@
             groupBox4.Size = new Size(219, 187);
             groupBox4.TabIndex = 15;
             groupBox4.TabStop = false;
-            groupBox4.Text = "Set Suppliers";    
+            groupBox4.Text = "Set Suppliers";
             // 
             // lblSupplierIdGetter
             // 
@@ -454,7 +455,7 @@
             btnDeleteSupplier.BackColor = Color.FromArgb(0, 137, 123);
             btnDeleteSupplier.FlatAppearance.BorderSize = 0;
             btnDeleteSupplier.FlatStyle = FlatStyle.Flat;
-            btnDeleteSupplier.Location = new Point(151, 155);
+            btnDeleteSupplier.Location = new Point(153, 156);
             btnDeleteSupplier.Name = "btnDeleteSupplier";
             btnDeleteSupplier.Size = new Size(59, 26);
             btnDeleteSupplier.TabIndex = 19;
@@ -476,7 +477,7 @@
             txtSupplierName.Location = new Point(6, 69);
             txtSupplierName.Name = "txtSupplierName";
             txtSupplierName.PlaceholderText = "Supplier Name";
-            txtSupplierName.Size = new Size(204, 22);
+            txtSupplierName.Size = new Size(207, 22);
             txtSupplierName.TabIndex = 13;
             // 
             // txtSupplierAddress
@@ -484,7 +485,7 @@
             txtSupplierAddress.Location = new Point(6, 98);
             txtSupplierAddress.Name = "txtSupplierAddress";
             txtSupplierAddress.PlaceholderText = "Supplier Address";
-            txtSupplierAddress.Size = new Size(204, 22);
+            txtSupplierAddress.Size = new Size(207, 22);
             txtSupplierAddress.TabIndex = 12;
             // 
             // txtSupplierContact
@@ -492,7 +493,7 @@
             txtSupplierContact.Location = new Point(6, 127);
             txtSupplierContact.Name = "txtSupplierContact";
             txtSupplierContact.PlaceholderText = "Supplier Contact Number";
-            txtSupplierContact.Size = new Size(204, 22);
+            txtSupplierContact.Size = new Size(207, 22);
             txtSupplierContact.TabIndex = 11;
             // 
             // btnShowTblSuppliers
@@ -625,6 +626,7 @@
             btnLogout.TabIndex = 18;
             btnLogout.Text = "Logout";
             btnLogout.UseVisualStyleBackColor = true;
+            btnLogout.Click += btnLogout_Click;
             // 
             // btnDbBackup
             // 
@@ -753,12 +755,24 @@
             panel5.Size = new Size(741, 438);
             panel5.TabIndex = 27;
             // 
+            // label7
+            // 
+            label7.AutoSize = true;
+            label7.Font = new Font("Century Gothic", 20.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label7.ForeColor = Color.White;
+            label7.Location = new Point(315, 38);
+            label7.Name = "label7";
+            label7.Size = new Size(187, 32);
+            label7.TabIndex = 29;
+            label7.Text = "Maintenance";
+            // 
             // frmMaintenance
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(66, 66, 66);
             ClientSize = new Size(883, 556);
+            Controls.Add(label7);
             Controls.Add(panel3);
             Controls.Add(panel2);
             Controls.Add(panel1);
@@ -784,6 +798,7 @@
             panel3.PerformLayout();
             panel5.ResumeLayout(false);
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
@@ -842,5 +857,6 @@
         private Label label1;
         private Panel panel4;
         private Panel panel5;
+        private Label label7;
     }
 }

@@ -35,6 +35,7 @@
             panel3 = new Panel();
             label2 = new Label();
             label1 = new Label();
+            label7 = new Label();
             panel3.SuspendLayout();
             SuspendLayout();
             // 
@@ -111,12 +112,24 @@
             label1.TabIndex = 0;
             label1.Text = "GamersUnite";
             // 
+            // label7
+            // 
+            label7.AutoSize = true;
+            label7.Font = new Font("Century Gothic", 20.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label7.ForeColor = Color.White;
+            label7.Location = new Point(185, 46);
+            label7.Name = "label7";
+            label7.Size = new Size(98, 32);
+            label7.TabIndex = 29;
+            label7.Text = "Sign in";
+            // 
             // frmLogin
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(33, 33, 33);
             ClientSize = new Size(447, 258);
+            Controls.Add(label7);
             Controls.Add(panel3);
             Controls.Add(panel1);
             Controls.Add(btnLogin);
@@ -140,5 +153,6 @@
         private Panel panel3;
         private Label label2;
         private Label label1;
+        private Label label7;
     }
 }

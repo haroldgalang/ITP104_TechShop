@@ -63,6 +63,7 @@
             label4 = new Label();
             label9 = new Label();
             panel5 = new Panel();
+            label12 = new Label();
             groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgvCart).BeginInit();
             ((System.ComponentModel.ISupportInitialize)nudQuantity).BeginInit();
@@ -381,6 +382,7 @@
             btnLogout.TabIndex = 18;
             btnLogout.Text = "Logout";
             btnLogout.UseVisualStyleBackColor = true;
+            btnLogout.Click += btnLogout_Click;
             // 
             // btnDbBackup
             // 
@@ -501,12 +503,24 @@
             panel5.Size = new Size(741, 369);
             panel5.TabIndex = 29;
             // 
+            // label12
+            // 
+            label12.AutoSize = true;
+            label12.Font = new Font("Century Gothic", 20.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label12.ForeColor = Color.White;
+            label12.Location = new Point(315, 38);
+            label12.Name = "label12";
+            label12.Size = new Size(184, 32);
+            label12.TabIndex = 30;
+            label12.Text = "Point of Sales";
+            // 
             // frmPointOfSales
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(66, 66, 66);
             ClientSize = new Size(883, 556);
+            Controls.Add(label12);
             Controls.Add(panel3);
             Controls.Add(panel2);
             Controls.Add(panel1);
@@ -524,6 +538,7 @@
             panel3.PerformLayout();
             panel5.ResumeLayout(false);
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
@@ -562,5 +577,6 @@
         private Label label10;
         private Label label11;
         public NumericUpDown nudQuantity;
+        private Label label12;
     }
 }

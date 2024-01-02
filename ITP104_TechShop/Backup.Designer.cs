@@ -45,6 +45,7 @@
             btnPointOfSales = new Button();
             panel2 = new Panel();
             panel5 = new Panel();
+            label3 = new Label();
             panel3.SuspendLayout();
             panel1.SuspendLayout();
             SuspendLayout();
@@ -177,6 +178,7 @@
             btnLogout.TabIndex = 18;
             btnLogout.Text = "Logout";
             btnLogout.UseVisualStyleBackColor = true;
+            btnLogout.Click += btnLogout_Click;
             // 
             // btnDbBackup
             // 
@@ -264,12 +266,24 @@
             panel5.Size = new Size(741, 266);
             panel5.TabIndex = 26;
             // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Font = new Font("Century Gothic", 20.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label3.ForeColor = Color.White;
+            label3.Location = new Point(315, 38);
+            label3.Name = "label3";
+            label3.Size = new Size(417, 32);
+            label3.TabIndex = 27;
+            label3.Text = "Backup And Restore Database";
+            // 
             // frmBackup
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(66, 66, 66);
             ClientSize = new Size(883, 556);
+            Controls.Add(label3);
             Controls.Add(panel3);
             Controls.Add(panel2);
             Controls.Add(panel1);
@@ -283,6 +297,7 @@
             panel3.PerformLayout();
             panel1.ResumeLayout(false);
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
@@ -304,5 +319,6 @@
         private Panel panel2;
         private Panel panel4;
         private Panel panel5;
+        private Label label3;
     }
 }

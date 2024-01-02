@@ -26,6 +26,11 @@ namespace ITP104_TechShop
             MySqlConnection connection = new MySqlConnection(con);
         }
 
+        private void frmPointOfSales_Load(object sender, EventArgs e)
+        {
+            cbCategoryDisplay();
+        }
+
         private void btnBack_Click(object sender, EventArgs e)
         {
             this.Hide();
@@ -54,7 +59,7 @@ namespace ITP104_TechShop
                     MySqlDataReader dr = command.ExecuteReader();
                     while (dr.Read())
                     {
-                        sentInfo = dr["getId"].ToString();
+                        sentInfo = dr["getId"].ToString()!;
                     }
                     dr.Close();
                 }
@@ -98,38 +103,6 @@ namespace ITP104_TechShop
                 }
             }
         }
-
-        private void frmPointOfSales_Load(object sender, EventArgs e)
-        {
-            MySqlConnection connection = new MySqlConnection(con);
-            connection.Open();
-            try
-            {
-                MySqlCommand cmd = connection.CreateCommand();
-                cmd.CommandText = "SELECT * FROM tblItemCategory";
-                MySqlDataAdapter adap = new MySqlDataAdapter(cmd);
-                DataTable table = new DataTable();
-                adap.Fill(table);
-                cbCategoryName.DataSource = new BindingSource(table, null);
-                DataRow dr = table.NewRow();
-                table.Rows.InsertAt(dr, 0);
-                cbCategoryName.DataSource = table;
-                cbCategoryName.DisplayMember = "category_Name";
-                showTblCart();
-            }
-            catch (Exception z)
-            {
-                MessageBox.Show(z.Message);
-            }
-            finally
-            {
-                if (connection.State == ConnectionState.Open)
-                {
-                    connection.Close();
-                }
-            }
-        }
-
         private void cbCategoryName_SelectedIndexChanged(object sender, EventArgs e)
         {
             MySqlConnection connection = new MySqlConnection(con);
@@ -173,9 +146,9 @@ namespace ITP104_TechShop
                 MySqlDataReader dr = cmd.ExecuteReader();
                 while (dr.Read())
                 {
-                    tblItemID = dr["item_ID"].ToString();
-                    tblItemBasePrice = dr["item_BasePrice"].ToString();
-                    tblQuantity = dr["quantity"].ToString();
+                    tblItemID = dr["item_ID"].ToString()!;
+                    tblItemBasePrice = dr["item_BasePrice"].ToString()!;
+                    tblQuantity = dr["quantity"].ToString()!;
                 }
                 dr.Close();
             }
@@ -207,7 +180,7 @@ namespace ITP104_TechShop
 
         private void showTblCart()
         {
-            MySqlConnection connection = null;
+            /*MySqlConnection connection = null!;
             try
             {
                 connection = new MySqlConnection(con);
@@ -229,7 +202,7 @@ namespace ITP104_TechShop
                 {
                     connection.Close();
                 }
-            }
+            }*/
         }
 
         private void nudQuantity_ValueChanged(object sender, EventArgs e)
@@ -440,5 +413,35 @@ namespace ITP104_TechShop
             frm.ShowDialog();
             this.Close();
         }
-    }
+        private void cbCategoryDisplay()
+        {
+            MySqlConnection connection = new MySqlConnection(con);
+            connection.Open();
+            try
+            {
+                MySqlCommand cmd = connection.CreateCommand();
+                cmd.CommandText = "SELECT * FROM tblItemCategory";
+                MySqlDataAdapter adap = new MySqlDataAdapter(cmd);
+                DataTable table = new DataTable();
+                adap.Fill(table);
+                cbCategoryName.DataSource = new BindingSource(table, null);
+                DataRow dr = table.NewRow();
+                table.Rows.InsertAt(dr, 0);
+                cbCategoryName.DataSource = table;
+                cbCategoryName.DisplayMember = "category_Name";
+                // showTblCart();
+            }
+            catch (Exception z)
+            {
+                MessageBox.Show(z.Message);
+            }
+            finally
+            {
+                if (connection.State == ConnectionState.Open)
+                {
+                    connection.Close();
+                }
+            }
+        }
+    } 
 }

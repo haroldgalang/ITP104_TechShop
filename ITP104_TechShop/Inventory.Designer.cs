@@ -44,6 +44,7 @@
             label2 = new Label();
             label1 = new Label();
             panel5 = new Panel();
+            label7 = new Label();
             ((System.ComponentModel.ISupportInitialize)dgvInventory).BeginInit();
             panel1.SuspendLayout();
             panel3.SuspendLayout();
@@ -127,6 +128,7 @@
             btnLogout.TabIndex = 18;
             btnLogout.Text = "Logout";
             btnLogout.UseVisualStyleBackColor = true;
+            btnLogout.Click += btnLogout_Click;
             // 
             // btnDbBackup
             // 
@@ -247,12 +249,24 @@
             panel5.Size = new Size(741, 369);
             panel5.TabIndex = 28;
             // 
+            // label7
+            // 
+            label7.AutoSize = true;
+            label7.Font = new Font("Century Gothic", 20.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label7.ForeColor = Color.White;
+            label7.Location = new Point(315, 38);
+            label7.Name = "label7";
+            label7.Size = new Size(281, 32);
+            label7.TabIndex = 29;
+            label7.Text = "Inventory Monitoring";
+            // 
             // frmInventory
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(66, 66, 66);
             ClientSize = new Size(883, 556);
+            Controls.Add(label7);
             Controls.Add(panel3);
             Controls.Add(panel2);
             Controls.Add(panel1);
@@ -267,6 +281,7 @@
             panel3.PerformLayout();
             panel5.ResumeLayout(false);
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
@@ -287,5 +302,6 @@
         private Label label1;
         private Panel panel4;
         private Panel panel5;
+        private Label label7;
     }
 }

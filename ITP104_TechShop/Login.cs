@@ -29,7 +29,7 @@ namespace ITP104_TechShop
                 MySqlDataReader dr = command.ExecuteReader();
                 while (dr.Read())
                 {
-                    sentInfo = dr["isMatch"].ToString();
+                    sentInfo = dr["isMatch"].ToString()!;
                 }
                 dr.Close();
             }
