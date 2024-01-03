@@ -1,18 +1,6 @@
 ﻿using MySqlConnector;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Diagnostics;
-using System.Drawing;
 using System.Globalization;
-using System.Linq;
-using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using static System.ComponentModel.Design.ObjectSelectorEditor;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace ITP104_TechShop
 {
@@ -51,7 +39,7 @@ namespace ITP104_TechShop
                 String sentInfo = "";
                 MySqlConnection connection = new MySqlConnection(con);
                 MySqlCommand command = connection.CreateCommand();
-                command.Connection = connection;     
+                command.Connection = connection;
                 MySqlCommand cmd = connection.CreateCommand();
                 connection.Open();
                 try
@@ -83,13 +71,17 @@ namespace ITP104_TechShop
                     IdIncrement++;
                     int quantityGetter = int.Parse(nudQuantity.Text);
                     int stocksGetter = int.Parse(lblStocksChecker.Text);
-
                     stocksGetter = stocksGetter - quantityGetter;
 
-                    command.CommandText = "INSERT INTO tblSales VALUES('" + IdIncrement + "',curdate() ,'" + lblItemIdGetter.Text + "', '" + nudQuantity.Text + "', '" + lblTotalPriceGetter.Text + "'); UPDATE tblInventory SET quantity = '" + stocksGetter + "' WHERE item_ID = '" + lblItemIdGetter.Text + "';";
+                    decimal priceDecimal = decimal.Parse(lblItemPriceGetter.Text, CultureInfo.InvariantCulture);
+                    decimal quantityDecimal = decimal.Parse(nudQuantity.Text, CultureInfo.InvariantCulture);
+
+                    decimal TotalPrice = priceDecimal * quantityDecimal;
+
+                    command.CommandText = "INSERT INTO tblSales VALUES('" + IdIncrement + "',curdate() ,'" + lblItemIdGetter.Text + "', '" + nudQuantity.Text + "', '" + TotalPrice + "'); UPDATE tblInventory SET quantity = '" + stocksGetter + "' WHERE item_ID = '" + lblItemIdGetter.Text + "';";
                     command.ExecuteNonQuery();
                     lblStocksChecker.Text = stocksGetter.ToString();
-                    MessageBox.Show("Item added successfully");   
+                    MessageBox.Show("Item added successfully");
                 }
                 catch (Exception z)
                 {
@@ -171,8 +163,8 @@ namespace ITP104_TechShop
             nudQuantity.Minimum = 1;
             try
             {
-                decimal QuantityDecimal = decimal.Parse(tblQuantity, CultureInfo.InvariantCulture);         
-                nudQuantity.Maximum = QuantityDecimal;  
+                decimal QuantityDecimal = decimal.Parse(tblQuantity, CultureInfo.InvariantCulture);
+                nudQuantity.Maximum = QuantityDecimal;
             }
             catch (FormatException)
             {
@@ -444,5 +436,5 @@ namespace ITP104_TechShop
                 }
             }
         }
-    } 
+    }
 }
